@@ -33,68 +33,89 @@
 			<section>
 				<h3>Objectifs du TP</h3>
 				<ul>
-					<li>Découvrir Tableau</li>
-					<li>Comprendre le mapping de données sur des marques graphiques</li>
+					<li>Découvrir <a href="http://www.tableau.com/">Tableau Software</a></li>
+					<li>Comprendre le mapping de données sur des marques graphiques (ligne, carré, ..) et leurs propriétés (taille, couleur, ..)</li>
 					<li>Faire la distinction entre données brutes et abstraites, ainsi qu'entre dimensions et mesures</li>
 					<li>Explorer un espace de conception de visualisation</li>
 				</ul>
 
 				<h3>1. Charger les données dans Tableau</h3>
 				<p>
-					Télécharger le csv suivant: <a href="ElectionsPresidentielleUS_data_clean.csv">ElectionsPresidentielleUS_data_clean.csv</a>. Lancer tableau et sélectionner connexion à un fichier texte, charger le fichier, et basculer sur la 1e Feuille.
+					Télécharger le csv suivant: <a href="ElectionsPresidentielleUS_data_clean.csv">ElectionsPresidentielleUS_data_clean.csv</a>. Lancer Tableau et sélectionner connexion à un fichier texte, charger le fichier, et basculer sur la 1e Feuille (<i>Sheet</i>).
 				</p>
+
+        <p> Questions :</p>
+        <ul>
+          <li>Que signifient les icônes dans l'en-tête des colonnes ?</li>
+          <li>Quelles sont les valeurs possibles ?</li>
+          <li>Est-ce possible de changer ces valeurs et quel est l'effet sur la colonne en cours ?</li>
+        </ul>
 
 				<h3>2. Voir les résultats sous forme de table</h3>
 				<p>
 					Commencer par afficher une table avec les années (<code>Year</code>) en colonne, et les États (<code>States</code>) en ligne.
 				</p>
 				<p>
-					Afficher à l'intérieur de la table le gagnant de l'État en question pour l'année donnée (<code>State Winner</code>). Pour ce faire, associer le <code>State Winner</code> à une marque graphique, ou Repère (Mark). Essayer avec du texte (Label) ou de la couleur. Ajuster le format de la marque graphique (texte, carré, ...) Ajuster au besoin la couleur (via le menu de la légende, à droite) pour que le rouge représente les républicains et le bleu les démocrates.<br/>
+					Afficher à l'intérieur de la table le gagnant de l'État en question pour l'année donnée (<code>State Winner</code>). Pour ce faire, associer le <code>State Winner</code> à une marque graphique, ou repère (<i>Mark</i>). Essayer avec du texte (Label) ou de la couleur. Ajuster le format de la marque graphique (texte, carré, ...) Ajuster au besoin la couleur (via le menu de la légende, à droite) pour que le rouge représente les républicains, le bleu les démocrates et le orange les indépendants.<br/>
 					Un aperçu du résultat :
 				</p>
 				<img src="images/results1.2.png"/>
 
-				<p/>
+
+        <p> Questions :</p>
+        <ul>
+          <li>Quelles sont les données manquantes ?</li>
+          <li><span style="background-color: yellow">TODO</span>: ré-organiser la table pour mettre en avant celles qui manque ?</li>
+        </ul>
+
 
 				<h3>3. Filtrer de manière basique</h3>
 				<p>
-					Pour chercher les États, et les années, ou un indépendant (candidat non Républicain ou Démocrate) est arrivé en tête, rajouter <code>State Winner</code> comme filtre. Faire en sorte que le filtre apparaisse à l'écran, utiliser pour répondre à la question.
+					Pour chercher les États, et les années, ou un indépendant (candidat non Républicain ou Démocrate) est arrivé en tête, il est possible de cliquer sur la légende (qui est interactive). Cependant créez votre propre mécanisme de filtrage, similaire à la légende, en rajoutant <code>State Winner</code> comme filtre. Faire en sorte que le filtre apparaisse à l'écran, utiliser pour répondre à la question.
 				</p>
 				<img src="images/filter1.png"/>
 				<p/>
 
+        <p> Questions :</p>
+        <ul>
+          <li><span style="background-color: yellow">TODO</span>: filtrer par données manquantes ? Quel indicateur utiliser ? (<code>Number of Records</code>)</li>
+        </ul>
 
 				<h3>4. Sauvegarder et partager</h3>
 				<p>
-					Renommer votre feuille de calcul en double cliquant sur le titre de la visualisation. Utiliser le format suivant : Lyon1-m2-2016-nom 1-numéro d'étudiant 1-nom 2-numéro d'étudiant 2.
+					Renommer votre feuille de calcul en double cliquant sur le titre de la visualisation. Utiliser le format suivant : Lyon1-m2-2016-nom 1-numéro d'étudiant 1-nom 2-numéro d'étudiant 2. <span style="background-color: yellow">TODO: EXAMPLE</span>.
 				</p>
 				<p>
-					Sauvegarder, créer un compte Tableau Public au besoin.
+					Sauvegarder, créer un compte <a href="https://public.tableau.com/s/">Tableau Public</a> au besoin.
 				</p>
 
-				<h3>5. Identifier les tendances</h3>
+				<h3>5. Identifier les tendances <span style="background-color: yellow">TODO: il faudrait que les titres soient cohérents : soit une tâche, soit une action Tableau, etc..</span></h3>
 				<p>
 					Créer une nouvelle feuille dans votre classeur. Afficher de nouveau une table avec les années (<code>Year</code>) en colonne, et les États (<code>States</code>) en ligne.
 
 				</p>
 				<p>
-					Regarder dans les données quelle colonne peut donner une indications sur la force de la victoire (en bas à gauche de Tableau cliquer sur <code>Source de données (Data Source)</code>). 
+					Regarder dans les données quelle colonne peut donner une indications sur la force de la victoire (en bas à gauche de Tableau cliquer sur <code>Source de données (Data Source)</code>).
 					<!-- Si la colonne n'est pas au bon format le changer. -->
-					Utiliser une marque textuelle pour indiquer le vainqueur (<code>State Winner</code>), et la couleur pour indiquer l'intensité de la victoire (avec la variable que vous avez identifié dans les données).
-					Ajuster la couleur pour qu'elles représentent les partis (clic droit sur la légende > modifier les couleurs), et utiliser les paramètres avancés pour que l'échelle soit uniforme. Sauvegarder
+					Utiliser une marque textuelle (ou changer celle utilisée par défaut) pour indiquer le vainqueur (<code>State Winner</code>), et la couleur pour indiquer l'intensité de la victoire (avec la variable que vous avez identifié dans les données).
+					Ajuster la couleur pour qu'elles représentent les partis (clic droit sur la légende > modifier les couleurs), et utiliser les paramètres avancés pour que l'échelle soit uniforme. Sauvegarder.
 				</p>
-				<img src="images/colors.png"/>
+				<img src="images/colors.png" style="width: 500px"/>
 
+        <p> Questions :</p>
+        <ul>
+          <li><span style="background-color: yellow">TODO</span>: filtrer par données manquantes ? Quel indicateur utiliser ? (<code>Number of Records</code>)</li>
+        </ul>
 
 				<h3>6. Cartographier</h3>
-				<p>Créer une nouvelle feuille, ajouter Latitude et Longitube en ligne et colonne.</p>
+				<p>Créer une nouvelle feuille, ajouter <code>Latitude</code> et <code>Longitude</code> en ligne et colonne.</p>
 				<p>
-					Via le menu Montre-moi (Show me) en haut à droite, basculer sur une visualisation sous forme de carte. Rajouter la dimension <code>State</code> comme Repère (Mark) détail, et la variable identifiée précédemment toujours en couleur.
-					Via Montre-moi, constater la différence entre Carte de symbole (Symbol Map) et Carte pleine (Filled Maps). Laquelle semble plus appropriée?
+					Via le menu Montre-moi (<i>Show me</i>) en haut à droite, basculer sur une visualisation sous forme de carte. Rajouter la dimension <code>State</code> comme Repère (<i>Mark</i>) détail, et la variable identifiée précédemment toujours en couleur. <span style="background-color: yellow">TODO: il faut donner la variable car pas de description du jeu de donnée. L'exercice peut être que comme c'est une valeur quantitative cette fois identifier les différents mappings.</span>
+					Via Montre-moi, constater la différence entre Carte de symbole (Symbol Map) et Carte pleine (<i>Filled Maps</i>). Laquelle semble plus appropriée?
 				</p>
 				<p>
-					Rajouter les années en ligne (Row).
-					Pour ne plus voir toutes années d'un coup, déblacer le bloc année de Ligne (Row) à Pages. Il est maintenant possible de naviguer entre les années.
+					Rajouter les années en ligne (<i>Row</i>).
+					Pour ne plus voir toutes années d'un coup, déplacer le bloc année de Ligne (<i>Row</i>) à Pages. Il est maintenant possible de naviguer entre les années.
 				</p>
 
 				<p>
@@ -106,7 +127,7 @@
 
 				<h3>7. Explorer les "Swing States"</h3>
 				<p>
-					Aux États Unis, certains états votent toujours pour le candidat d'un parti donné, alors que d'autres sont plus à même de basculer d'un camps vers un autre. Constuire une visualisation qui permette d'identifier les États les plus stables politiquement, et/ou ceux qui changent le plus souvent sur les 30 dernières années. 
+					Aux États Unis, certains états votent toujours pour le candidat d'un parti donné, alors que d'autres sont plus à même de basculer d'un camps vers un autre. Constuire une visualisation qui permette d'identifier les États les plus stables politiquement, et/ou ceux qui changent le plus souvent sur les 30 dernières années.
 				</p>
 				<p>
 					Étendre la visualisation pour explorer le changement des Swing States au cours du temps.
