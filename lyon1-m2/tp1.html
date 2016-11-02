@@ -41,7 +41,7 @@
 
 				<h3>1. Charger les données dans Tableau</h3>
 				<p>
-					Télécharger le csv suivant: <a href="ElectionsPresidentielleUS_data_clean.csv">ElectionsPresidentielleUS_data_clean.csv</a>. Lancer Tableau et sélectionner connexion à un fichier texte, charger le fichier, et basculer sur la 1e Feuille (<i>Sheet</i>).
+					Télécharger le csv suivant: <a href="ElectionsPresidentielleUS_data_clean.csv">ElectionsPresidentielleUS_data_clean.csv</a>. Lancer Tableau et sélectionner connexion à un fichier texte, charger le fichier, et basculer sur la vue des données (en bas à gauche de Tableau cliquer sur <code>Source de données (Data Source)</code>).
 				</p>
 
         <p> Questions :</p>
@@ -53,6 +53,7 @@
 
 				<h3>2. Voir les résultats sous forme de table</h3>
 				<p>
+					Basculer maintenant sur la 1e Feuille (<i>Sheet</i>).
 					Commencer par afficher une table avec les années (<code>Year</code>) en colonne, et les États (<code>States</code>) en ligne.
 				</p>
 				<p>
@@ -61,38 +62,51 @@
 				</p>
 				<img src="images/results1.2.png"/>
 
+				<br/>
+				<p/>
 
         <p> Questions :</p>
         <ul>
-          <li>Quelles sont les données manquantes ?</li>
-          <li><span style="background-color: yellow">TODO</span>: ré-organiser la table pour mettre en avant celles qui manquent ?</li>
+          <li>Quelles sont les données manquantes ?<br/>
+					<li>Quel indicateur utiliser ? </li>
         </ul>
+
+				<p>Ré-organiser la table (trier par ligne selon la mesure auto-générée <code>Nombre d'enregistrement</code>) pour mettre en avant les données qui manquent.</p>
+				<img width="250" src="images/sort.png"/>
+				<br/>
+				<p/>
 
 
 				<h3>3. Filtrer de manière basique</h3>
 				<p>
-					Pour chercher les États, et les années, ou un indépendant (candidat non Républicain ou Démocrate) est arrivé en tête, il est possible de cliquer sur la légende (qui est interactive). Cependant créez votre propre mécanisme de filtrage, similaire à la légende, en rajoutant <code>State Winner</code> comme filtre. Faire en sorte que le filtre apparaisse à l'écran, et l'utiliser pour répondre à la question.
+					Pour chercher où un Indépendant (candidat non Républicain ou Démocrate) est arrivé en tête, il est possible de cliquer sur la légende (qui est interactive). Cependant créez votre propre mécanisme de filtrage, similaire à la légende, en rajoutant <code>State Winner</code> comme filtre. Faire en sorte que le filtre apparaisse à l'écran, et l'utiliser pour répondre à la question suivante.
 				</p>
 				<img src="images/filter1.png"/>
 				<p/>
 
         <p> Questions :</p>
         <ul>
-          <li><span style="background-color: yellow">TODO</span>: filtrer par données manquantes ? Quel indicateur utiliser ? (<code>Number of Records</code>)</li>
+          <li>Dans quel État et en quelle année un indépendant un indépendant est arrivé en tête ? </li>
         </ul>
 
 				<h3>4. Sauvegarder et partager</h3>
 				<p>
-					Renommer votre feuille de calcul en double cliquant sur le titre de la visualisation. Utiliser le format suivant : Lyon1-m2-2016-nom 1-numéro d'étudiant 1-nom 2-numéro d'étudiant 2. <span style="background-color: yellow">TODO: EXAMPLE</span>.
+					Renommer votre feuille de calcul en double cliquant sur le titre de la visualisation, selon le numéro de l'exercice. Par exemple TPDataViz1.3.
 				</p>
 				<p>
 					Sauvegarder, créer un compte <a href="https://public.tableau.com/s/">Tableau Public</a> au besoin.
 				</p>
+				<p>
+					Nommer votre classeur (qui contiendra une feuille par exercice) avec le format suivant :<br/>
+					Lyon1-m2-2016-nom 1-numéro d'étudiant 1-nom 2-numéro d'étudiant 2. <br/>
+					Exemple: Lyon1-m2-2016-tabard-p231123-bonneel-p2315189.
+				</p>
 
-				<h3>5. Identifier les tendances <span style="background-color: yellow">TODO: il faudrait que les titres soient cohérents : soit une tâche, soit une action Tableau, etc..</span></h3>
+
+				<h3>5. Identifier les tendances</h3>
+				<!-- <span style="background-color: yellow">TODO: il faudrait que les titres soient cohérents : soit une tâche, soit une action Tableau, etc..</span> -->
 				<p>
 					Créer une nouvelle feuille dans votre classeur. Afficher de nouveau une table avec les années (<code>Year</code>) en colonne, et les États (<code>States</code>) en ligne.
-
 				</p>
 				<p>
 					Regarder dans les données quelle colonne peut donner une indications sur la force de la victoire (en bas à gauche de Tableau cliquer sur <code>Source de données (Data Source)</code>).
@@ -110,8 +124,8 @@
 				<h3>6. Cartographier</h3>
 				<p>Créer une nouvelle feuille, ajouter <code>Latitude</code> et <code>Longitude</code> en ligne et colonne.</p>
 				<p>
-					Via le menu Montre-moi (<i>Show me</i>) en haut à droite, basculer sur une visualisation sous forme de carte. Rajouter la dimension <code>State</code> comme Repère (<i>Mark</i>) détail, et la variable identifiée précédemment toujours en couleur. <span style="background-color: yellow">TODO: il faut donner la variable car pas de description du jeu de donnée. L'exercice peut être que comme c'est une valeur quantitative cette fois identifier les différents mappings.</span>
-					Via Montre-moi, constater la différence entre Carte de symbole (Symbol Map) et Carte pleine (<i>Filled Maps</i>). Laquelle semble plus appropriée?
+					Via le menu Montre-moi (<i>Show me</i>) en haut à droite, basculer sur une visualisation sous forme de carte. Rajouter la dimension <code>State</code> comme Repère (<i>Mark</i>) détail, et la variable <code>shift (l/r)</code> utilisée précédemment toujours en couleur.
+					Via Montre-moi, constater la différence entre Carte de symbole (<i>Symbol Map</i>) et Carte pleine (<i>Filled Maps</i>). Laquelle semble plus appropriée?
 				</p>
 				<p>
 					Rajouter les années en ligne (<i>Row</i>).
@@ -121,11 +135,26 @@
 				<p>
 					Rajouter des informations par État qui enrichissent la visualisation.
 				</p>
+
+				<p>
+					L'exercice peut être que comme c'est une valeur quantitative cette fois identifier les différents mappings.</span>
+				</p>
+
 				<img src="images/map.png"/>
 				<p/>
 
+				<h3>7. Explorer d'autres représentations</h3>
+				<p>Comme vu en cours, la représenation sous forme de carte ne représente pas forcément fidèlement les données.</p>
 
-				<h3>7. Explorer les "Swing States"</h3>
+
+				<p>Questions:</p>
+				<ul>
+          <li>Quelle représentation alternative pourrait plus refléter de manière plus équilibrée l'impact relatif de chaque état)</li>
+        </ul>
+
+				<p>Piste (parmis d'autres) : il est possible de garder une représentation spatiale tout en cachant la carte via le menu <code>Carte > Carte d'arrière plan > Aucun</code>.</p>
+
+				<h3>8. Explorer les "Swing States"</h3>
 				<p>
 					Aux États Unis, certains états votent toujours pour le candidat d'un parti donné, alors que d'autres sont plus à même de basculer d'un camps vers un autre. Constuire une visualisation qui permette d'identifier les États les plus stables politiquement, et/ou ceux qui changent le plus souvent sur les 30 dernières années.
 				</p>
