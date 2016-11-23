@@ -38,8 +38,27 @@
 					<p>Positioner la carte sur la France, en utilisant : <code>d3.geo.conicConformal.center([2.454071, 46.279229]).scale(3000);</code></p>
 
 				<h4>2. Chargement des données</h4>
-					<p>Charger les <a href="">données</a> de grippe de 2014 </p>
-				</ul>
+					<p>Charger les <a href="data/GrippeFrance2014.csv">données</a> de grippe de 2014. En vous inspirant du code vu en cours.</p>
+
+					<pre><code>
+d3.csv("GrippeFrance2014.csv", function(data) {
+    color.domain([0, 2000]);
+
+    d3.json("regionsFrance.json", function(json) {
+      //On fusionne les donnees avec le GeoJSON
+      for (var i = 0; i < data.length; i++) {
+      ...
+      }
+
+      svg.selectAll("path")
+      ...
+        .style("fill", function(d) {
+              var value = d.properties.value;
+              ...
+      });
+    });
+});
+					</code></pre>
 
 
         <h3>Rendu pour ce TP</h3>
