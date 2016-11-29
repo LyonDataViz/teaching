@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/go.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../stylesheets/styles.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="../stylesheets/github-light.css" media="screen">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+
+    <title>TP5 DataViz Lyon1 M2 2016</title>
+</head>
+
+<body>
+		<!-- for highlight.js -->
+		<script>hljs.initHighlightingOnLoad();</script>
+		<div class="wrapper">
+      <header>
+			<h1>TP5 DataViz: Données spatiales avec D3.js</h1>
+			<p>Université Lyon 1, Master 2, 2016</p>
+
+      </header>
+
+			<section>
+				<h3>Objectif du TP</h3>
+
+				<p>Réaliser une carte interactive de la grippe en France comme celle ci-dessous.</p>
+
+        <img src="images/tp5.gif">
+
+				<p>TP noté, voir les instructions de soumission en bas de page.</p>
+
+				<h4>0. Fork du TP4</h4>
+					<p>Forker votre TP de la semaine dernière (TP4), pour démarrer proprement.</p>
+
+				<h4>1. Ajout d'un slider temporel</h4>
+					<p>Commencer par rajouter un slider qui permettra de naviguer entre les différentes semaines du jeu de données.</p>
+
+					<pre><code>
+&lt;div&gt;
+  &lt;input id="slider" type="range" value="1" min="1" max="100" step="1" /&gt;
+  &lt;span id="week"&gt;week&lt;/span&gt;
+&lt;/div&gt;
+					</code></pre>
+
+					<p>On ajoutera aussi un élement textuel pour s'assurer que les évènements du slider sont bien capturé par le code javascript plus tard.</p>
+
+
+				<h4>2. Amélioration du chargement des données</h4>
+				<p>Utilisation de queue()</p>
+
+				<h4>3. Pré-traitement des données</h4>
+				<p>Calcul du "range" des données, pour ajuster l'échelle de couleur.</p>
+
+				<p>Ajustement de la taille du slider, en fonction du nombre de semaines disponibles dans les données</p>
+
+				<h4>4. Modification des données à afficher</h4>
+				<p>Ajouter un listener sur le slider, qui appelera une fonction update en cas de changement</p>
+
+				<h4>5. Mise à jour de la carte</h4>
+				<p>Distinction entre update et enter</p>
+
+				<h4>6. Chargement du jeu de données complet</h4>
+				<p>Passage des données de 2014 à celle de 2003 - 2015</p>
+
+				<p></p>
+
+        <h3>Rendu pour ce TP</h3>
+
+        <p>
+					Vous pouvez discuter entre vous, mais le travail se fait et se rend individuellement.
+					<b>Soumettre en fin de séance l'URL de votre blockbuilder</b> qui contient le code en utilisant <a href="https://goo.gl/forms/1xTpas62iSDR7NGm1">le formulaire suivant</a>.
+				</p>
+
+
+
+			</section>
+
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+
+</body>
+</html>
