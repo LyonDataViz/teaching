@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="../../stylesheets/styles.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="../../stylesheets/github-light.css" media="screen">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>TP4 DataViz Lyon1 M2 2016</title>
+</head>
+
+<body>
+    <div class="wrapper">
+      <header>
+			<h1>TP4 DataViz: Données spatiales avec D3.js</h1>
+			<p>Université Lyon 1, Master 2, 2016</p>
+
+      </header>
+
+			<section>
+				<h3>Objectif du TP</h3>
+
+				<p>1. Réaliser une carte de la grippe en France en novembre 2014 similaire à celle ci-dessous.</p>
+
+        <!-- <img src="images/tp3.gif"> -->
+
+				<h4>1. Chargement du fond de carte</h4>
+					<p>Charger le <a href="https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/regions.geojson">fond de carte des anciennes régions françaises</a> avec D3.js. Voir <a href="http://blockbuilder.org/aurelient/28e33c4fc0e1944df0ea72fe554b490c">l'exemple vu en cours</a>.</p>
+
+					<p>L'exemple du cours utilise une projection Américaine. Changer sur une projection plus générique comme <code>d3.geo.conicConformal</code>. Nous utilisons la v3 de D3.js <a href="https://github.com/d3/d3-3.x-api-reference/blob/master/Geo-Projections.md">la page de référence sur les projections est ici</a>.</p>
+
+					<p>Positioner la carte sur la France, en utilisant la projection suivante : <code>d3.geo.conicConformal().center([2.454071, 46.279229]).scale(3000);</code></p>
+
+				<h4>2. Chargement des données</h4>
+					<p>Charger les <a href="data/GrippeFrance2014.csv">données</a> de grippe de 2014. En vous inspirant du code vu en cours les afficher sur la carte (voir la structure ci-dessous). Utiliser <code>fill</code> pour colorer chaque région selon l'intensité de la grippe.</p>
+
+					<p>Utiliser la dernière colonne du tableau CSV, <code>somme2014</code>, pour avoir l'intensité totale de la grippe sur 2014.<br/>
+				  	<code>var dataValue = parseFloat(data[i].somme2014);</code>
+					</p>
+
+					<pre><code>
+d3.csv("GrippeFrance2014.csv", function(data) {
+    color.domain([0, 2000]);
+
+    d3.json("regionsFrance.json", function(json) {
+      //On fusionne les donnees avec le GeoJSON
+      for (var i = 0; i < data.length; i++) {
+      ...
+      }
+
+      svg.selectAll("path")
+      ...
+        .style("fill", function(d) {
+              var value = d.properties.value;
+              ...
+      });
+    });
+});
+					</code></pre>
+
+
+
+				<h4>3. Calcul sur les données à afficher</h4>
+				<p><code>data[i]["01/06/14"]</code> permet d'accéder à l'intensité de la grippe pour la région i au 1er juin 2014. Au lieu d'utiliser <code>data[i].somme2014</code>, faites la somme des colonnes de novembre 2014, et afficher cette valeur sur la carte.</p>
+
+				<p>Ajuste les couleurs au besoin.</p>
+
+				<h4>4. Tooltip</h4>
+				<p>En vous inspirant du <a href="http://bl.ocks.org/lhoworko/7753a11efc189a936371">block suivant</a> ajouter un tooltip avec le nom et la valeur de la région.</a></p>
+
+				<h4>À suivre...</h4>
+				<p>La semaine prochaine nous ajouterons un slider nous naviguer entre les différents mois.</p>
+
+        <h3>Rendu pour ce TP</h3>
+
+        <p>
+					Vous pouvez discuter entre vous, mais le travail se fait et se rend individuellement.
+					<b>Soumettre en fin de séance l'URL de votre blockbuilder</b> qui contient le code en utilisant <a href="https://goo.gl/forms/1xTpas62iSDR7NGm1">le formulaire suivant</a>.
+				</p>
+
+
+
+			</section>
+
+    </div>
+    <script src="../javascripts/scale.fix.js"></script>
+
+</body>
+</html>
