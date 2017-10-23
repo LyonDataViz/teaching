@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="../../stylesheets/styles.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="../../stylesheets/github-light.css" media="screen">
+
+  <style>
+  li {
+    margin: 1em 0;
+  }
+  </style>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>DataViz Cours Lyon1 M2 2017-2018</title>
+</head>
+
+<body>
+    <div class="wrapper">
+      <header>
+      <h1>Cours visualisation de données</h1>
+      <p>Université Lyon 1, Master 2, 2017-2018</p>
+
+    <!--<p class="view"><a href="https://github.com/LyonDataViz/teaching">View the Project on GitHub <small>LyonDataViz/teaching</small></a></p>
+
+        <ul>
+          <li><a href="https://github.com/LyonDataViz/teaching/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/LyonDataViz/teaching/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/LyonDataViz/teaching">View On <strong>GitHub</strong></a></li>
+        </ul> -->
+      </header>
+      <section>
+
+<h3>Checklist et étapes obligatoires pour les projets</h3>
+
+<ol>
+
+  <li>Choisir un sujet dans liste ci-dessous</li>
+  <li>Mettre votre choix dans ce <a href="https://docs.google.com/spreadsheets/d/1AP0Mb0m2zGDpbp2TVW5og1yvqIpzPVGbThO8n0WtAzg/edit#gid=0">Google Doc</a></li>
+  <li>24/11 : Itération sur le sujet <a href="https://docs.google.com/document/d/16d-KWMfFWH8U1s3-8BuwYQ94ZzW2JiKDWy2LOe_XWvI/edit">ici</a></li>
+  <li>01/12 : Design sketches avec les <a href="http://fds.design/">Five Design Sketches</a></li>
+  <li>08/12 : Repository github du projet en place</li>
+  <li>15/12 : Retour sur la v0 du projet</li>
+  <li>05/01 : TP de finalisation et derniers retours</li>
+  <li>12/01 : Soutenances et rendu</li>
+
+  <!--
+  <li>Une fois choisi, éditer cette page, mettez vos noms et prénoms, et mettez à jour le GitHub</li>
+  <li>Créez un répertoire avec <code>numerosujet-nom1-nom2</code> et un fichier <code>index.html</code>.
+  <li>Dans la page <code>index.html</code> détaillez le sujet, indiquez les jeux de données que vous souhaitez utiliser, des exemples de visualisations ou d'articles, et enfin un planning approximatif</li>
+  <li>Toutes ces informations doivent être accessible quand on clique sur <a href="https://lyondataviz.github.io/teaching/lyon1-m2/projets.html">ce lien</a>
+-->
+</ol>
+
+<p><span style="color: red; font-weight: 800;">Il est important de maintenir un cahier d'avancement tout au long du projet</b>, qui capture votre avancement</span>, vos premiers essais papier ou avec tableau sous forme de capture d'écran. Il peut être au format que vous voulez, nous conseillons d'utiliser Google Docs pour travailler plus efficacement en binome. Nous vous encourageons à y inclure vos erreurs et les choix que vous n'avez pas suivis.</p>
+
+<p>Il est aussi important d'être présent et de venir chercher des conseils auprès de votre encadrant de projet. Voir les initiales (AT: Aurélien Tabard, RV: Romain Vuillemot, NB: Nicolas Bonneel) à côté du <a href="https://docs.google.com/document/d/16d-KWMfFWH8U1s3-8BuwYQ94ZzW2JiKDWy2LOe_XWvI/edit?usp=sharing">titre de votre projet</a>.</p>
+
+<h2>Rendu</h2>
+
+<p><span style="color: red; font-weight: 800;">Le rendu est composé de 4 parties.</span> Chaque partie doit être stockée dans votre github:</p>
+<ol>
+  <li>le code du projet et une page web fonctionelle;</li>
+  <li>un rapport sous format d'article scientifique expliquant le projet;</li>
+  <li>le cahier d'avancement mentionné plus haut;</li>
+  <li>les transparents de soutenance.</li>
+</ol>
+
+<p>Idéalement, votre projet devra être utilisable sous forme de page web accessible via une URL. Si votre projet demande une installation spécifique (base de données, API, ..) alors bien indiquer les phases d'installation. Mais idéalement vous devriez fournir une version (sous forme d'URL) que vous hébergez vous-même afin de tester sans installation.</p>
+
+<p><span style="color: red; font-weight: 800;">L'article sera rédigé en anglais sur 5 pages (sans compter les références), au format de <a href="http://junctionpublishing.org/vgtc/Tasks/camera.html">TVCG</a></span>. Les articles que vous avez présenté pendant les cours sont des exemples de types d'articles que vous pouvez écrire. Voici les parties typiques d'un article:</p>
+
+<ol>
+  <li>Titre</li>
+  <li>Auteurs</li>
+  <li>Teaser image (optionel)</li>
+  <li>Abstract (~¼p)</li>
+  <li>Introduction (~1p)</li>
+  <li>Related Work (~1p)</li>
+  <li>Project Description (~2p)</li>
+  <li>Evaluation (optionel)</li>
+  <li>Discussion (~½p)</li>
+  <li>Conclusion (~¼p)</li>
+  <li>References (ne comptent pas dans la longueur de l'article)</li>
+</ol>
+
+<p>Nous vous conseillons d'utiliser LaTeX pour écrire l'article. De même, vous pour les références bibliographique utiliser <a href="https://www.zotero.org/">l'outil de gestion Zotero</a> (gratuit).</p>
+
+
+<p>
+  Alternativement à l'article nous laissons la possibilité de faire un rendu sous forme de site Web en français ou en anglais.
+  Le site devra être public et en ligne (par exemple une <a href="https://pages.github.com/">github page</a>). Il ne devra pas seulement contenir la visualisation mais aussi la contextualiser. Autrement dit expliquer les données utilisées, la motivation, et les points importants. Cette contextualisation peut se faire sous une forme narrative si le sujet s'y prête (story-telling), ou scrollable, avec un dévoilement progressif des données.
+</p>
+
+<p>
+  <span style="color: red; font-weight: 800;">La note maximale si vous choisissez cette option sera de 3/4 de la note d'article</span>.
+</p>
+
+<p>
+  Quelques exemples :
+</p>
+<ul>
+  <li><a href="http://mbtaviz.github.io/"></a>http://mbtaviz.github.io/</li>
+  <li><a href="http://teamdatahub.github.io/"></a>http://teamdatahub.github.io/</li>
+  <li><a href="http://itisaasta.com/nycs/"></a>http://itisaasta.com/nycs/</li>
+</ul>
+
+<h3>Présentation</h3>
+<p>
+  La présentation durera 10 minutes <span style="color: red; font-weight: 800;">sans Power Point</span>.
+  Nous vous invitons à présenter les points suivants:
+  <ul>
+    <li>Contexte et motivation</li>
+    <li>Public cible </li>
+    <li>Démonstration,  choix de design et choix techniques </li>
+    <li>Points innovants</li>
+    <li>Limites</li>
+    <li>Questions (laisser 3 minutes)</li>
+  </ul>
+</p>
+
+<h2>Notation du projet</h2>
+
+<p>Le projet constituera 60 % de la note de l'UE, avec la répartition suivante:</p>
+<ul>
+  <li>cahier (malus si pas fait)</li>
+  <li>article (33%) OU site explicatif (25%)</li>
+  <li>réalisation technique (50%)</li>
+  <li>présentation (17%)</li>
+</ul>
+
+<h2>Ordre de passage</h2>
+<ol>
+    <li></li>
+</ol>
