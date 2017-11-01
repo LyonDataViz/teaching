@@ -29,7 +29,7 @@
 
 				<p>
 					Le TP peut se faire en binome.
-					<a href="http://spiralconnect.univ-lyon1.fr/webapp/assessment/assessmentAnswer.html?id=6441210&mode=answer">Répondre au questionnaire Spiral au fur et à mesure du TP.</a>
+					<a href="https://goo.gl/forms/Gmaf3HmvbF7EZweL2">Répondre au questionnaire au fur et à mesure du TP.</a>
 				</p>
 
 				<h3>1. Charger les données dans Tableau</h3>
@@ -39,19 +39,23 @@
 
         <p> Questions :</p>
         <ul>
-          <li>Que signifient les icônes dans l'en-tête des colonnes ?</li>
-          <li>Quelles sont les valeurs possibles ?</li>
-          <li>Est-ce possible de changer ces valeurs et quel est l'effet sur la colonne en cours ?</li>
+          <li>À quoi correspondent les icônes dans l'en-tête des colonnes ?</li>
+          <li>Lister les propriétés possibles</li>
+          <li>Est il possible de changer ces propriétés ? Si oui, quel est l'effet sur la colonne en cours ?</li>
         </ul>
 
 				<h3>2. Voir les résultats sous forme de table</h3>
 				<p>
-					Basculer maintenant sur la 1e Feuille (<i>Sheet</i>).
+					Basculer maintenant sur la 1e Feuille (<i>Sheet 1</i>).
 					Commencer par afficher une table avec les années (<code>Year</code>) en colonne, et les États (<code>States</code>) en ligne.
 				</p>
 				<p>
-					Afficher à l'intérieur de la table le gagnant de l'État en question pour l'année donnée (<code>State Winner</code>). Pour ce faire, associer le <code>State Winner</code> à une marque graphique, ou repère (<i>Mark</i>). Essayer avec du texte (Label) ou de la couleur. Ajuster le format de la marque graphique (texte, carré, ...) Ajuster au besoin la couleur (via le menu de la légende, à droite) pour que le rouge représente les républicains, le bleu les démocrates et le orange les indépendants.<br/>
-					Un aperçu du résultat :
+					Afficher à l'intérieur de la table le gagnant de l'État en question pour l'année donnée (<code>State Winner</code>).
+					Pour ce faire, associer le <code>State Winner</code> à une marque graphique, ou repère (<i>Mark</i>).
+					Essayer avec du texte (Label) ou de la couleur.
+					Ajuster le format de la marque graphique (texte, carré, ...)
+					Ajuster au besoin la couleur (via le menu de la légende, à droite) pour que le rouge représente les républicains, le bleu les démocrates et le orange les indépendants.<br/>
+					Un aperçu du résultat attendu :
 				</p>
 				<img src="images/results1.2.png"/>
 
@@ -60,11 +64,11 @@
 
         <p> Questions :</p>
         <ul>
-          <li>Quelles sont les données manquantes ?<br/>
-					<li>Quel indicateur utiliser ? </li>
+          <li>Quelles sont les données manquantes ?</li>
+					<li>Quel indicateur visuel avez vous utilisé pour identifier cela ? </li>
         </ul>
 
-				<p>Ré-organiser la table (trier par ligne selon la mesure auto-générée <code>Nombre d'enregistrement</code>) pour mettre en avant les données qui manquent.</p>
+				<p>Ré-organiser la table (trier par ligne selon la mesure auto-générée <code>Nombre d'enregistrement</code> / <code>Number of records</code>) pour mettre en avant les données qui manquent.</p>
 				<img width="250" src="images/sort.png"/>
 				<br/>
 				<p/>
@@ -79,7 +83,8 @@
 
         <p> Questions :</p>
         <ul>
-          <li>Dans quel État et en quelle année un indépendant un indépendant est arrivé en tête ? </li>
+          <li>Dans quels États un indépendant est déjà arrivé en tête ? </li>
+					<li>Quelles années un indépendant est arrivé en tête ? </li>
         </ul>
 
 				<h3>4. Sauvegarder et partager</h3>
@@ -87,12 +92,12 @@
 					Renommer votre feuille de calcul en double cliquant sur le titre de la visualisation, selon le numéro de l'exercice. Par exemple TPDataViz1.3.
 				</p>
 				<p>
-					Sauvegarder, créer un compte <a href="https://public.tableau.com/s/">Tableau Public</a> au besoin.
+					Sauvegarder, créer un compte <a href="https://public.tableau.com/s/">Tableau Public</a> si ce n'est déjà fait.
 				</p>
 				<p>
-					Nommer votre classeur (qui contiendra une feuille par exercice) avec le format suivant :<br/>
-					Lyon1-m2-2016-nom 1-numéro d'étudiant 1-nom 2-numéro d'étudiant 2. <br/>
-					Exemple: Lyon1-m2-2016-tabard-p231123-bonneel-p2315189.
+					Nommer votre classeur (Book) (qui contiendra une feuille par exercice) avec le format suivant :<br/>
+					Lyon1-m2-2017-nom 1-numéro d'étudiant 1-nom 2-numéro d'étudiant 2. <br/>
+					Exemple: Lyon1-m2-2017-tabard-p231123-bonneel-p2315189.
 				</p>
 
 
@@ -111,30 +116,32 @@
 
         <p> Questions :</p>
         <ul>
-          <li>Identifier les périodes temporelles (intervalles) plutôt démocrates et plutôt républicains.</li>
+          <li>Grossièrement, quelles sont les périodes temporelles (intervalles) plutôt démocrates et plutôt républicains.</li>
         </ul>
 
 				<h3>6. Cartographier</h3>
 				<p>Créer une nouvelle feuille, ajouter <code>Latitude</code> et <code>Longitude</code> en ligne et colonne.</p>
 				<p>
 					Via le menu Montre-moi (<i>Show me</i>) en haut à droite, basculer sur une visualisation sous forme de carte. Rajouter la dimension <code>State</code> comme Repère (<i>Mark</i>) détail, et la variable <code>RD Difference (bin)</code> utilisée précédemment toujours en couleur.
-					Via Montre-moi, constater la différence entre Carte de symbole (<i>Symbol Map</i>) et Carte pleine (<i>Filled Maps</i>). Laquelle semble plus appropriée?
+					Via Montre-moi, constater la différence entre Carte de symbole (<i>Symbol Map</i>) et Carte pleine (<i>Filled Maps</i>).
 				</p>
 				<p>
-					Rajouter les années en ligne (<i>Row</i>).
+					Rajouter les années en ligne (<i>Row</i>) pour avoir une carte par année.
+				</p>
+				<p>
 					Pour ne plus voir toutes années d'un coup, déplacer le bloc année de Ligne (<i>Row</i>) à Pages. Il est maintenant possible de naviguer entre les années.
 				</p>
 
-				<p>
-					Rajouter des informations par État qui enrichissent la visualisation.
-				</p>
-
-				<p>
-					L'exercice peut être que comme c'est une valeur quantitative cette fois identifier les différents mappings.</span>
-				</p>
 
 				<img src="images/map.png"/>
-				<p/>
+
+				<p> Questions :</p>
+        <ul>
+          <li>Entre la Carte de symbole et la Carte pleine laquelle vous semble plus appropriée ?</li>
+					<li>Avant de séparer les cartes par années, comment Tableau a t'il aggrégé les années ?</li>
+        </ul>
+
+
 
 				<h3>7. Explorer d'autres représentations</h3>
 				<p>Comme vu en cours, la représenation sous forme de carte ne représente pas forcément fidèlement les données.</p>
@@ -142,7 +149,7 @@
 
 				<p>Questions:</p>
 				<ul>
-          <li>Quelle représentation alternative pourrait plus refléter de manière plus équilibrée l'impact relatif de chaque état)</li>
+          <li>Quelle représentation alternative pourrait refléter de manière plus juste l'impact relatif de chaque état ?</li>
         </ul>
 
 				<p>Piste (parmis d'autres) : il est possible de garder une représentation spatiale tout en cachant la carte via le menu <code>Carte > Carte d'arrière plan > Aucun</code>.</p>
@@ -158,7 +165,7 @@
 
 				<h3>Rendu</h3>
 				<p>
-					<a href="http://spiralconnect.univ-lyon1.fr/webapp/assessment/assessmentAnswer.html?id=6441210&mode=answer">Répondre au questionnaire Spiral</a>
+					<a href="https://goo.gl/forms/Gmaf3HmvbF7EZweL2">Répondre au questionnaire ici.</a>
 				</p>
 
 			</section>
