@@ -3,45 +3,72 @@
 <head>
 	<meta charset='utf-8'>
 	<meta http-equiv="X-UA-Compatible" content="chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="../../stylesheets/styles.css" media="screen">
-	<link rel="stylesheet" type="text/css" href="../../stylesheets/github-light.css" media="screen">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#157878">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="/teaching/assets/css/style.css?v=7711d6911e9680d4af53ac0eaf8745f6cb14632c">
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <title>TP1 DataViz Lyon1 M2 2017-2018</title>
+	<title>DataViz Cours Lyon1 M2 2017-2018</title>
 </head>
 
 <body>
-    <div class="wrapper">
-      <header>
-			<h1>TP3 DataViz: Données, interaction et transition avec D3.js</h1>
-			<p>Université Lyon 1, Master 2, 2017-2018</p>
+	<section class="page-header">
+		<h1 class="project-name">Cours visualisation interactive de données</h1>
+		<h2 class="project-tagline">Université Lyon 1, Master 2, 2017-2018</h2>
+	</section>
 
-      </header>
-
-			<section>
-				<h3>Objectifs du TP</h3>
+		<section class="main-content">
+				<h3>Objectifs du TP # 2</h3>
 				<ul>
-					<li>Charger des données avec D3.js dans un <a href="http://blockbuilder.org/romsson/8fd6bffd4aca9e8f2181ba331070f60b">bar chart</a></li>
-          <li>Charger des données avec D3.js dans un <a href="http://blockbuilder.org/romsson/855207ac5fb5c170de59b9c69ea56012">line chart</a></li>
-          <li>Interaction avec un <a href="http://blockbuilder.org/romsson/c607174fc6fd5c7bfaa804d46ca70eab">bar chart et changement couleur</a></li>
-          <li>Mise à jour d'un <a href="http://blockbuilder.org/romsson/98c007fd3367cd0665ebd15299c3bfdc">bar chart et transition</a></li>
+					<li>Approfondir vos connaissances en <a href="https://public.tableau.com/fr-fr/s/">D3.js</a></li>
+          <li>Faire un premier line chart avec données de stock market</li>
 				</ul>
 
-        <h3>Rendu pour ce TP</h3>
+        <h3>0. Block builder</h3>
 
-        Une visualisation D3.js qui reproduit similaire à celle ci-dessous. Important : Soumettre en fin de séance l'URL de votre blockbuilder qui contient le code en utilisant <a href="https://docs.google.com/forms/d/e/1FAIpQLSenXaSET35_p5Ap3fd5ifT9Uev6BEy69rW8t-CRmX4yAWBj8A/viewform">le formulaire suivant</a>.
+        <p>
+          <ul>
+            <li>#0: <a href="http://blockbuilder.org/romsson/f205420d21ced66810058d4cdf25c6dd">voici la solution du tp2</a></li>
+          </ul>
+        </p>
 
-        <img src="images/tp3.gif">
+        <p><img src="images/tp3-multiple-linechart.png"></p>
 
+				<h3>1. Multiple line chart</h3>
+				<p>
+					<ul>
+            <li>#1: commencer avec un <a href="http://blockbuilder.org/romsson/524b94d8f4c5ab45fb5ae5e183bf97bc">line chart simple</a></li>
+            <li>#2: utiliser les données de <a href="https://gist.githubusercontent.com/mbostock/1256572/raw/44c086a6019de56dce35a47197a19468b3e4ad57/stocks.csv">stock market</a>
+            <li>#3 : example de <a href="http://blockbuilder.org/romsson/57eb273e01761b829aaa95b28c8193c1">chargement d'un jeu de données</li>
+            <li>#4 : affichage des axes, couleurs et légendes (vous cours)
+          </ul>
+        </p>
+
+        Ressources utiles:
+
+* [d3-dsv](https://github.com/d3/d3-dsv) - parse tab-separated values
+* [d3-time-format](https://github.com/d3/d3-time-format) - date parsing and formatting
+* [d3-scale](https://github.com/d3/d3-scale) - position encodings
+* [d3-array](https://github.com/d3/d3-array) - data processing
+* [d3-axis](https://github.com/d3/d3-axis) - axes
+
+      	<h3>3. Rendu</h3>
+      	<p>
+          <ul>
+            <li>Reproduire le graphique ci-dessous à partir du code vu précedemment</li>
+            <li>Première étape: créer un <a href="https://bl.ocks.org/mbostock/3883195">area chart</a>
+            <li>Deuxième étape: créer des <a href="https://bl.ocks.org/mbostock/1157787">small multiples</a>
+            <li>Troisième étape: créer un <a href="https://bl.ocks.org/mbostock/3885211">stacked chart</a>
+            <li>Quatrième étape : transition animée entre les trois graphiques à la <a href="https://bl.ocks.org/mbostock/1256572">D3 show reel</a>
+            <li>Bonus: reproduire la show reel complete !</li>
+            <li><a href="https://goo.gl/forms/Sb0bi9bxVpPEl1hE2">Envoyez le lien vers votre block et votre solution ici.</li>
+          </ul>
+        </p>
+        <p><img src="images/tp3.gif"></p>
 
 			</section>
 
-    </div>
     <script src="../javascripts/scale.fix.js"></script>
 
 </body>
