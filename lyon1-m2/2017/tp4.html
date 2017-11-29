@@ -32,11 +32,11 @@
         <!-- <img src="images/tp3.gif"> -->
 
 				<h4>1. Chargement du fond de carte</h4>
-					<p>Charger le <a href="https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/regions.geojson">fond de carte des anciennes régions françaises</a> avec D3.js. Voir <a href="http://blockbuilder.org/aurelient/5bb9210591eb86882612a2002faab698">l'exemple vu en cours</a>.</p>
+					<p>Charger le <a href="data/regions.geojson">fond de carte des anciennes régions françaises</a> avec D3.js. Voir <a href="http://blockbuilder.org/aurelient/5bb9210591eb86882612a2002faab698">l'exemple vu en cours</a>.</p>
 
 					<p>L'exemple du cours utilise une projection Américaine. Changer sur une projection plus générique comme <code>d3.geoConicConformal</code>. Nous utilisons la v4 de D3.js <a href="https://github.com/d3/d3/blob/master/API.md#projections">la page de référence sur les projections est ici</a>.</p>
 
-					<p>Positioner la carte sur la France, en utilisant la projection suivante : <code>d3.geoCnicConformal().center([2.454071, 46.279229]).scale(2800);</code></p>
+					<p>Positioner la carte sur la France, en utilisant la projection suivante : <code>d3.geoConicConformal().center([2.454071, 46.279229]).scale(2800);</code></p>
 
 				<h4>2. Chargement des données</h4>
 					<p>Charger les <a href="data/GrippeFrance2014.csv">données</a> de grippe de 2014. En vous inspirant du code vu en cours les afficher sur la carte (voir la structure ci-dessous). Utiliser <code>fill</code> pour colorer chaque région selon l'intensité de la grippe.</p>
@@ -49,8 +49,8 @@
 d3.csv("GrippeFrance2014.csv", function(data) {
     color.domain([0, 2000]);
 
-    d3.json("regionsFrance.json", function(json) {
-      //On fusionne les donnees avec le GeoJSON
+    d3.json("regions.json", function(json) {
+      //On fusionne les donnees avec le GeoJSON des regions
       for (var i = 0; i < data.length; i++) {
       ...
       }
@@ -74,6 +74,23 @@ d3.csv("GrippeFrance2014.csv", function(data) {
 
 				<h4>4. Tooltip</h4>
 				<p>En vous inspirant du <a href="https://bl.ocks.org/aurelient/ff7a5ef080ff1a837046f12aa2de9273/d5ff8b820e2aa770f46a56b30e12fc9fe67d8833">block suivant</a> ajouter un tooltip avec le nom et la valeur de la région.</a></p>
+
+
+
+
+		        <h3>Rendu pour ce TP</h3>
+
+		        <p>
+							Vous pouvez discuter entre vous, mais le travail se fait et se rend individuellement.
+							<b>Soumettre en fin de séance l'URL de votre blockbuilder</b> qui contient le code en utilisant <a href="https://goo.gl/forms/QwiApxMjZ73rJfrq2">le formulaire suivant</a>. Le rendu final est pour le 10 décembre.
+				</p>
+
+
+
+
+
+        		<h2>Bonus</h2>
+
 
 
 				<h4>5. Ajout d'un slider temporel</h4>
@@ -155,14 +172,6 @@ function drawMap(currentWeek) {
 }
 </code></pre>
 
-
-
-        <h3>Rendu pour ce TP</h3>
-
-        <p>
-					Vous pouvez discuter entre vous, mais le travail se fait et se rend individuellement.
-					<b>Soumettre en fin de séance l'URL de votre blockbuilder</b> qui contient le code en utilisant <a href="https://goo.gl/forms/QwiApxMjZ73rJfrq2">le formulaire suivant</a>. Le rendu final est pour le 10 décembre.
-		</p>
 
 
 
