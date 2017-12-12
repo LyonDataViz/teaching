@@ -3,31 +3,28 @@
 <head>
 	<meta charset='utf-8'>
 	<meta http-equiv="X-UA-Compatible" content="chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#157878">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
 	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/go.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="../../stylesheets/styles.css" media="screen">
-	<link rel="stylesheet" type="text/css" href="../..stylesheets/github-light.css" media="screen">
+	<link rel="stylesheet" href="/teaching/assets/css/style.css?v=7711d6911e9680d4af53ac0eaf8745f6cb14632c">
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-
-    <title>TP6 DataViz Lyon1 M2 2017</title>
+	<title>DataViz Cours Lyon1 M2 2017-2018</title>
 </head>
 
 <body>
-		<!-- for highlight.js -->
-		<script>hljs.initHighlightingOnLoad();</script>
-		<div class="wrapper">
-      <header>
-			<h1>TP6 DataViz: Force-directed graphs avec D3.js</h1>
-			<p>Université Lyon 1, Master 2, 2017</p>
+	<!-- for highlight.js -->
+	<script>hljs.initHighlightingOnLoad();</script>
 
-      </header>
+	<section class="page-header">
+		<h1 class="project-name">TP6 DataViz: Force-directed graphs avec D3.js</h1>
+		<h2 class="project-tagline">Université Lyon 1, Master 2, 2017-2018</h2>
+	</section>
 
-			<section>
+	<body>
+
+		<section class="main-content">
 				<h3>Objectif du TP</h3>
 
 				<p>Nous nous inspirerons de la visualisation du bipartisme du Sénat américain</p>
@@ -49,7 +46,7 @@
 					Les données qui nous interesseront dans scrutins.json incluent les champs <code>scrutins/scrutin/{#ID_scrutin}/ventilationVotes/organe/groupes/groupe/{#ID_groupe}/vote/decompteNominatif/{pours|contres}/votant/{#ID_votant}/acteurRef</code> où #ID_scrutin represente le scrutin qui a recu les votes, ID_groupe identifie un parti politique et ID_votant identifie un membre de l'assemblée nationale ; <code>scrutins/scrutin/{#ID_scrutin}/dateScrutin</code> pour connaitre la date du scrutin ; <code>scrutins/scrutin/{#ID_scrutin}/ventilationVotes/organe/groupes/groupe/{#ID_groupe}/organeRef</code> qui indique le code du parti. La date du premier scrutin s'obtient en accedant à <code>graph.scrutins.scrutin["0"].dateScrutin</code>.<br />
 					Les données qui nous interesseront dans acteurs_simple2.json incluent les champs <code>export/acteurs/acteur/{#ID_acteur}/uid/#text</code> qui fournit l'identifiant de chaque membre de l'assemblée nationale et correspond au #ID_votant/acteurRef de scrutins.json ; <code>export/acteurs/acteur/{#ID_acteur}/etatCivil/ident/{prenom|nom}</code> qui donne l'état civil du votant ; <code>export/organes/organe/{#ID_organe}/uid</code> qui fournit l'identifiant des partis politiques et correspond au #ID_groupe/organeRef de scrutins.json ; export/organes/organe/libelle qui donne le nom du parti politique en question.
 					</p>
-					
+
 				<h4>2. Adaptez la fonction de création de graphe</h4>
 					<p> Nous ne nous interesserons qu'aux scrutins de 2015. Itérez sur tous les scrutins, et testez leur date pour ne conserver que ceux de 2015. Nous pourrons utiliser la fonction <a href="https://docs.microsoft.com/fr-fr/scripting/javascript/reference/getfullyear-method-date-javascript">getFullYear() de Date</a>. Pour chacun de ces scrutins, itérez sur les groupes. Stockez dans un tableau temporaire les pours et contres de chaque scrutin (et non de chaque groupe!), afin de pouvoir corréler les votes entre les acteurs de partis différents, ainsi que le nom de tous les acteurs en jeu. Vous pourrez utiliser la fonction <a href="https://www.w3schools.com/jsref/jsref_concat_array.asp">concat()</a> afin de concatener les tableaux de pours et contres.
 					Aidez-vous d'un dictionnaire pour compter les votes pour et contre de chaque paire d'acteurs, en iterant sur ce tableau temporaire (en itérant deux fois sur les pours, puis en iterant deux fois sur les contres). On pourra utiliser une fonction de hashage arbitraire qui combine les deux acteurs de la paire -- par exemple en concatenant leurs identifiants. Pour incrémenter une valeur possiblement inexistante dans le dictionnaire, on pourra utiliser <code>monDictionnaire[clef] = ++monDictionnaire[clef]||0;</code> Ainsi, une valeur "undefined" aura une valeur par défaut de 0. A noter que si un acteur A a voté la même chose que l'acteur B, alors B a voté pareil que A... il n'est donc pas nécéssaire de compter ces deux cas differemment.
