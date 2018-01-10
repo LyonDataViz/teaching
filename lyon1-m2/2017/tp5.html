@@ -3,138 +3,104 @@
 <head>
 	<meta charset='utf-8'>
 	<meta http-equiv="X-UA-Compatible" content="chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#157878">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
 	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/go.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="../../stylesheets/styles.css" media="screen">
-	<link rel="stylesheet" type="text/css" href="../../stylesheets/github-light.css" media="screen">
+	<link rel="stylesheet" href="/teaching/assets/css/style.css?v=7711d6911e9680d4af53ac0eaf8745f6cb14632c">
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-
-    <title>TP5 DataViz Lyon1 M2 2017-2018</title>
+	<title>DataViz Cours Lyon1 M2 2017-2018</title>
 </head>
 
 <body>
-		<!-- for highlight.js -->
-		<script>hljs.initHighlightingOnLoad();</script>
-		<div class="wrapper">
-      <header>
-			<h1>TP5 DataViz: Données spatiales avec D3.js</h1>
-			<p>Université Lyon 1, Master 2, 2017-2018</p>
+	<!-- for highlight.js -->
+	<script>hljs.initHighlightingOnLoad();</script>
 
-      </header>
+	<section class="page-header">
+		<h1 class="project-name">TP6 DataViz: Force-directed graphs avec D3.js</h1>
+		<h2 class="project-tagline">Université Lyon 1, Master 2, 2017-2018</h2>
+	</section>
 
-			<section>
+	<body>
+
+		<section class="main-content">
 				<h3>Objectif du TP</h3>
 
-				<p>Réaliser une carte interactive de la grippe en France comme celle ci-dessous.</p>
+				<p>Nous nous inspirerons de la visualisation du bipartisme du Sénat américain</p>
 
-        <img src="images/tp5.gif">
+        <img src="http://b-i.forbesimg.com/ericaswallow/files/2013/11/4kDokyz.jpg" width="300px">
 
-				<p>TP noté, voir les instructions de soumission en bas de page.</p>
+				<p>pour visualiser le bipartisme de l'assemblée nationale française en 2015. Chaque noeud représente un homme politique. La force entre les liens correspond au nombre de fois où ils ont été d'accord sur un vote (soit tous les deux pour, soit tous les deux contres).</p>
 
-				<h4>0. Fork du TP4</h4>
-					<p>Forker votre TP de la semaine dernière (TP4), pour démarrer proprement.</p>
-
-				<h4>1. Ajout d'un slider temporel</h4>
-					<p>Commencer par rajouter un slider qui permettra de naviguer entre les différentes semaines du jeu de données.</p>
-
-					<pre><code>
-&lt;div&gt;
-  &lt;input id="slider" type="range" value="1" min="1" max="100" step="1" /&gt;
-  &lt;span id="week"&gt;week&lt;/span&gt;
-&lt;/div&gt;
-					</code></pre>
-
-					<p>On ajoutera aussi un élement textuel pour s'assurer que les évènements du slider sont bien capturé par le code javascript plus tard.</p>
+				<img src="images/solutiontp6.png" width="600px">
 
 
-				<h4>2. Amélioration du chargement des données</h4>
-				<p>Utiliser de queue() pour charger les fichiers de données de manière asynchrone.</p>
-				<pre><code>
-queue()   // permet de charger les fichiers de manière asynchrone
-  .defer(d3.json, "regionsFrance.json")
-  .defer(d3.csv, "grippefrance.csv")
-  .await(processData);  // une fois les fichiers chargé, la fonction processData
-                        // est appelée avec les fichiers en arguments
-			  </code></pre>
+				<h4>0. Fork de l'exemple des Miserables</h4>
+					<p>Forkez <a href="http://blockbuilder.org/nbonneel/91f6d433810029851e170ba668436340">l'exemple de visualisation D3</a> des relations entre les personnages des Misérables. Cet exemple inclut 2 fichiers supplémentaires: scrutins.json et acteurs_simple2.json. </p>
 
-				<pre><code>function processData(error,francejson,grippedata) {}</code></pre>
+					<p>Le premier fichier contient tous les votes de l'assemblée depuis 2012. Cela inclut pour chaque vote et pour chaque parti, l'ensemble des personnes ayant voté pour, ou ayant voté contre (ou s'étant éventuellement abstenus -- nous les ignorerons ici). L'ensemble des acteurs politiques et le nom de leur parti est codé par une référence. </p>
 
+					<p>Le second fichier contient ainsi l'ensemble des références concernant les acteurs politiques (donnant ainsi leur nom, prénom, et autres données personnelles), ainsi que les partis politiques. Le second fichier ne sera utile que pour la partie optionnelle du TP.</p>
 
-				<h4>3. Traitement des données</h4>
+				<h4> 1. Explorez les fichiers JSON</h4>
+					<p> Utilisez un viewer de fichiers JSON (e.g., l'interface web <a href="http://jsonviewer.stack.hu/">JSON Viewer</a>) pour explorer rapidement les deux fichiers JSON.
+					Les données qui nous interesseront dans scrutins.json incluent les champs <code>scrutins/scrutin/{#ID_scrutin}/ventilationVotes/organe/groupes/groupe/{#ID_groupe}/vote/decompteNominatif/{pours|contres}/votant/{#ID_votant}/acteurRef</code> où #ID_scrutin represente le scrutin qui a recu les votes, ID_groupe identifie un parti politique et ID_votant identifie un membre de l'assemblée nationale ; <code>scrutins/scrutin/{#ID_scrutin}/dateScrutin</code> pour connaitre la date du scrutin ; <code>scrutins/scrutin/{#ID_scrutin}/ventilationVotes/organe/groupes/groupe/{#ID_groupe}/organeRef</code> qui indique le code du parti. La date du premier scrutin s'obtient en accedant à <code>graph.scrutins.scrutin["0"].dateScrutin</code>.</p>
 
-				<p>Dans <code>processData</code>:</p>
+					<p>Les données qui nous interesseront dans acteurs_simple2.json incluent les champs <code>export/acteurs/acteur/{#ID_acteur}/uid/#text</code> qui fournit l'identifiant de chaque membre de l'assemblée nationale et correspond au #ID_votant/acteurRef de scrutins.json ; <code>export/acteurs/acteur/{#ID_acteur}/etatCivil/ident/{prenom|nom}</code> qui donne l'état civil du votant ; <code>export/organes/organe/{#ID_organe}/uid</code> qui fournit l'identifiant des partis politiques et correspond au #ID_groupe/organeRef de scrutins.json ; export/organes/organe/libelle qui donne le nom du parti politique en question.
+					</p>
 
-				<p>Parcourir les données pour identifier le min et le max des valeurs de grippe, et ajuster l'échelle de couleur.</p>
+				<h4>2. Adaptez la fonction de création de graphe</h4>
+					<p> Nous ne nous interesserons qu'aux scrutins de 2015.</p>
 
-				<p>Ajuster la taille du slider en fonction du nombre de semaines disponibles dans les données (calculer la valeur de numberofweeks):</p>
-				<pre><code>d3.select('#slider').attr("max", numberofweeks)</code></pre>
+					<ol>
+					<li>Itérez sur tous les scrutins, et testez leur date pour ne conserver que ceux de 2015. Nous pourrons utiliser la fonction <a href="https://docs.microsoft.com/fr-fr/scripting/javascript/reference/getfullyear-method-date-javascript">getFullYear() de Date</a>.
+					<li>Pour chacun de ces scrutins, itérez sur les groupes. Stockez dans un tableau temporaire les pours et contres de chaque scrutin (et non de chaque groupe!), afin de pouvoir corréler les votes entre les acteurs de partis différents, ainsi que le nom de tous les acteurs en jeu. Vous pourrez utiliser la fonction <a href="https://www.w3schools.com/jsref/jsref_concat_array.asp">concat()</a> afin de concatener les tableaux de pours et contres.
+					<li>Aidez-vous d'un dictionnaire pour compter les votes pour et contre de chaque paire d'acteurs, en iterant sur ce tableau temporaire (en itérant deux fois sur les pours, puis en iterant deux fois sur les contres). On pourra utiliser une fonction de hashage arbitraire qui combine les deux acteurs de la paire -- par exemple en concatenant leurs identifiants. Pour incrémenter une valeur possiblement inexistante dans le dictionnaire, on pourra utiliser <code>monDictionnaire[clef] = ++monDictionnaire[clef]||0;</code> Ainsi, une valeur "undefined" aura une valeur par défaut de 0. A noter que si un acteur A a voté la même chose que l'acteur B, alors B a voté pareil que A... il n'est donc pas nécéssaire de compter ces deux cas differemment.
+					Pour l'instant, nous considererons uniquement les identifiants des acteurs et des partis, pas leurs noms.
 
-				<p>Injecter les données du fichier csv, dans le fichier json, comme dans le TP4. Mais cette fois ci, à la place d'injecter une valeur données, injecter un tableau de toutes les valeurs. Le code ci-dessous, récupère les valeurs d'une région données sous forme de tableau qu'il suffira d'insérer dans le json.</p>
-				<pre><code>Object.values(data[i]);</code></pre>
+					<li>Créez enfin le graphe qui sera affiché avec D3, en remplissant des champs "source", "target" et "value" de chaque lien, et "id" et "group" de chaque noeud.
+					
+					<li> Ajustez les attributs "opacity" et "stroke-width" des liens, ainsi que le paramètres <a href="https://github.com/d3/d3-force">strength</a> de la force "forceLink" de la simulation afin d'améliorer la visualisation.
+					</p>
 
-				<h4>4. Modification des données à afficher</h4>
-				<p>Ajouter un listener sur le slider, qui appellera une fonction <code>updateViz</code> en cas de changement, pour mettre à jour la visualisation:</p>
+					</ol>
 
-				<pre><code>
-d3.select("#slider").on("input", function() {
-	updateViz(+this.value);
-});
-				</code></pre>
+					<p>Attention: le graphe obtenu aura un nombre trop élevé de arcs (j'en compte 337377), et votre machine ne tiendra probablement pas la route. Décimez alors votre graphe en ne considérant que les arcs correspondants à plus de N votes conjoints (la visualisation ci-dessus a été obtenue avec N=10, mais il faut attendre près de 2 minutes pour l'obtenir! débugguez avec N=20 au moins, ce qui laisse déjà près de 8000 liens). Aussi, mettez le block en pause lorsque vous codez afin de ne pas ralentir inutilement le navigateur.
 
-				<p>Faire en sorte qu'en cas de changement du slider, le texte affiche la semaine sélectionnée.</p>
+					<p>Si vous avez des problèmes avec block builder, vous pouvez : </p>
+					<ol>
+						<li>Appuyer sur le bouton pause pour que la page ne se rafraichisse pas à chaque changement.</li>
+						<li>Lancer un serveur local en lancant la commande "python -m SimpleHTTPServer 8080" depuis le repertoire de votre fichier html, et en vous connectant ensuite à http://localhost:8080 </li>
+					</ol>
 
-				<pre><code>d3.select('#week').html( valeur de la semaine selectionnée );</code></pre>
-
-				<p>Il est possible de récupérer la liste des semaines sous forme de tableau JavaScript, avec la méthode suivante:</p>
-				<pre><code>var weeksArray = Object.keys(data[0]);</code></pre>
-
-				<p>Améliorer / reformater l'affichage de la semaine pour qu'il soit plus lisible.</p>
-
-				<p>Appeler la fonction de dessin de la carte <code>drawMap()</code> (voir l'étape suivante).</p>
-
-				<h4>5. Dessiner et mettre à jour la carte</h4>
-
-				<p>Revoir les principes de update et enter en D3 vu dans le 1e TP.</p>
-
-				<p>Dessiner la carte comme dans le TP4, avec <code>carte.enter()</code>.</p>
-				<p>Gérer la mise à jour de la carte, en partant du code ci-dessous. <b>NB: la mise à jour ne demande pas de tout redessiner.</b></p>
+				<h4>3. (Optionnel) Affichage du nom des acteurs et partis</h4>
+				<p>Changez la fonction "title" pour afficher le nom et le parti des acteurs lorsque la souris survole un noeud. Pour cela, utilisez le deuxième fichier pour retrouver les infos correspondant aux identifiants. </p>
+				<p> Le nom du parti <code> json2.export.organes.organe[i].uid</code> se trouve dans:
+				<code>
+                   json2.export.organes.organe[i].libelle
+			     </code>
+				</p>
+				<p> Similairement, le nom de l'acteur <code>json2.export.acteurs.acteur[i].uid["#text"]</code> se trouve à <code>json2.export.acteurs.acteur[i].etatCivil.ident.prenom</code>.
 
 
-				<pre><code>
-function drawMap(json, currentWeek) {
-  carte = svg.selectAll("path")
-    .data(json.features);
 
-  // code en cas de mise a jour de la carte / de changement de semaine
-  carte
-    .attr("class", "update")
-    ...
-
-  // code pour la creation de la carte quand les donnees sont chargees la 1e fois.
-  carte.enter()
-    .append("path")
-    .attr("class", "enter")
-    ...
-}
-				</code></pre>
-
-				<h4>6. Chargement du jeu de données complet</h4>
-				<p>Passer des données de 2014 à <a href="data/GrippeFrance2003-15.csv">celles de 2003 - 2005</a>.</p>
-
-
-				<h4>7. Pour les courageux (facultatif)</h4>
-				<p>Rajouter une légende, en vous inspirant par exemple <a href="http://bl.ocks.org/weiglemc/6185069"> de ce block</a></p>
 
         <h3>Rendu pour ce TP</h3>
 
         <p>
-					Vous pouvez discuter entre vous, mais le travail se fait et se rend individuellement.
-					<b>Soumettre au plus tard mercredi 7/12 à 23h59</b> le block du via <a href="https://goo.gl/forms/karQU29cs6KX9V3i2">le formulaire suivant</a>.
+					Vous pouvez discuter entre vous, mais le travail se fait et se rend individuellement. Ce TP est noté.
+					<b>Soumettre au plus tard mercredi 20/12 à 23h59</b> le <a href="https://goo.gl/forms/M5zbOXS3Gn6AVO822">formulaire de réponse</a>. Il vous sera demandé:
+					<ol>
+					<li>Prénom, Nom
+					<li>URL du block
+					<li>URL Screenshot (https://imgur.com/upload)
+					<li>Quel champ de quel fichier JSON permet d'obtenir le libellé de la profession de chaque votant ? Donnez le chemin complet permettant d'accéder à ce champ.
+					<li>Quelle est la valeur  de scrutins/scrutin/{13}/ventilationVotes/organe/groupes/groupe/{3}/vote/decompteNominatif/{contres}/votant/{1}/acteurRef
+					<li>Avec N (le nombre minimum d'arcs) suffisamment grand, les deux partis principaux sont déconnectés l'un de l'autre. Réduisez N jusqu'à ce qu'ils soient connectés. A partir de quelle valeur de N les deux partis sont-ils connectés ? Que représente cette valeur ?
+					<li>Quelles modifications avez-vous faites  à la visualisation (couleurs, forces, épaisseur...) ?
+					<li>Avez-vous fait la partie optionnelle ?
+					</ol>
         </p>
 
 			</section>

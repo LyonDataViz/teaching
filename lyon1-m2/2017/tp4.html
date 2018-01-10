@@ -29,10 +29,11 @@
 
 				<p>1. Réaliser une carte de la grippe en France en novembre 2014 similaire à celle ci-dessous.</p>
 
-        <!-- <img src="images/tp3.gif"> -->
+
+        		<img src="images/tp4-tooltip.png"> 
 
 				<h4>1. Chargement du fond de carte</h4>
-					<p>Charger le <a href="data/regions.geojson">fond de carte des anciennes régions françaises</a> avec D3.js. Voir <a href="http://blockbuilder.org/aurelient/5bb9210591eb86882612a2002faab698">l'exemple vu en cours</a>.</p>
+					<p>Charger le <a href="data/regions.json">fond de carte des anciennes régions françaises</a> avec D3.js. Voir <a href="http://blockbuilder.org/aurelient/5bb9210591eb86882612a2002faab698">l'exemple vu en cours</a>.</p>
 
 					<p>L'exemple du cours utilise une projection Américaine. Changer sur une projection plus générique comme <code>d3.geoConicConformal</code>. Nous utilisons la v4 de D3.js <a href="https://github.com/d3/d3/blob/master/API.md#projections">la page de référence sur les projections est ici</a>.</p>
 
@@ -78,7 +79,7 @@ d3.csv("GrippeFrance2014.csv", function(data) {
 
 
 
-		        <h3>Rendu pour ce TP</h3>
+		        <h2>Rendu pour ce TP</h2>
 
 		        <p>
 							Vous pouvez discuter entre vous, mais le travail se fait et se rend individuellement.
@@ -86,6 +87,10 @@ d3.csv("GrippeFrance2014.csv", function(data) {
 				</p>
 
 
+
+
+				<br/>
+				<hr/>
 
 
 
@@ -103,13 +108,13 @@ d3.csv("GrippeFrance2014.csv", function(data) {
 &lt;/div&gt;
 					</code></pre>
 
-					<p>On ajoutera aussi un élement textuel (dans le <code>span</code>) pour afficher la valeur du slider, et s'assurer ainsi que les évènements sont bien capturé par le code javascript plus tard.</p>
+					<p>On ajoutera aussi un élement textuel (dans le <code>span</code>) pour afficher la valeur du slider, et s'assurer ainsi que les évènements sont bien capturés par le code javascript plus tard.</p>
 
 
 
 				<h4>6. Traitement des données</h4>
 
-				<p>Nous allons maintenant élargir le jeu de données. Cette fois ci, à la place d'injecter une valeur donnée, nous allons injecter un tableau de toutes les valeurs. Le code ci-dessous, récupère les valeurs d'une région données sous forme de tableau qu'il suffira d'insérer dans le json.</p>
+				<p>Nous allons maintenant élargir le jeu de données. Cette fois ci, à la place d'injecter une valeur donnée dans l'objet geojson, nous allons injecter un tableau de toutes les valeurs de l'annee pour une région (une ligne du CSV). Le code ci-dessous, récupère les valeurs d'une région données sous forme de tableau qu'il suffira d'insérer dans le json.</p>
 				<pre><code>Object.values(data[i]);</code></pre>
 
 <!-- 				<p>Vous pouvez faire un <code>console.log(Object.keys(data[0]));</code> pour vous faire une idée du contenu.</p>
