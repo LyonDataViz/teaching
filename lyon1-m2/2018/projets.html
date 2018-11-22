@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/teaching/assets/css/style.css?v=7711d6911e9680d4af53ac0eaf8745f6cb14632c">
+
+  <title>DataViz Cours Lyon1 M2 2017-2018</title>
+</head>
+
+<body>
+  <section class="page-header">
+    <h1 class="project-name">Projet visualisation interactive de données</h1>
+    <h2 class="project-tagline">Université Lyon 1, Master 2, 2018-2019</h2>
+  </section>
+
+  <section class="main-content">
+
+<h3>Checklist et étapes obligatoires pour les projets</h3>
+
+<ul>
+  <li>09-16/11 : Choix d'un sujet</li>
+  <li>09-16/11 : Constitution des groupes</li>
+  <li>16/11 : Repository github du projet en place</li>
+  <li>16/11 : Design sketches avec les <a href="http://fds.design/">Five Design Sketches</a></li>
+  <li>23/11 : Itération sur le sujet</li>
+  <li>29/11 minuit : Rendu intermédiaire</li>
+  <li>30/11 - 07/12 : Évaluation entre groupes</li>
+  <li>07/12 : Retours sur la v0 du projet</li>
+  <li>21/12 : TP banalisé et derniers retours</li>
+  <li>10/01 minuit : Rendu final du projet</li>
+  <li>11/01 : Soutenances</li>
+  <li>12/01 minuit : Rendu de l'article</li>
+
+  <!--
+  <li>Une fois choisi, éditer cette page, mettez vos noms et prénoms, et mettez à jour le GitHub</li>
+  <li>Créez un répertoire avec <code>numerosujet-nom1-nom2</code> et un fichier <code>index.html</code>.
+  <li>Dans la page <code>index.html</code> détaillez le sujet, indiquez les jeux de données que vous souhaitez utiliser, des exemples de visualisations ou d'articles, et enfin un planning approximatif</li>
+  <li>Toutes ces informations doivent être accessible quand on clique sur <a href="https://lyondataviz.github.io/teaching/lyon1-m2/projets.html">ce lien</a>
+-->
+</ul>
+
+<p>Le projet se fera en trinome, et constitue 60% de la note de l'UE.</p>
+
+<p>Renseignez les informations sur votre groupe, en modifiant la liste des projets en bas de cette page sur <a href="https://github.com/LyonDataViz/teaching/blob/gh-pages/lyon1-m2/2017/projets.html">GitHub</a>, en faisant un "pull request".</p>
+
+<p>Il est important d'être présent et de venir chercher des conseils auprès de votre encadrant de projet.</p>
+
+
+<h2>Choix d'un sujet</h2>
+<p>Le projet a pour thématique la mobilité et les transports. Commencez par réfléchir à un sujet/problème dans cet espace qui vous intéresse, avant de chercher les jeux de données et de vous poser des questiosn de visualisation.</p>
+
+<p>Quelques idées de thématiques :</p>
+<ul>
+  <li>Lien entre la météo, l'utilisation des vélos publics et des tranports en commun.</li>
+  <li>Retard ou inprévus dans les transports</li>
+  <li>Modes de transports et impact environnemental</li>
+  <li>Visualisation des temps d'accès à certain lieux avec les tranports en commun (ou la voiture)</li>
+  <li>...</li>
+</ul>
+
+
+
+<h2>Jeux de données</h2>
+<p>Voici un ensemble de jeux de données liés à la mobilité et aux transports</p>
+
+<ul>
+  <li><a href="https://www.data.gouv.fr/fr/topics/territoires-et-transports/">data.gouv.fr : Territoires, Transports, Tourisme</a></li>
+  <li><a href="https://data.sncf.com">Données de la SNCF</a></li>
+  <li><a href="https://opendata.stif.info/page/home/">Open Data STIF (transports en communs d'Ile de France)</a></li>
+  <li><a href="https://opendata.paris.fr/page/home/">Données de la Mairie de Paris</a></li>
+  <li><a href="https://data.grandlyon.com/transport/">Open Data Grand Lyon (transport)</a></li>
+  <li><a href="https://data.oecd.org/transport/passenger-transport.htm#indicator-chart">Données de l'OCDE</a></li>
+</ul>
+
+<h2>Constitution des groupes</h2>
+<p>Pour des raisons d'emploi du temps nous vous conseillons de constituer des groupes internes à votre M2.</p>
+<p>Les groupes devront être constitués au plus tard lors de la séance du 16 novembre. </p>
+<p>Nous prendrons un temps pendant la séance du 16 pour grouper les personnes qui n'ont pas trouvé encore de groupe. Il est important d'avoir réfléchit aux thématiques qui vous intéresse d'ici là.</p>
+
+<p>Renseignez les informations sur votre groupe, en modifiant la liste des projets en bas de cette page sur <a href="https://github.com/LyonDataViz/teaching/blob/gh-pages/lyon1-m2/2017/projets.html">GitHub</a>, en faisant un "pull request".</p>
+
+
+<h2>Repository github du projet</h2>
+<p>Chaque groupe devra gérer son projet sur GitHub.com</p>
+
+<ul>
+	<li>Gérer le code</li>
+	<li>Gérer un cahier d'avancement. Soit dans la partie Wiki du projet (voir le wiki de <a href="https://github.com/d3/d3/wiki">d3</a> par exemple.) Soit dans un dossier 'avancement' contenant un fichier markdown par étape. </li>
+	<li>Publier le projet en utilisant <a href="https://pages.github.com/">github pages</a></li>
+</ul>
+
+
+<h2>Rendu intermédiaire (29/11 minuit)</h2>
+<p>Le rendu intermédiaire a pour objectif de :</p>
+<ul>
+  <li>Finaliser le cadrage du projet (sujet, disponibilité des données, approche, etc.)</li>
+  <li>Identifier les travaux important liés au projet</li>
+  <li>Proposer les premières pistes de conception</li>
+  <li>Valider l'infrastructure technique</li>
+</ul>
+
+<p>Le rendu s'effectuera sur le projet github sous la forme d'un article de deux pages au format de <a href="http://junctionpublishing.org/vgtc/Tasks/camera.html">TVCG</a> (pdf), comprenant :</p>
+<ol>
+  <li>Titre</li>
+  <li>Auteurs</li>
+  <li>Introduction</li>
+  <li>Related Work</li>
+  <li>Pistes de conception (photos d'esquisses papier ou mockups)</li>
+  <li>Réferences (ne comptent pas dans la longueur de l'article)</li>
+</ol>
+
+<p>Le pdf de l'article devra être déposé dans un dossier 'rendu' de votre projet github. <em>Modifier votre description de groupe ci-dessous <a href="https://github.com/LyonDataViz/teaching/blob/gh-pages/lyon1-m2/2017/projets.html">via un pull request</a></em> pour rajouter un lien vers le pdf de votre article</em></p>
+
+
+<h2>Peer review (Évaluation entre groupes)</h2>
+
+<p>Pour le 07/12</p>
+
+<p>Lisez l'article du groupe qui vous a été assigné.</p>
+
+
+
+<p>Formuler une critique du travail sous le format suivant sur le <a href="https://goo.gl/forms/fSso1bcut4jC44JE3">Google form suivant</a>:</p>
+<!--  sous la forme d'une issue github sur le projet du groupe qui vous a été assigné -->
+
+<ul>
+	<li>Problème</li>
+	<ul>
+		<li>Reformuler le problème tel que vous l'avez compris (2/3 phrases maximum).</li>
+		<li>Clarifier si le problème vous semble valide. Si oui proposer une direction en particulier qui vous semble intéressante à creuser, si non proposer une alternative réaliste (même données / même contexte global).</li>
+	</ul>
+	<li>État de l'art</li>
+	<ul>
+		<li>Proposer une ou deux références (projet, site, article scientifique) complétant celles citées, soyez précis et expliquer pourquoi.</li>
+	</ul>
+	<li>Proposition</li>
+	<ul>
+		<li>Expliquer ce que vous aimez (3 phrases).</li>
+		<li>Expliquer ce que vous auriez fait différemment (3 suggestions).</li>
+		<li>Expliquer ce que vous aimeriez voir (3 suggestions).</li>
+	</ul>
+</ul>
+
+<p>Résultats <a href="https://docs.google.com/spreadsheets/d/1np6Qo-42TQ5IjShXn9ylVW90sb24cR31yQ20aLQc-7g/edit?usp=sharing">peer-reviews</a>.</p>
+
+
+<h2>Rendu final (10/01 minuit)</h2>
+
+<p><span style="color: red; font-weight: 800;">Le rendu final est composé de 4 parties.</span> Chaque partie doit être stockée dans votre github:</p>
+<ol>
+  <li>le code du projet et une page web fonctionelle;</li>
+  <li>un rapport sous format d'article scientifique expliquant le projet; OU une page Web explicative</li>
+  <li>le cahier d'avancement mentionné plus haut;</li>
+  <!--<li>les transparents de soutenance.</li>-->
+</ol>
+
+
+<h3>Utilisation de Github</h3>
+<p>Votre projet devra être utilisable sous forme de page web accessible via une URL, sur <a href="https://pages.github.com/">page github</a> ou en auto-hébergé si une page github ne convient pas.</p>
+
+<p>Github sera aussi utilisé pour faire les rendus.</p>
+
+
+<h3>Cahier d'avancement</h3>
+<p><span style="color: red; font-weight: 800;">Il est obligatoire de maintenir un cahier d'avancement tout au long du projet</b>, qui capture votre progression</span>, vos premières esquisses papier (ou avec Tableau sous forme de capture d'écran). Il peut être au format que vous voulez, nous conseillons d'utiliser le wiki de votre projet Github pour travailler de manière collaborative (un dossier avancement ou un google doc peuvent aussi faire l'affaire). Nous vous encourageons à y inclure vos erreurs et les choix que vous n'avez pas suivis.</p>
+
+<p>Voici <a href="https://github.com/Raphael-Diana/glyph-mosaic_likert-scale/raw/master/docs/ProcessBook.pdf">quelques</a> <a href="https://github.com/RomyRatolojanahary/TP-Projet/blob/master/Cahier_de_bord.pdf">exemples</a> de <a href="https://github.com/JulesSauvinet/dataviz/blob/master/geolocpol/public/data/docs/cahier_davancement.pdf">cahiers</a> de l'année dernière, ou du cours de visualisation d'Harvard (<a href="http://www.cs171.org/2016/assets/process_books/bansal_cao_hou.pdf">exemple 1</a>, <a href="http://www.cs171.org/2016/assets/process_books/walsh_trevino_bett.pdf">exemple 2</a>)</p>
+
+
+
+<h3>Article</h3>
+<p><span style="color: red; font-weight: 800;">L'article sera rédigé en anglais sur 5 pages (sans compter les références), au format de <a href="http://junctionpublishing.org/vgtc/Tasks/camera.html">TVCG</a></span>. Les articles que vous avez présenté pendant les cours sont des exemples de types d'articles que vous pouvez écrire. Voici les parties typiques d'un article:</p>
+
+<ol>
+  <li>Titre</li>
+  <li>Auteurs</li>
+  <li>Teaser image (optionel)</li>
+  <li>Abstract (~¼p)</li>
+  <li>Introduction (~1p)</li>
+  <li>Related Work (~1p)</li>
+  <li>Project Description (~2p)</li>
+  <li>Evaluation (optionel)</li>
+  <li>Discussion (~½p)</li>
+  <li>Conclusion (~¼p)</li>
+  <li>References (ne comptent pas dans la longueur de l'article)</li>
+</ol>
+
+<p>Nous vous conseillons d'utiliser LaTeX pour écrire l'article et <a href="https://www.zotero.org/">l'outil de gestion Zotero</a> pour les références bibliographique (gratuit).</p>
+
+<h3>Site public</h3>
+<p>
+  Alternativement à l'article nous laissons la possibilité de faire un rendu sous forme de site Web en français ou en anglais.
+  Le site devra être public et en ligne (par exemple une <a href="https://pages.github.com/">github page</a>). Il ne devra pas seulement contenir la visualisation mais aussi la contextualiser. Autrement dit expliquer les données utilisées, la motivation, et les points importants. Cette contextualisation peut se faire sous une forme narrative si le sujet s'y prête (story-telling), ou scrollable, avec un dévoilement progressif des données.
+</p>
+
+<p>
+  <span style="color: red; font-weight: 800;">La note maximale si vous choisissez cette option sera de 3/4 de la note d'article</span>.
+</p>
+
+<p>
+  Quelques exemples :
+</p>
+<ul>
+  <li><a href="https://lyondataviz.github.io/teaching/lyon1-m2/2016/projets-rendus.html">les projets de l'année dernière.</a>
+  <li><a href="http://mbtaviz.github.io/"></a>http://mbtaviz.github.io/</li>
+  <li><a href="http://teamdatahub.github.io/"></a>http://teamdatahub.github.io/</li>
+  <li><a href="http://itisaasta.com/nycs/"></a>http://itisaasta.com/nycs/</li>
+</ul>
+
+<h3>Présentation</h3>
+<p>
+  La présentation durera 10 minutes <span style="color: red; font-weight: 800;">sans Power Point</span>.
+  Nous vous invitons à présenter les points suivants:
+  <ul>
+    <li>Contexte et motivation</li>
+    <li>Public cible </li>
+    <li>Démonstration,  choix de design et choix techniques </li>
+    <li>Points innovants</li>
+    <li>Limites</li>
+    <li>Questions (laisser 3 minutes)</li>
+  </ul>
+</p>
+
+
+<h2>Notation du projet</h2>
+
+<p>Le projet constituera 60 % de la note de l'UE, avec la répartition suivante:</p>
+<ul>
+  <li>process book (malus si pas fait)            - rendu le 10/01 - minuit</li>
+  <li>rédaction d'un article ou d'un site (33%)   - 1e rendu le 30/11, rendu final le 12/01</li>
+  <li>peer review (5%)                            - rendu le 07/12</li>
+  <li>réalisation technique (45%)                 - rendu le 10/01</li>
+  <li>présentation et démo (17%)                  - rendu le 10/01</li>
+</ul>
+
+<h2>Ordre de passage pour la souteance</h2>
+<ul>
+    <li>08:00 - 08:10 : Groupe 4</li>
+    <li>08:10 - 08:20 : Groupe 1</li>
+    <li>08:20 - 08:30 : Groupe 6</li>
+    <li>08:30 - 08:40 : Groupe 13</li>
+    <li>08:40 - 08:50 : Groupe 17</li>
+    <li>Pause</li>
+    <li>09:00 - 09:10 : Groupe 3</li>
+    <li>09:10 - 09:20 : Groupe 5</li>
+    <li>09:20 - 09:30 : Groupe 10</li>
+    <li>09:30 - 09:40 : Groupe 2</li>
+    <li>09:40 - 09:50 : Groupe 12</li>
+    <li>Pause</li>
+    <li>10:10 - 10:20 : Groupe 14</li>
+    <li>10:20 - 10:30 : Groupe 15</li>
+    <li>10:30 - 10:40 : Groupe 16</li>
+    <li>10:40 - 10:50 : Groupe 8</li>
+    <li>10:50 - 11:00 : Groupe 19</li>
+    <li>Pause</li>
+    <li>11:10 - 11:20 : Groupe 20</li>
+    <li>11:20 - 11:30 : Groupe 9</li>
+    <li>11:30 - 11:40 : Groupe 11</li>
+    <li>11:40 - 11:50 : Groupe 7</li>
+</ul>
+
+
+
+
+<h2>Groupes</h2>
+
+<p><a href="https://docs.google.com/spreadsheets/d/1np6Qo-42TQ5IjShXn9ylVW90sb24cR31yQ20aLQc-7g/edit?usp=sharing">Peer-Reviews</a>.</p>
+
+<h3>Groupe 1: Raising awareness of carbon emissions, time and prices using serious games </h3>
+<img src="project-thumbails/groupe1.gif" alt="Ce jeu est jouable sur notre site !"/>
+- <a href="https://github.com/Renaud-D-Harreville/DataViz_M2">Projet github</a>
+- <a href="https://renaud-d-harreville.github.io/DataViz_M2/">Page publique du projet</a>
+- <a href="https://github.com/Renaud-D-Harreville/DataViz_M2/blob/master/Reports/report1.pdf">Rendu intermédiaire (pdf)</a>
+- <a href="https://github.com/Renaud-D-Harreville/DataViz_M2/blob/master/Reports/finalreport.pdf">Article final (pdf)</a>
+- <a href="https://github.com/Renaud-D-Harreville/DataViz_M2/tree/master/workbook">Cahier d'avancement</a>
+  <ul>
+    <li>MONTEL Alice</li>
+    <li>D'HARREVILLE Renaud</li>
+    <li>BOLTENHAGEN Mathilde</li>
+  </ul>
+  <p>Peer-review : groupe 4</p>
+  <p>Encadrant : Nicolas Bonneel</p>
+
+<h3>Groupe 2: Study of ocean ship logbooks between 1750 and 1850 </h3>
+<img src="project-thumbails/groupe2.gif" alt="Exemple issu de la visualisation proposée par le groupe 2."/>
+<a href="https://github.com/Rade-Mathis/Rade-Mathis.github.io">Projet github</a>
+- <a href="https://rade-mathis.github.io/">Page publique du projet</a>
+- <a href="https://rade-mathis.github.io/reports/rendu_intermediaire.pdf">Rendu intermédiaire (pdf)</a>
+- <a href="https://rade-mathis.github.io/reports/rendu_final.pdf">Article final (pdf)</a>
+- <a href="https://rade-mathis.github.io/reports/">Cahier d'avancement</a>
+  <ul>
+    <li>Joual Anouar</li>
+    <li>Georges Antoine</li>
+    <li>Rade-Morzadec Mathis</li>
+  </ul>
+  <p>Peer-review : groupe 8</p>
+  <p>Encadrant : Romain Vuillemot</p>
+
+<h3>Groupe 3: Air Traffic Visualization</h3>
+<img src="project-thumbails/groupe3.gif" alt="Aperçu du projet dataviz du groupe 3"/>
+- <a href="https://github.com/Theguael/dataviz">Projet github</a>
+- <a href="https://theguael.herokuapp.com/viz/">Page publique du projet</a>
+- <a href="https://github.com/Theguael/dataviz/blob/master/rendu/simple-d3-js.pdf">Rendu intermédiaire (pdf)</a>
+- <a href="https://github.com/Theguael/dataviz/blob/master/rendu/article.pdf">Article final (pdf)</a>
+- <a href="https://github.com/Theguael/dataviz/wiki">Cahier d'avancement</a>
+   <ul>
+    <li>Theo Jaunet</li>
+    <li>Miguel Solinas</li>
+    <li>Mickael Bettinelli</li>
+   </ul>
+  <p>Peer-review : groupe 5</p>
+  <p>Encadrant : Romain Vuillemot</p>
+
+<h3>Groupe 4: Mapping the Durations of Train Journeys in France and Europe. </h3>
+<img src="project-thumbails/groupe4.gif" alt="Demonstration du site web"/>
+- <a href="https://github.com/CharlesGaydon/Mapping-Travel-Times-in-Europe">Projet github</a>
+- <a href="https://charlesgaydon.github.io/Mapping-Travel-Times-in-Europe/">Page publique du projet</a>
+- <a href="https://github.com/CharlesGaydon/Mapping-Travel-Times-in-Europe/blob/master/Designs/Working%20Paper%201%20-%20Mapping%20Rail%20Trip%20Durations.pdf">Rendu intermédiaire (pdf)</a>
+- <a href="https://github.com/CharlesGaydon/Mapping-Travel-Times-in-Europe/blob/master/Designs/DataViz_RenduFinal.pdf">Article final (pdf)</a>
+- <a href="https://github.com/CharlesGaydon/Mapping-Travel-Times-in-Europe/blob/master/Designs/Carnet%20de%20Bord%20(FR).md">Cahier d'avancement</a>
+  <ul>
+    <li>GAYDON Charles</li>
+    <li>ROBERGEON Loïc</li>
+    <li>PESEUX Paul</li>
+  </ul>
+  <p>Peer-review : groupe 1</p>
+  <p>Encadrant : Nicolas Bonneel</p>
+
+<h3>Groupe 5: Air traffic visualization in Europe</h3>
+<img src="project-thumbails/groupe5.png" alt=""/>
+- <a href="https://github.com/flightdataviz/flightdataviz.github.io">Projet github</a>
+- <a href="https://flightdataviz.github.io">Page publique du projet</a>
+- <a href="https://github.com/flightdataviz/flightdataviz.github.io/blob/master/avancement/sketches/article1.pdf">Rendu intermédiaire (pdf)</a>
+- <a href="">Article final (pdf)</a>
+- <a href="https://github.com/flightdataviz/flightdataviz.github.io/blob/master/avancement/sketches/project_progress.pdf">Cahier d'avancement</a>
+  <ul>
+    <li>Korichi Abdel-Rahmen</li>
+    <li>Dorliat Hector</li>
+    <li>El Abass Cherif Ahmed</li>
+  </ul>
+  <p>Peer-review : groupe 3</p>
+  <p>Encadrant : Romain Vuillemot</p>
+
+<h3>Groupe 6: Are SNCF trains always late?</h3>
+<img src="https://github.com/Kylaste/DataViz_Projet/blob/master/gifDataVizProjet.gif?raw=true" alt=""/>
+- <a href="https://github.com/Kylaste/DataViz_Projet">Projet github</a>
+- <a href="https://kylaste.github.io/DataViz_Projet/">Page publique du projet</a>
+- <a href="https://github.com/Kylaste/DataViz_Projet/blob/master/article.pdf">Rendu intermédiaire (pdf)</a>
+- <a href="https://github.com/Kylaste/DataViz_Projet/blob/master/article_final.pdf">Article final (pdf)</a>
+- <a href="https://docs.google.com/document/d/13DV34gfL2mDiW0BEpR1YvzyTUGzc10SRDErzvGCKpOQ/edit">Cahier d'avancement</a>
+  <ul>
+    <li>Candy Romain</li>
+    <li>Flores Isabelle</li>
+    <li>Lebrun Enzo</li>
+  </ul>
+  <p>Peer-review : groupe 13</p>
+  <p>Encadrant : Nicolas Bonneel</p>
+
+<h3>Groupe 7: Comparative visualization of different factors involved in road transport accidents in France.
+</h3>
+<img src="project-thumbails/groupe7.gif" alt=""/>
+- <a href="https://github.com/lcastrogarcia/DataViz_projet">Projet github</a>
+- <a href="https://dvprojectelisalorrainelucia.github.io/">Page publique du projet</a>
+- <a href="https://github.com/lcastrogarcia/DataViz_projet/blob/master/rendu/article_dataviz.pdf">Rendu intermédiaire (pdf)</a>
+- <a href="https://github.com/lcastrogarcia/DataViz_projet/blob/master/rendu/groupe7_article.pdf">Article final (pdf)</a>
+- <a href="https://github.com/lcastrogarcia/DataViz_projet/blob/master/process-book.pdf">Cahier d'avancement</a>
+  <ul>
+    <li>Castro Garcia Lucìa</li>
+    <li>Denier Elisa</li>
+    <li>Soudade Lorraine</li>
+  </ul>
+  <p>Peer-review : groupe 11</p>
+  <p>Encadrant : Nicolas Bonneel</p>
+
+<h3>Groupe 8: Studying human migration and factors influencing this migration</h3>
+<img src="project-thumbails/groupe8.png" alt="thumbnail groupe 8"/>
+- <a href="https://github.com/JoymangulJensen/dataVIz-human-migration/">Projet github</a>
+- <a href="https://joymanguljensen.github.io/dataVIz-human-migration/">Page publique du projet</a>
+- <a href="https://github.com/JoymangulJensen/dataVIz-human-migration/blob/master/Reports/Intermediate/studying-human-migration.pdf">Rendu intermédiaire (pdf)</a>
+- <a href="https://github.com/JoymangulJensen/dataVIz-human-migration/blob/master/Reports/Final/studying-human-migration.pdf">Article final (pdf)</a>
+- <a href="https://github.com/JoymangulJensen/dataVIz-human-migration/wiki">Cahier d'avancement</a>
+  <ul>
+    <li>Blondelle Thomas</li>
+    <li>Joymangul Jensen</li>
+    <li>Moisson Matthieu</li>
+  </ul>
+  <p>Peer-review : groupe 2</p>
+  <p>Encadrant : Aurélien Tabard</p>
+
+<h3>Groupe 9: Freight Transport in Europe</h3>
+<img src="project-thumbails/groupe9.gif" alt=""/>
+- <a href="https://github.com/axbazin/FreightProject">Projet github</a>
+- <a href="https://axbazin.github.io/FreightProject/">Page publique du projet</a>
+- <a href="https://github.com/axbazin/FreightProject/blob/master/Rendu/article_intermediaire.pdf">Rendu intermédiaire (pdf)</a>
+- <a href="https://github.com/axbazin/FreightProject/blob/master/Rendu/Article_Final_Group9.pdf">Article final (pdf)</a>
+- <a href="https://github.com/axbazin/FreightProject/wiki">Cahier d'avancement</a>
+  <ul>
+    <li>Barbier Jeremy</li>
+    <li>Bazin Adelme</li>
+    <li>Paffoni Nina</li>
+  </ul>
+  <p>Peer-review : groupe 10</p>
+  <p>Encadrant : Romain Vuillemot</p>
+
+<h3>Groupe 10: Interactive visualisation in time and space of flights in the United States at single-plane resolution</h3>
+<img src="project-thumbails/groupe10.gif" alt=""/>
+- <a href="https://github.com/DatavisuProject/">Projet github</a>
+- <a href="https://datavisuproject.github.io/US_Flights/">Page publique du projet</a>
+- <a href="https://github.com/DatavisuProject/US_Flights/blob/master/Article/Article_Intermediaire.pdf">Rendu intermédiaire (pdf)</a>
+- <a href="https://github.com/DatavisuProject/US_Flights/blob/master/Article/Article_Final.pdf">Article final (pdf)</a>
+- <a href="https://github.com/DatavisuProject/US_Flights/blob/master/ProcessBook/ProcessBook.md">Cahier d'avancement</a>
+  <ul>
+    <li>Aubret Arthur</li>
+    <li>Gaud Caroline</li>
+    <li>Letcher Brice</li>
+  </ul>
+  <p>Peer-review : groupe 9</p>
+  <p>Encadrant : Romain Vuillemot</p>
+
+<h3>Groupe 11: Study of Accidentology in Paris, risk factors and evolution of the traffic accident</h3>
+<img src="project-thumbails/groupe11.gif" alt="Gif montrant un exemple basique"/>
+- <a href="https://github.com/Garet005/m2-2018-DataViz-KSN">Projet github</a>
+- <a href="https://garet005.github.io/m2-2018-DataViz-KSN/">Page publique du projet</a>
+- <a href="https://github.com/Garet005/m2-2018-DataViz-KSN/blob/master/rendu/study-accidentology-paris.pdf">Rendu intermédiaire (pdf)</a>
+- <a href="https://github.com/Garet005/m2-2018-DataViz-KSN/blob/master/rendu/visualization-accidentology-paris-final-report.pdf">Article final (pdf)</a>
+- <a href="https://github.com/Garet005/m2-2018-DataViz-KSN/blob/master/avancement/Avancement.md">Cahier d'avancement</a>
+  <ul>
+    <li>Bourhis Kilian</li>
+    <li>Nguyen Ngoc-Bien</li>
+    <li>Lechat Nicolas</li>
+  </ul>
+  <p>Peer-review : groupe 7</p>
+  <p>Encadrant : Nicolas Bonneel</p>
+
+<h3>Groupe 12: Density heat map visualization of spatially and temporally localized events</h3>
+<img src="project-thumbails/.png" alt=""/>
+- <a href="https://github.com/pcouy/transport-heatmaps">Projet github</a>
+- <a href="https://pcouy.github.io/transport-heatmaps/#!">Page publique du projet</a>
+- <a href="https://github.com/pcouy/transport-heatmaps/raw/master/Article_partiel.pdf">Rendu intermédiaire (pdf)</a>
+- <a href="">Article final (pdf)</a>
+- <a href="url ici">Cahier d'avancement</a>
+  <ul>
+    <li>Couy Pierre</li>
+    <li>Fauvet Hugo</li>
+    <li>Manhès Louis</li>
+  </ul>
+  <p>Peer-review : groupe 16</p>
+  <p>Encadrant : Romain Vuillemot</p>
+
+<h3>Groupe 13: Comparison of the quality of TER flows between 2013 and 2017</h3>
+<img src="project-thumbails/groupe13.gif" alt=""/>
+- <a href="https://github.com/AminaSGitHub/dataVizProject">Projet github</a>
+- <a href="https://aminasgithub.github.io/dataVizProject/">Page publique du projet</a>
+- <a href="https://github.com/AminaSGitHub/dataVizProject/blob/master/Compte_rendu_mi-parcours.pdf">Rendu intermédiaire (pdf)</a>
+- <a href="https://github.com/AminaSGitHub/dataVizProject/blob/master/article_final.pdf">Article final (pdf)</a>
+- <a href="https://hackmd.io/CYdgZgxgnAbCCMBaAzAUwIYFZEBYYCZVF11hlEAGGdMCnVETAIwuCA==?both">Cahier d'avancement</a>
+  <ul>
+    <li>Meziani Amina</li>
+    <li>Hamizi Naama</li>
+    <li>Moussi Ibtissem</li>
+  </ul>
+  <p>Peer-review : groupe 6</p>
+  <p>Encadrant : Aurélien Tabard</p>
+
+<h3>Groupe 14: Visualization of velo STAR stations and car-park in Rennes</h3>
+<img src="https://github.com/hassanidk/velovParty-dataviz/blob/master/project-thumbails/KN8Q9F2.png" alt=""/>
+- <a href="https://github.com/hassanidk/velovParty-dataviz">Projet github</a>
+- <a href="https://hassanidk.github.io/velovParty-dataviz/">Page publique du projet</a>
+- <a href="https://github.com/hassanidk/velovParty-dataviz/blob/master/relation-bars-velov.pdf">Rendu intermédiaire (pdf)</a>
+- <a href="https://github.com/hassanidk/velovParty-dataviz/blob/master/visualization-velo-star.pdf">Article final (pdf)</a>
+- <a href="https://github.com/hassanidk/velovParty-dataviz/tree/master/avancements">Cahier d'avancement</a>
+  <ul>
+    <li>Brage Anthony</li>
+    <li>De Crevoisier Tangui</li>
+    <li>Hassani Kassim</li>
+  </ul>
+  <p>Peer-review : groupe 15</p>
+
+<h3>Groupe 15: VéloViz: Representing the Spatial, Temporal and Social Patterns of Vélo’v Users</h3>
+<img src="https://github.com/BelandeCheungSergent/veloViz/blob/899684b0a76ad43e5fdb5c7717734b3e232346bf/rendu/veloViz-GIF.gif" alt=""/>
+- <a href="https://github.com/BelandeCheungSergent/veloViz">Projet github</a>
+- <a href="https://belandecheungsergent.github.io/veloViz/">Page publique du projet</a> (Il faut accepter le chargement du "script à risque".)
+- <a href="https://github.com/hls1138/https-github.com-BelandeCheungSergent-veloViz">Page privée du projet</a>
+- <a href="https://github.com/BelandeCheungSergent/veloViz/blob/master/rendu/Rendu-Intermediaire-VeloViz.pdf">Rendu intermédiaire (pdf)</a>
+- <a href="https://github.com/BelandeCheungSergent/veloViz/blob/master/rendu/Rendu-final-VeloViz.pdf">Article final (pdf)</a>
+- <a href="https://github.com/hls1138/https-github.com-BelandeCheungSergent-veloViz/wiki/Process-Book">Cahier d'avancement </a>
+  <ul>
+    <li>Belande Amanda</li>
+    <li>Cheung Ka Hei</li>
+    <li>Sergent Henri-Louis</li>
+  </ul>
+  <p>Peer-review : groupe 14</p>
+  <p>Encadrant : Aurélien Tabard</p>
+
+<h3>Groupe 16: Visualisation of pedestrian activity in the City of Merlbourne</h3>
+<img src="https://essohanamkouyou.github.io/dataviz_melbournCity/groupe16.gif" alt=""/>
+- <a href="https://github.com/EssohanamKouyou/dataviz_melbournCity">Projet github</a>
+- <a href="https://essohanamkouyou.github.io/dataviz_melbournCity/">Page publique du projet</a>
+- <a href="https://github.com/EssohanamKouyou/dataviz_melbournCity/blob/master/Abdou_Sore_KouyouViz.pdf">Rendu intermédiaire (pdf)</a>
+- <a href="https://github.com/EssohanamKouyou/dataviz_melbournCity/blob/master/article_final.pdf">Article final (pdf)</a>
+- <a href="https://github.com/EssohanamKouyou/dataviz_melbournCity/wiki">Cahier d'avancement</a>
+  <ul>
+    <li>ABDOU Chafin</li>
+    <li>KOUYOU Essohanam</li>
+    <li>SOREL Quentin</li>
+  </ul>
+  <p>Peer-review : groupe 12</p>
+  <p>Encadrant : Aurélien Tabard</p>
+
+<h3>Groupe 17: Study of SNCF punctuality problems</h3>
+<img src="project-thumbails/groupe17.png" alt=""/>
+- <a href="https://github.com/SumJA/Projet-Data_Viz">Projet github</a>
+- <a href="https://sumja.github.io/Projet-Data_Viz/">Page publique du projet</a>
+- <a href="https://github.com/SumJA/Projet-Data_Viz/blob/master/Study%20of%20SNCF%20punctuality%20problems.pdf">Rendu intermédiaire (pdf)</a>
+- <a href="https://github.com/SumJA/Projet-Data_Viz/blob/master/rendu/Study%20of%20SNCF%20punctuality%20problems.pdf">Article final (pdf)</a>
+- <a href="https://github.com/SumJA/Projet-Data_Viz/blob/master/cahier%20d'avancement_finalurl ici">Cahier d'avancement</a>
+  <ul>
+    <li>JAVAID Sumaira</li>
+    <li>DIOT Thomas</li>
+    <li>GANOFSKY Jeremy</li>
+  </ul>
+  <p>Peer-review : groupe 20</p>
+  <p>Encadrant : Nicolas Bonneel</p>
+
+
+<h3>Groupe 19: The accessibility of cities in metropolitan France</h3>
+<img src="https://raw.githubusercontent.com/LesMatheuxVisualisent/DataVizProjet/master/ProjetDataViz.gif" alt=""/>
+- <a href="https://github.com/LesMatheuxVisualisent/DataVizProjet">Projet github</a>
+- <a href="https://lesmatheuxvisualisent.github.io/DataVizProjet/">Page publique du projet</a>
+- <a href="https://github.com/LesMatheuxVisualisent/DataVizProjet/blob/master/DataVizXianJBElia.pdf">Rendu intermédiaire (pdf)</a>
+- <a href="https://github.com/LesMatheuxVisualisent/DataVizProjet/blob/master/DataVizXianJBElia_Final.pdf">Article final (pdf)</a>
+- <a href="https://github.com/LesMatheuxVisualisent/DataVizProjet/wiki">Cahier d'avancement</a>
+  <ul>
+    <li>Yang Xian</li>
+    <li>Aujogue Jean-baptiste</li>
+    <li>Kiampamba-H'apele Elia-Swarth</li>
+  </ul>
+  <p>Encadrant : Aurélien Tabard</p>
+
+<h3>Groupe 20: DataViz project: lost and found at SNCF</h3>
+<img src="https://github.com/Kannan2324/Projet-Transports/blob/master/projet20.gif" alt="Objets perdus dans les gares"/>
+- <a href="https://github.com/Kannan2324/Projet-Transports">Projet github</a>
+- <a href="https://kannan2324.github.io/Projet-Transports">Page publique du projet</a>
+- <a href="https://github.com/Kannan2324/Projet-Transports/blob/master/Rendu/article1.pdf">Rendu intermédiaire (pdf)</a>
+- <a href="https://github.com/Kannan2324/Projet-Transports/blob/master/Rendu/Rendu-Article-Final.pdf">Article final (pdf)</a>
+- <a href="https://github.com/Kannan2324/Projet-Transports/blob/master/Rendu/process-Book.txt">Cahier d'avancement</a>
+  <ul>
+    <li>Reymond Valentin</li>
+    <li>Hu ShangNong</li>
+    <li>Delolme-Sabatier Sébastien</li>
+  </ul>
+<p>Peer-review : groupe 17</p>
+<p>Encadrant : Aurélien Tabard</p>
