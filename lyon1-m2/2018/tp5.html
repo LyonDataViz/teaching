@@ -13,14 +13,14 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title>TP4 DataViz Lyon1 M2 2017-2018</title>
+    <title>TP4 DataViz Lyon1 M2 2018-2019</title>
 </head>
 
 
 <body>
 	<section class="page-header">
-		<h1 class="project-name">TP4 DataViz: Données spatiales avec D3.js</h1>
-		<h2 class="project-tagline">Université Lyon 1, Master 2, 2017-2018</h2>
+		<h1 class="project-name">TP5 DataViz: Données spatiales avec D3.js</h1>
+		<h2 class="project-tagline">Université Lyon 1, Master 2, 2018-2019</h2>
 	</section>
 
 
@@ -30,9 +30,9 @@
 				<p>1. Réaliser une carte de la grippe en France en novembre 2014 similaire à celle ci-dessous.</p>
 
 
-        		<img src="images/tp4-tooltip.png"> 
+        		<img src="images/tp4-tooltip.png">
 
-				<h4>1. Chargement du fond de carte</h4>
+				  <h4>1. Chargement du fond de carte</h4>
 					<p>Charger le <a href="data/regions.json">fond de carte des anciennes régions françaises</a> avec D3.js. Voir <a href="http://blockbuilder.org/aurelient/5bb9210591eb86882612a2002faab698">l'exemple vu en cours</a>.</p>
 
 					<p>L'exemple du cours utilise une projection Américaine. Changer sur une projection plus générique comme <code>d3.geoConicConformal</code>. Nous utilisons la v4 de D3.js <a href="https://github.com/d3/d3/blob/master/API.md#projections">la page de référence sur les projections est ici</a>.</p>
@@ -83,7 +83,7 @@ d3.csv("GrippeFrance2014.csv", function(data) {
 
 		        <p>
 							Vous pouvez discuter entre vous, mais le travail se fait et se rend individuellement.
-							<b>Soumettre en fin de séance l'URL de votre blockbuilder</b> qui contient le code en utilisant <a href="https://goo.gl/forms/QwiApxMjZ73rJfrq2">le formulaire suivant</a>. Le rendu final est pour le 10 décembre.
+							<b>Soumettre en fin de séance l'URL de votre blockbuilder</b> qui contient le code en utilisant <a href="https://goo.gl/forms/7SddJpZHMnVmJbKu2">le formulaire suivant (TP#5)</a>. Le rendu final est pour le 19 décembre 23h59.
 				</p>
 
 
@@ -136,7 +136,7 @@ d3.select("#slider").on("input", function() {
 
 				<p>Faire en sorte qu'en cas de changement du slider, le texte affiche la semaine sélectionnée.</p>
 
-				Insérer dans la fonction updateViz le code suivant : 
+				Insérer dans la fonction updateViz le code suivant :
 				<pre><code>d3.select('#week').html( valeur de la semaine selectionnée );</code></pre>
 
 				<p>Appeler la fonction de dessin de la carte <code>drawMap()</code> (voir l'étape suivante).</p>
@@ -146,7 +146,7 @@ d3.select("#slider").on("input", function() {
 	function updateViz(value) {
 		console.log("update " + "value");
 		d3.select('#week').html(weeksArray[value]);
-		drawMap(value);  
+		drawMap(value);
 	}
 </code></pre>
 
