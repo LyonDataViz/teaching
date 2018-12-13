@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#157878">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="/teaching/assets/css/style.css?v=7711d6911e9680d4af53ac0eaf8745f6cb14632c">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>TP4 DataViz Lyon1 M2 2017-2018</title>
+</head>
+
+
+<body>
+	<section class="page-header">
+		<h1 class="project-name">TP4 DataViz: Données spatiales avec D3.js</h1>
+		<h2 class="project-tagline">Université Lyon 1, Master 2, 2017-2018</h2>
+	</section>
+
+
+		<section class="main-content">
+				<h3>Objectif du TP</h3>
+
+				<p>1. Réaliser une carte de la grippe en France en novembre 2014 similaire à celle ci-dessous.</p>
+
+
+        		<img src="images/tp4-tooltip.png"> 
+
+				<h4>1. Chargement du fond de carte</h4>
+					<p>Charger le <a href="data/regions.json">fond de carte des anciennes régions françaises</a> avec D3.js. Voir <a href="http://blockbuilder.org/aurelient/5bb9210591eb86882612a2002faab698">l'exemple vu en cours</a>.</p>
+
+					<p>L'exemple du cours utilise une projection Américaine. Changer sur une projection plus générique comme <code>d3.geoConicConformal</code>. Nous utilisons la v4 de D3.js <a href="https://github.com/d3/d3/blob/master/API.md#projections">la page de référence sur les projections est ici</a>.</p>
+
+					<p>Positioner la carte sur la France, en utilisant la projection suivante : <code>d3.geoConicConformal().center([2.454071, 46.279229]).scale(2800);</code></p>
+
+				<h4>2. Chargement des données</h4>
+					<p>Charger les <a href="data/GrippeFrance2014.csv">données</a> de grippe de 2014. En vous inspirant du code vu en cours les afficher sur la carte (voir la structure ci-dessous). Utiliser <code>fill</code> pour colorer chaque région selon l'intensité de la grippe.</p>
+
+					<p>Utiliser la dernière colonne du tableau CSV, <code>somme2014</code>, pour avoir l'intensité totale de la grippe sur 2014.<br/>
+				  	<code>var dataValue = parseFloat(data[i].somme2014);</code>
+					</p>
+
+					<pre><code>
+d3.csv("GrippeFrance2014.csv", function(data) {
+    color.domain([0, 2000]);
+
+    d3.json("regions.json", function(json) {
+      //On fusionne les donnees avec le GeoJSON des regions
+      for (var i = 0; i < data.length; i++) {
+      ...
+      }
+
+      svg.selectAll("path")
+      ...
+        .style("fill", function(d) {
+              var value = d.properties.value;
+              ...
+      });
+    });
+});
+					</code></pre>
+
+
+
+				<h4>3. Calcul sur les données à afficher</h4>
+				<p><code>data[i]["01/06/14"]</code> permet d'accéder à l'intensité de la grippe pour la région i au 1er juin 2014. Au lieu d'utiliser <code>data[i].somme2014</code>, faites la somme des colonnes de novembre 2014, et afficher cette valeur sur la carte.</p>
+
+				<p>Ajuste les couleurs au besoin.</p>
+
+				<h4>4. Tooltip</h4>
+				<p>En vous inspirant du <a href="https://bl.ocks.org/aurelient/ff7a5ef080ff1a837046f12aa2de9273/d5ff8b820e2aa770f46a56b30e12fc9fe67d8833">block suivant</a> ajouter un tooltip avec le nom et la valeur de la région.</a></p>
+
+
+
+
+		        <h2>Rendu pour ce TP</h2>
+
+		        <p>
+							Vous pouvez discuter entre vous, mais le travail se fait et se rend individuellement.
+							<b>Soumettre en fin de séance l'URL de votre blockbuilder</b> qui contient le code en utilisant <a href="https://goo.gl/forms/QwiApxMjZ73rJfrq2">le formulaire suivant</a>. Le rendu final est pour le 10 décembre.
+				</p>
+
+
+
+
+				<br/>
+				<hr/>
+
+
+
+        		<h2>Bonus</h2>
+
+
+
+				<h4>5. Ajout d'un slider temporel</h4>
+					<p>Rajouter un slider qui permettra de naviguer entre les différentes semaines du jeu de données.</p>
+
+					<pre><code>
+&lt;div&gt;
+  &lt;input id="slider" type="range" value="1" min="1" max="52" step="1" /&gt;
+  &lt;span id="week"&gt;week&lt;/span&gt;
+&lt;/div&gt;
+					</code></pre>
+
+					<p>On ajoutera aussi un élement textuel (dans le <code>span</code>) pour afficher la valeur du slider, et s'assurer ainsi que les évènements sont bien capturés par le code javascript plus tard.</p>
+
+
+
+				<h4>6. Traitement des données</h4>
+
+				<p>Nous allons maintenant élargir le jeu de données. Cette fois ci, à la place d'injecter une valeur donnée dans l'objet geojson, nous allons injecter un tableau de toutes les valeurs de l'annee pour une région (une ligne du CSV). Le code ci-dessous, récupère les valeurs d'une région données sous forme de tableau qu'il suffira d'insérer dans le json.</p>
+				<pre><code>Object.values(data[i]);</code></pre>
+
+<!-- 				<p>Vous pouvez faire un <code>console.log(Object.keys(data[0]));</code> pour vous faire une idée du contenu.</p>
+ -->
+
+
+				<p>Il est possible de récupérer la liste des semaines sous forme de tableau JavaScript, avec la méthode suivante:</p>
+				<pre><code>var weeksArray = Object.keys(data[0]);</code></pre>
+
+
+				<h4>7. Modification des données à afficher</h4>
+				<p>Ajouter un listener sur le slider, qui appellera une fonction <code>updateViz</code> en cas de changement, pour mettre à jour la visualisation:</p>
+
+				<pre><code>
+d3.select("#slider").on("input", function() {
+	updateViz(+this.value);
+});
+				</code></pre>
+
+				<p>Faire en sorte qu'en cas de changement du slider, le texte affiche la semaine sélectionnée.</p>
+
+				Insérer dans la fonction updateViz le code suivant : 
+				<pre><code>d3.select('#week').html( valeur de la semaine selectionnée );</code></pre>
+
+				<p>Appeler la fonction de dessin de la carte <code>drawMap()</code> (voir l'étape suivante).</p>
+
+<pre><code>
+	// update the elements
+	function updateViz(value) {
+		console.log("update " + "value");
+		d3.select('#week').html(weeksArray[value]);
+		drawMap(value);  
+	}
+</code></pre>
+
+
+
+				<h4>8. Dessiner et mettre à jour la carte</h4>
+
+				<p>Revoir les principes de update et enter en D3 vu dans le 1e TP.</p>
+
+				<p>Dessiner la carte comme précedemment, avec <code>carte.enter()</code>.</p>
+				<p>Gérer la mise à jour de la carte, en partant du code ci-dessous. <b>NB: la mise à jour ne demande pas de tout redessiner.</b></p>
+
+				<pre><code>
+function drawMap(currentWeek) {
+  carte = svg.selectAll("path")
+    .data(json.features);
+
+  // code en cas de mise a jour de la carte / de changement de semaine
+  carte
+    .attr("class", "update")
+    ...
+
+  // code pour la creation de la carte quand les donnees sont chargees la 1e fois.
+  carte.enter()
+    .append("path")
+    .attr("class", "enter")
+    ...
+}
+</code></pre>
+
+
+
+
+			</section>
+
+    <script src="../javascripts/scale.fix.js"></script>
+
+</body>
+</html>
