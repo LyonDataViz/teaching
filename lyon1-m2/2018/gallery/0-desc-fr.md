@@ -1,0 +1,4 @@
+Evolution de l'étendue des calottes polaires de 1979 à 2016 
+
+# Description du projet  
+Dans le cadre du cours de [Data Visualization](https://lyondataviz.github.io/teaching/lyon1-m2/2018/) des Master 2 [Intelligence Artificielle](http://master-info.univ-lyon1.fr/IA/) et [Data Science](http://master-info.univ-lyon1.fr/DS/) de [l'Université Lyon 1](https://www.univ-lyon1.fr/) nous proposons une visualisation de la variation annuelle de l'étendue des calottes polaires Nord et Sud. Elle consiste en deux bar charts circulaires qui représentent l'étendue annuelle pour chaque calotte. Lorsqu'on sélectionne une des barres (donc une année), on obtient deux nouveaux graphiques : l'évolution mensuelle de la température et l'évolution mensuelle de l'étendue glaciaire au cours de cette année pour les deux pôles.
