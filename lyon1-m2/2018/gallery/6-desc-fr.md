@@ -1,3 +1,3 @@
-[Impact of global warming by country and global factors](https://paysimpactrechauffement.github.io/)
+[Impact du réchauffement climatique par pays et facteurs globaux](https://paysimpactrechauffement.github.io/)
 
-These visualizations focus on which countries are the most affected by global warming - in terms of temperature anomalies - and put this in perspective with global factors such as the evolution of global temperature and the CO2 concentration in the atmosphere, by month and year since 1850. 
+Ces visualisations s'intéressent à savoir quels sont les pays les plus impactés par le réchauffement climatique - en termes d'anomalies de température - et à mettre le tout en perspective par rapport à des facteurs globaux tels que l'évolution de la température globale et la concentration en CO2 dans l'atmosphère, le tout par mois et année depuis 1850. 
