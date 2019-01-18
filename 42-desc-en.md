@@ -1,4 +1,4 @@
-https://florianbaud.github.io/
+https://climateeventus.github.io/
 
 Influence of weather events in the United States on the price of insurance. <br>
 Project directed by Cheikh Toure, Rhizlaine Degni, Floriand Baud and Antoine Vendeville. <br>
