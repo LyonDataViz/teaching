@@ -1,6 +1,6 @@
 # Visualizations on CO2 emissions
 
-https://dataviz-groupe69.github.io/CO2-Emission-Visualizations/)
+https://dataviz-groupe69.github.io/CO2-Emission-Visualizations/
 
 
 We have therefore chosen to work on CO2 emissions, and thus to respond to several issues:
