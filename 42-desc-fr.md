@@ -1,4 +1,4 @@
-https://climateeventus.github.io/
+[Evénements climatiques aux Etats-Unis : saisonalité et influence sur le prix des assurances](https://climateeventus.github.io/)
 
 Ce projet a pour but de mettre en évidence le lien entre les dégâts causés par les événements climatiques aux US et le prix des assurances habitation.
 On a utilisé un dataset qui recense plus de 50 000 événements climatiques aux Etats-Unis durant l'année 2017, avec un peu plus de 50 types d'événement
