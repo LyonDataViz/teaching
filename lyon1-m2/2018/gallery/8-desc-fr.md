@@ -3,7 +3,7 @@
                             
  Lien de la page: https://fadelsoufiane.github.io/TemperatureDesGrandesVilles/
  
- #Descitpion de projet
+# Description du projet 
  
 Ce projet consiste à réaliser des graphiques décrivant la variation des températures moyennes de 1849 à 2013 dans les grandes villes
 du monde. Les données fournies pour chaque ville sont les suivantes: date, température moyenne de chaque mois, 
