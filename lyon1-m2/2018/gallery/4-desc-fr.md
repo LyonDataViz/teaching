@@ -1,7 +1,5 @@
 [Visualisation d'ouragans](https://hurricane-viewer.github.io/)
 
-### Application
-
 Ce projet propose de visualiser l'évolution des ouragans de notre planète  au cours du temps et dans l'espace de 1842 à 2016.
 
  

@@ -1,6 +1,5 @@
 [140 ans de déreglement climatique](https://bojulien.github.io/dataviz11/)
 
-### Présentation du projet
 Le sujet de ce projet est l’évolution de la température mondiale entre les années 1880 et 2017. 
 L’idée est de mettre en évidence le réchauffement climatique via une visualisation ou plusieurs visualisations et de sensibiliser les gens au réchauffement climatique.
 

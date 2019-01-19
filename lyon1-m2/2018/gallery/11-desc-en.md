@@ -1,7 +1,5 @@
 [140 years of temperature disturbance](https://bojulien.github.io/dataviz11/)
 
-
-###Project presentation 
 The topic of this project is the evolution of the global temperature between 1880 and 2017.
 The principle is to show the global warming thanks to data visualisations and to warn people about this problem.
 

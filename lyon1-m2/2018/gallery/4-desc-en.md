@@ -1,7 +1,5 @@
 [Hurricanes Visualization](https://hurricane-viewer.github.io/)
 
-### Application
-
 This project proposes to visualize our planet's hurricanes evolution through time and space from 1842 to 2016.
 
 

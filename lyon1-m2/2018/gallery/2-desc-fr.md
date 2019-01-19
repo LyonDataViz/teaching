@@ -1,7 +1,5 @@
 [Rain, wind, snow: how has climate changed in mainland France from 2010 to 2018?](https://wasaviz.github.io/)
 
-### Application
-
 Nous avons créé une application composée de trois visualisations inter-connectées : 
 
   - Une **carte de la France**, montrant un indicateur par station météo de notre jeu de données. Ces inicateurs contiennent 4 vaiables, chacune ayant une échelle de couleur différente et une taille différente : température, vent, pluie et neige. Leur intensité varie avec la valeur de la variable. Les bornes min et max utilisées pour chaque indicateur peuvent être retrouvées en bas à droite. Les valeurs correspondent à la période temporelle donnée par le slider de l'application.

@@ -1,7 +1,5 @@
 [Rain, wind, snow: how has climate changed in mainland France from 2010 to 2018?](https://wasaviz.github.io/)
 
-### Application
-
 We designed an application composed by three connected visualisations :
 
   - A **map of France**, showing one indicator by weather station of our dataset. Those indicators contain 4 variables, each in a different color scale and a different size : temperature, wind, rain and snow. Their intensity increaases with the value of the variable. The min and max scale values can be seen in the bottom right hand corner. The values correspond to time point given by the gobal slider of the application.
