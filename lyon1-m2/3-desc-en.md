@@ -1,6 +1,4 @@
-AustViz
-
-https://projetdataviz.github.io/AustraliaClimateViz/
+[AustViz](https://projetdataviz.github.io/AustraliaClimateViz/)
 
 Vizualisation of the climate in Australia
 - Interactive map with the big cities
