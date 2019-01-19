@@ -1,0 +1,3 @@
+[Impact du réchauffement climatique par pays et facteurs globaux](https://paysimpactrechauffement.github.io/)
+
+Ces visualisations s'intéressent à savoir quels sont les pays les plus impactés par le réchauffement climatique - en termes d'anomalies de température - et à mettre le tout en perspective par rapport à des facteurs globaux tels que l'évolution de la température globale et la concentration en CO2 dans l'atmosphère, le tout par mois et année depuis 1850. 
