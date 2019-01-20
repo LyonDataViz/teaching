@@ -1,3 +1,3 @@
-# Mars Climate
+[Mars Climate](https://marsclimate.github.io/Projet/)
 
 This project is part of the Data Visualisation course taught at the Claude Bernard University of Lyon (France). The main goal was to design visualizations using `D3.js` on the topic of climate. Because people have a growing interest for Mars, we chose to work on the climate of this planet, by comparing it to the climate of Earth. This would give viewers an idea about what life of this planet would be. We aimed to give a representation of the variations of temperature of each planet with respect to the planet's position relative to the sun. These visualisations are intended for a wide audience, in a context of general education. They are supposed to help answer questions such as how different is the climate on Mars compared to Earth, what is the mean temperature or is there a seasonal cycle on Mars.
