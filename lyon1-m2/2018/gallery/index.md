@@ -1,12 +1,12 @@
----
+<!-- ---
 layout: default
----
+--- -->
 
 ## Test
 
-{% for i in (1..6) %}
+<!-- {% for i in (1..6) %}
   {{ i }}
-{% endfor %}
+{% endfor %} -->
 
 
 some text here
