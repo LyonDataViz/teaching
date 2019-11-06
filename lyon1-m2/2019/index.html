@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'/>
+	<meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> -->
+	<!-- <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'> -->
+	<!-- <link rel="stylesheet" type="text/css" href="../../stylesheets/styles.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="../../stylesheets/github-light.css" media="screen"> -->
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">/
+    <meta name="theme-color" content="#157878"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="/teaching/assets/css/style.css?v=7711d6911e9680d4af53ac0eaf8745f6cb14632c"/>
+
+    <title>DataViz Cours Lyon1 M2 2019-2020</title>
+</head>
+
+<body>
+	<section class="page-header">
+		<h1 class="project-name">Cours visualisation interactive de données</h1>
+		<h2 class="project-tagline">Université Lyon 1, Master 2, 2019-2020</h2>
+	</section>
+	
+	<section class="main-content">
+		<h3>Objectifs du cours</h3>
+		<p>Ce cours est une introduction à la visualisation interactive de données. Il couvre :</p>
+		<ul>
+			<li>Les principes de base de perception, cognition et de visualisation</li>
+			<li>La typologie des graphiques pour les principaux types de données</li>
+			<li>La réalisation une visualisation Web interactive en utilisant d3.js en utilisant un jeu de données réel</li>
+		</ul>
+		
+		Ce cours permettra à la fois de maitriser les fondamentaux pour utiliser de manière informée des outils de dataviz tels que Tableau, mais aussi créer ses propres outils. Une fois ce cours validé vous devriez être en mesure de candidater à des offres d'emplois telles que <a href="https://groups.google.com/forum/#!forum/data-vis-jobs">postées ici</a> et de réaliser des visualisations telles que celles visibles sur <a href="https://twitter.com/search?q=%23dataviz">Twitter #dataviz</a>
+		
+		<h3>Évaluation</h3>
+		
+		<p>La moyenne sera constituée des notes suivantes :</p>
+		
+		<ul>
+			<li>TPs et devoirs (10%) - note binaire (pass/fail) pour chaque rendu</li>
+			<li>Une note de <a href="">projet</a> (60%)
+				<!--
+					, constituée de :
+					<ul>
+						<li>Cahier de progression (malus si pas fait)   - rendu le 16/01, minuit</li>
+						<li>Proposition de projet (20%)                 - rendu le 12/12, minuit</li>
+						<li>peer review (10%)                           - rendu le 19/12, minuit</li>
+						<li>réalisation technique (50%)                 - rendu le 16/01, minuit</li>
+						<li>présentation et démo (20%)                  - rendu le 16/01, minuit</li>
+					</ul>
+				-->
+			<li>Un examen (30%)</li>
+		</ul>
+		
+		<h3>Planning du cours</h3>
+		
+		<table>
+			<tr>
+				<th></th>
+				<th>Heures</th>
+				<th>Date</th>
+				<th>Thème</th>
+				<th>Ressources</th>
+			</tr>
+			
+			<tr>
+				<td>1</td>
+				<td>09h-12h</td>
+				<td>06/11</td>
+				<td>Principes de bases en visualisation</td>
+				<td><a href="">Cours (pdf)</a>, <a href="seance1.html">TP#1 Tableau</a></td>
+			</tr>
+			
+			<tr>
+				<td>2</td>
+				<td>09h-12h</td>
+				<td>13/11</td>
+				<td>Principes de programmation en <a href="http://d3js.org">D3.js</a></td>
+				<td><a href="">Cours (pdf)</a>, <a href="seance2.html">TP#2 D3.js Intro</a></td>
+			</tr>
+			
+			<tr>
+				<td>3</td>
+				<td>4h</td>
+				<td>21/11</td>
+				<td>Principes de Design et visualisation</td>
+				<td><a href="">Cours (pdf)</a>, <a href="">Lancement projet</a></td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>09h-12h</td>
+				<td>28/11</td>
+				<td>Visualisation de données Spatiales</td>
+				<td><a href="pdfs/4_Time.pdf">Cours (pdf)</a>, <a href="">TP#3 D3.js carto</a></td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>08h-12h</td>
+				<td>05/12</td>
+				<td>Visualisation de graphes</td>
+				<td><a href="pdfs/5_Maps.pdf">Cours (pdf)</a>, <a href="">TP#4 D3.js graphes</a></td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>09h-12h</td>
+				<td>12/12</td>
+				<td>Nettoyage de données & Vues connectées</td>
+				<td><a href="">Cours (pdf)</a>, <a href="">TP#5 D3.js Vues connectées</a></td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>08h-12h</td>
+				<td>19/12</td>
+				<td>Séance banalisée projets</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>8</td>
+				<td>8h-12h</td>
+				<td>09/01</td>
+				<td>Soutenances de projet</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>9</td>
+				<td>08h-12h</td>
+				<td>16/01</td>
+				<td>Rendu et passe finale sur les projets</td>
+				<td></td>
+			</tr>
+		</table>
+		
+		
+		
+		<h3>Planning</h3>
+		
+		<h4>07/11 — Introduction</h4>
+		<ul>
+			<li><a href="pdfs/1_introduction.pdf">Cours</a></li>
+			<li><a href="tp1.html">TP#1 Tableau</a></li>
+		</ul>
+		<p>Pour la séance suivante:</p>
+		<ul>
+			<li>Rendu TP Tableau <a href="tp1.html">(voir le sujet)</a></li>
+		</ul>
+		
+		<h4>14/11 — Intro à D3</h4>
+		<ul>
+			<li><a href="https://docs.google.com/presentation/d/1Km7Zm-TMwOz-KXSXOJZkYjcRr_PTVCaUChOrAm9x0mM/edit">Cours</a></li>
+			<li><a href="tp2.html">TP#2 D3.js Intro</a></li>
+			<li><a href="https://romsson.github.io/intro-to-d3/#">Liste fonctions D3</a></li>
+			<li><a href="">Démarrage des projets</a></li>
+		</ul>
+		
+		Pour le 20/11 (23h59):
+		<ul>
+			<li><a href="https://goo.gl/forms/">Soumettre le rendu de TP #2</a> </li>
+			<li><a href="https://goo.gl/forms/">Soumettre votre analyse d'une dataviz consommation données ou énergie:</a> une par étudiant (description des données, encodage, interactions et votre critique)</li>
+			<li><a href="https://goo.gl/forms/">Soumettre votre proposition de projet:</a> lien vers jeu de données, questions auxquelles vous souhaitez répondre (mais pas encore de proposition de visu)</li>
+		</ul>
+		
+		<h4>21/11 — Principes de Design et visualisation</h4>
+		<ul>
+			<li><a href="">Cours</a></li>
+			<li><a href="">Lancement projet</a></li>
+		</ul>
+		
+
+		<h4>27/11 - Visualisation Spatiale</h4>
+		
+		<h4>05/12 - Visualisation de Graphes</h4>
+		
+		<h4>12/12 - Nettoyage de données + Vues connectées</h4>
+
+		<h4>19/12 - Séance banalisée projet</h4>
+
+
+		<h4>19/12 - Séance banalisée projet</h4>
+
+		<h4>09/01 — Soutenance de projet</h4>
+		<p>Soutenances de projet : 6 minutes de présentation et démo (pas de transparents), 3 minutes de questions.</p>
+		
+		<h4>16/01 - Post-soutenances</h4>
+		<p>Rendu final vendredi à 23h59</p>
+		
+		<p>S'assurer d'avoir un Readme.md à la racine de votre projet, à minima:</p>
+		<ul>
+			<li>Version anglaise/résumé</li>
+			<li>Un titre</li>
+			<li>Une description</li>
+		</ul>
+		
+		<p>Pour votre projet</p>
+		<ul>
+			<li>Utiliser un nom de repository github pertinent (pas ProjectDataviz13..)</li>					
+			<li>Images représentative du projet, une grand format : teaser.png, une miniature (500x300) thumbnail.png ou gif à la racine de votre projet</li>
+			<li>Mettre sur le site son nom + lien vers site web (ou emails)</li>
+			<li>Lien vers le cours de visualisation, Université Lyon1, votre formation</li>
+			<li>Sourcer et mettre des crédits: données, inspiration, etc.</li>
+		</ul>
+		
+		<p>Pull request sur le site du cours, dossier gallery</p>
+		<ul>
+			<li>lire la documentation sur la façon de faire un <a href="https://help.github.com/articles/creating-a-pull-request/">pull request</a></li>
+			<li>Ajouter deux images représentatives du projet dans le dossier <a href="https://github.com/LyonDataViz/teaching/tree/gh-pages/lyon1-m2/2019/gallery">gallery</a> en <b>respectant le format de nommage</b> des fichiers :</li>
+			<ul>
+				<li>une grand format avec le nom : <code>numerogroupe-teaser.png</code></li>
+				<li>une miniature (500x300) : <code>numerogroupe-thumbnail.png</code> ou <code>numerogroupe-gif</code> </li>
+			</ul>
+			<li>Ajouter un fichier de description simple décrivant le projet en français <code>numerogroupe-desc-fr.md</code> et un autre en anglais <code>numerogroupe-desc-en.md</code>, en respectant les modèles suivants (titre, lien et description) <a href="https://github.com/LyonDataViz/teaching/blob/gh-pages/lyon1-m2/2019/gallery/numeroprojet-desc-fr.md">numeroprojet-desc-fr.md</a>, <a href="https://github.com/LyonDataViz/teaching/blob/gh-pages/lyon1-m2/2019/gallery/numeroprojet-desc-en.md">numeroprojet-desc-en.md</a></li>
+		</ul>
+		
+		<h4>28/01 - Examen</h4>
+		<p>Pas de documents autorisés.</p>
+		
+		<h3>Git, GitHub et gestion de fichiers</h3>
+		
+		<p>Ce cours nécessite de votre part un compte sur <a href="https://github.com/">GitHub</a>. Il sera utile pour y déposer le rendu de votre projet final. Mais également de TP en D3.js intermédiaires. <b>Pour cela, il vous est indispensable de créer un compte GitHub et d'en maitriser l'usage pour valider ce cours.</b> A noter que GitHub est très utilisé dans l'industrie et le monde de la recherche, sa maîtrise vous apportera un plus si vous candidatez sur un poste technique dans une entreprise.</p>
+		
+		<ol>
+			<li>Créer un compte (gratuit) sur Github</li>
+			<li>Se familiariser avec le site (par exemple cherchez un projet cool <a href="https://github.com/id-Software/DOOM">qui vous plait</a>)</li>
+			<li>Créez un premier projet (même facile) essayez de le modifier, mettre à jour, forker d'autres projets, etc.</li>
+			<li>Comme suggéré ci-dessous, faire une <a href="https://github.com/LyonDataViz/teaching/pulls">pull request</a> en corrigeant <a href="https://github.com/LyonDataViz/teaching/blob/gh-pages/lyon1-m2/2019/index.html">cette même page</a>.
+		</ol>
+			
+		<p>Ci-dessous quelques ressources :</p>
+		
+		<ul>
+			<li><a href="https://git-scm.com/">Git Command line</a></li>
+			<li><a href="https://www.sbf5.com/~cduan/technical/git/">Understanding Git Conceptually</a></li>
+			<li><a href="https://help.github.com/articles/set-up-git/">Set Up Git</a></li>
+			<li><a href="https://desktop.github.com/">Git Desktop client (un choix parmis d'autres!)</a></li>
+		</ul>
+		
+		
+		<h2>Rendus en retard et suivi du travail.</h2>
+		<p>Tout projet de qualité repose sur processus de conception itératif, intégrant des critiques.</p>
+		<p>Si les rendus ne sont pas fait en temps et en heure, ou que vous ne cherchez pas à recevoir de retours critiques, le résultat ne pourra qu'être décevant.</p>
+		<p>Nous n'acceptons pas les rendus en retard quels qu'ils soient. En cas de circonstances exceptionnelles, merci de nous le signaler rapidement. Tout rendu en retard fera l'objet d'un malus significatif et une justification du retard sera demandée.</p>
+		
+		<h2>Éthique</h2>
+		<p>Les travaux existants sont une inspiration normale lors de tout processus de création. Pour autant, il est important de reconnaitre ses sources, et de les citer. Toute réutilisation de principes de design, de texte ou de code non référencé de manière explicite sera considéré comme du plagiat et de la copie, et sanctionné comme tel. Il est donc indispensable de clairement référencer ses sources.</p>
+		
+		<h2>Mises à jour et amélioration du site</h2>
+		<p>Ce document peut faire l'objet de mises à jour continues. Nous vous invitons à en consulter régulièrement l'<a href="https://github.com/LyonDataViz/teaching/tree/gh-pages/lyon1-m2/2019">historique</a>. Si par hasard vous identifiez une erreur (de tout genre) sur le site, ne pas hésiter à écrire une <a href="https://github.com/LyonDataViz/teaching/pulls">pull request</a></p>.
+		
+		<h2>Autres ressources sur le web</h2>
+		
+		<ul>
+			<li><a href="http://www.cs.ubc.ca/group/infovis/resources.shtml">Ressources de visualisation</a>, InfoVis Group UBC Computer Science.</li>
+			<li><a href="http://www.cs171.org/">CS 171</a>, Harvard University.</li>
+		</ul>
+		
+		
+		<p>Tableau</p>
+		<ul>
+			<li><a href="https://community.tableau.com/thread/151389" rel="nofollow">FAQ:  How to learn Tableau</a></li>
+			<li><a href="http://onlinehelp.tableau.com/current/pro/desktop/en-us/dataview_examples.html" rel="nofollow">Build standard charts with Tableau</a></li>
+		</ul>
+		<p>D3.js</p>
+		<ul>
+			<li><a href="https://github.com/d3/d3/wiki/gallery">Gallery of examples</a></li>
+			<li><a href="https://github.com/curran/d3-in-motion">Code examples and references for the course "D3.js in Motion"</a></li>
+			<li><a href="http://www.cagrimmett.com/til/2016/08/07/relearning-d3.html" rel="nofollow">Relearning D3.js</a></li>
+			<li><a href="http://d3indepth.com/" rel="nofollow">D3 in depth</a></li>
+			<li><a href="https://github.com/wbkd/awesome-d3">Awesome D3</a></li>
+			<li><a href="http://vadim.ogievetsky.com/IntroD3/#1" rel="nofollow">http://vadim.ogievetsky.com/IntroD3/#1</a></li>
+			<li><a href="https://github.com/arnicas/d3-faq">https://github.com/arnicas/d3-faq</a></li>
+			<li><a href="https://github.com/d3/d3/blob/master/CHANGES.md">Changes in D3 4.0</a></li>
+			<li><a href="https://iros.github.io/d3-v4-whats-new/#1" rel="nofollow">D3 V4 - What's new?</a></li>
+			<li><a href="http://jonathansoma.com/tutorials/d3/wide-vs-long-data/" rel="nofollow">Wide vs. Long Data in D3</a></li>
+		</ul>
+		<p>SVG</p>
+		<ul>
+			<li><a href="http://billautomata.github.io/svg2d3/" rel="nofollow">SVG2D3</a></li>
+		</ul>
+		<p>Git/GitHub</p>
+		<ul>
+			<li>Git and GitHub (e.g. <a href="https://try.github.io/levels/1/challenges/1" rel="nofollow">Try GitHub</a>)</li>
+			<li><a href="https://agripongit.vincenttunru.com/" rel="nofollow">https://agripongit.vincenttunru.com/</a></li>
+			<li><a href="https://onlywei.github.io/explain-git-with-d3/#freeplay" rel="nofollow">https://onlywei.github.io/explain-git-with-d3/#freeplay</a></li>
+			<li><a href="https://learngitbranching.js.org/" rel="nofollow">https://learngitbranching.js.org/</a></li>
+		</ul>
+		<p>JavaScript</p>
+		<ul>
+			<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" rel="nofollow">Mozilla Developers Network's Javascript reference</a></li>
+			<li>Learn JavaScript (e.g. <a href="https://learnxinyminutes.com/docs/javascript/" rel="nofollow">learnxinyminutes</a>, <a href="http://learnjsdata.com/index.html" rel="nofollow">learnjsdata</a>)</li>
+			<li>JSON (e.g. <a href="https://learnxinyminutes.com/docs/json/" rel="nofollow">learnxinyminutes</a>)</li>
+			<li><a href="http://eloquentjavascript.net/Eloquent_JavaScript.pdf" rel="nofollow">Eloquent JavaScript</a></li>
+			<li>(Notes on Douglas Crockford's Javascript the Good Parts <g-emoji class="g-emoji" alias="rocket" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f680.png">🚀</g-emoji>
+				)[<a href="https://github.com/iteles/Javascript-the-Good-Parts-notes">https://github.com/iteles/Javascript-the-Good-Parts-notes</a>]</li>
+		</ul>
+		<p>Data Visualization Classes</p>
+		<ul>
+			<li><a href="http://dataviz.media.mit.edu/" rel="nofollow">http://dataviz.media.mit.edu/</a></li>
+			<li><a href="http://aviz.fr/wiki/pmwiki.php/TeachingVA2017/Schedule" rel="nofollow">Visual Analytics Ecole Centrale Paris</a></li>
+			<li>Dataviz resources <a href="http://www.cs.ubc.ca/group/infovis/resources.shtml" rel="nofollow">http://www.cs.ubc.ca/group/infovis/resources.shtml</a></li>
+			<li><a href="https://curran.github.io/dataviz-course-archive/" rel="nofollow">https://curran.github.io/dataviz-course-archive/</a></li>
+			<li><a href="https://github.com/Ecohen4/data-viz">https://github.com/Ecohen4/data-viz</a></li>
+			<li><a href="https://github.com/arnicas/interactive-vis-course">https://github.com/arnicas/interactive-vis-course</a></li>
+		</ul>
+		<p>Blogs</p>
+		<ul>
+			<li><a href="http://www.thefunctionalart.com/" rel="nofollow">http://www.thefunctionalart.com/</a></li>
+			<li><a href="http://eagereyes.org/" rel="nofollow">http://eagereyes.org/</a></li>
+			<li><a href="http://visualisingdata.com/" rel="nofollow">http://visualisingdata.com/</a></li>
+		</ul>
+		<p>Graphics/Journals</p>
+		<ul>
+			<li><a href="http://www.bloomberg.com/visual-data/" rel="nofollow">http://www.bloomberg.com/visual-data/</a></li>
+			<li><a href="http://data.huffingtonpost.com/" rel="nofollow">http://data.huffingtonpost.com/</a></li>
+		</ul>
+		<p>Misc</p>
+		<ul>
+			<li><a href="https://www.learnenough.com/command-line-tutorial" rel="nofollow">Command line tutorial</a></li>
+			<li><a href="https://egghead.io/lessons/debugging-with-dev-tools" rel="nofollow">https://egghead.io/lessons/debugging-with-dev-tools</a></li>
+			<li>Design essay: <a href="https://medium.com/info-we-trust/picturing-the-great-migration-9e4b5a3eca8a" rel="nofollow">Picturing the Great Migration</a></li>
+		</ul>
+
+				<!--<h2>Calendrier</h2>
+					
+					<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;height=400&amp;wkst=2&amp;bgcolor=%23ffffff&amp;src=rhj3rp6ptuo2sd6ame64r4cq38%40group.calendar.google.com&amp;color=%23AB8B00&amp;ctz=Europe%2FParis" style="border-width:0" width="600" height="400" frameborder="0" scrolling="no"></iframe>
+				-->
+		</section>
+			
+			<!-- <aside id="sidebar">
+				<a href="articles.html">Articles</a>
+				<a href="https://github.com/LyonDataViz/teaching/tarball/master" class="button">
+					<small>Download</small>
+					.tar.gz file
+				</a>
+				
+				<p class="repo-owner"><a href="https://github.com/LyonDataViz/teaching"></a> is maintained by <a href="https://github.com/LyonDataViz">LyonDataViz</a>.</p>
+				
+				<p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+			</aside>-->
+	</div>
+	<script src="../javascripts/scale.fix.js"></script>
+		
+	</body>
+</html>
