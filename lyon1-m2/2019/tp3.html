@@ -47,10 +47,10 @@
 					</p>
 
 					<pre><code>
-d3.csv("GrippeFrance2014.csv", function(data) {
+d3.csv("GrippeFrance2014.csv").then(function(data) {
     color.domain([0, 2000]);
 
-    d3.json("regions.json", function(json) {
+    d3.json("regions.json").then(function(json) {
       //On fusionne les donnees avec le GeoJSON des regions
       for (var i = 0; i < data.length; i++) {
       ...
