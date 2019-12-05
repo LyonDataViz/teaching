@@ -27,26 +27,104 @@
 		<section class="main-content">
 				<h3>Objectif du TP</h3>
 
-				<p>1. Réaliser une matrice d'adjacence similaire à celle ci-dessous.</p>
+				<p>Réaliser une matrice d'adjacence similaire à celle ci-dessous.</p>
 
-
-        		<img width="80%" src="images/tp4-adjacence.png"> 
+				<video controls="controls" width="200" name="Video Name" src="images/adjacence.mov"></video>
 
 				<h4>1. Chargement des données</h4>
-					<p></p>
+					<p>Les données représentant des réseaux sont typiquement divisées en deux. Un fichier représente les noeuds, un autre les liens entre les noeuds.</p>
 
-				<h4>2. Réorganisation des données</h4>
+					<p>Pour ce TP nous allons utiliser des pseudo données de réseaux social: quelques personnes se suivent, chacune a des followers et suit d'autres personnes. La force du lien est le nombre de followers en commum. </p>
 
-					<p><br/>
-				  	<code></code>
+					<ul>
+						<li><a href="data/liens.csv">liens.csv</a></li>
+						<li><a href="data/noeuds.csv">noeuds.csv</a></li>
+					</ul>
+
+				<h4>2. Restructurer des données sous forme de matrice</h4>
+
+					<p>Pour vous faire gagner du temps, voici une fonction qui prend en entrée, les noeuds et les liens, et retourne un <code>Array</code> avec toutes les liens possibles entre noeuds, et la valeur associée à ces liens : le nombre de shared_followers, ainsi qu'une position en x et en y qui corresponde à la position dans la matrice d'adjacence.
 					</p>
 
 					<pre><code>
-
+function createAdjacencyMatrix(nodes,edges) {
+	var edgeHash = {};
+	for (x in edges) {
+		var id = edges[x].source + "-" + edges[x].target;
+		edgeHash[id] = edges[x];
+	}
+	matrix = [];
+	//create all possible edges
+	for (const [a, node_a] of nodes.entries()) {
+		for (const [b, node_b] of nodes.entries()) {
+		var grid = {id: node_a.id + "-" + node_b.id, x: a, y: b, sharedfollowers: 0};
+		if (edgeHash[grid.id]) {
+			grid.sharedfollowers = parseInt(edgeHash[grid.id].sharedfollowers);
+		}
+		matrix.push(grid);
+		}
+	}
+	return matrix;
+	}
 					</code></pre>
 
-				<h4>3. Réorganisation des données</h4>
+				<h4>3. Préparer l'échelle de couleur </h4>
 
+				<p>Récupérer la valeur maximale de sharedfollowers</p>
+				<p>Comme dans le TP précédent on peut utiliser d3.scaleQuantize(), le domaine est entre 0 et votre valeur maximale, le range celui de votre choix.</p>
+	
+				<h4>4. Afficher la matrice d'adjancence</h4>
+
+				Créer et positionner un élément svg vide qui va contenir la matrice.
+				
+				<pre><code>				
+var matriceElt = d3.select("svg")
+.append("g")
+.attr("transform", "translate(50,50)")
+.attr("id", "adjacencyMatrix");
+				</code></pre>
+			
+				Ajouter des carrés (= des rectangles de 25px par 25px) pour chaque element de votre matrice.
+
+				<h4>5. Ajouter des axes</h4>
+
+				A la différence des TPs précédents, nous allons cette fois ci utiliser les <a href="https://github.com/d3/d3-axis">axes de d3</a>
+
+				<pre><code>			
+// On définit la taille de notre de notre axe, 
+// 25 correspond à la taille en pixel d'une cellule de notre matrice
+// nodes.length correspond au nombre de ligne et de colonnes
+var scaleSize = nodes.length * 25; 
+
+x = d3.scaleBand()
+		.domain(nodes.map(function (el) {return el.id}))
+		.range([0, scaleSize])
+y = d3.scaleBand()
+		.domain(nodes.map(function (el) {return el.id}).reverse()) // reverse() inverse l'ordre des éléments pour que l'affichage se fasse dans le bon ordre en x : testez sans pour voir ce qui se passe.
+		.range([scaleSize, 0])
+				</code></pre>
+		  
+				<p>On a créé nos échelles on peut maintenant les passer à d3 axis qui va créer les éléments svg nécessaires.</p>
+
+<pre><code>			
+	d3.select("#adjacencyMatrix")
+		.append("g")
+		.attr("transform", `translate(X,Y)`) //TODO changer X et Y pour positionner correctement l'axe
+		.call(d3.axisBottom(x))          
+		
+	d3.select("#adjacencyMatrix")
+		.append("g")
+		.call(d3.axisLeft(y))
+</code></pre>
+
+				<p>call() va chainer l'appel à d3.axis... à la selection elle même</p>
+
+
+				<h4>6. Guides visuels</h4>
+
+				<p>Pour terminer sur le même principe que les tooltips que nous avons vu dans les TPs passés, nous allons placer des guides visuels qui facilite la lecture (voir l'image ci-dessus).</p>
+
+				<p>Ajouter deux éléments transparents à votre svg qui serviront de guides, lors du mouseover sur une cellule rendez les guides visibles et positionez les au bon endroit (voir la vidéo ci-dessus).</p>			
 
 		        <h2>Rendu pour ce TP</h2>
 
