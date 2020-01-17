@@ -1,5 +1,6 @@
-# How to limit our data consumation? (https://seifou23.github.io/Conso-donnee-premier-arriere/)
-
+# How to limit our data consumation? 
+(https://seifou23.github.io/Conso-donnee-premier-arriere/)
+<br>
 How to take full advantage of the potential of your smartphone while limiting the
 consumption of mobile data in your data plan?
 The problem addressed is the consumption of data in the background of applications on
