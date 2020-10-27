@@ -1,0 +1,17 @@
+source,target,sharedfollowers
+valerie,francois,1
+charles,francois,9
+charles,valerie,2
+marie,francois,5
+marie,gaston,12
+marie,nicolas,15
+marie,danielle,1
+gaston,nicolas,21
+gaston,danielle,1
+danielle,marie,3
+danielle,nicolas,4
+danielle,francois,4
+nicolas,marie,1
+nicolas,gaston,2
+nicolas,danielle,5
+victorine,gigi,3
