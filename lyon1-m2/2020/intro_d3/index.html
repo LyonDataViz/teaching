@@ -8,7 +8,7 @@
     <![endif]-->
 
     <meta name="description" content=""/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">/
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878"/>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="/teaching/assets/css/style.css?v=7711d6911e9680d4af53ac0eaf8745f6cb14632c"/>
@@ -46,8 +46,56 @@
     <h2>Le data binding D3</h2>
     <p>Principe de base connecter données et éléments du DOM.</p>
 
-    
+    <ul>
+        <li><a href="./4_d3barchart.html"></a></li>
+        <li><a href="./"></a></li>
+        <li><a href="./"></a></li>
+    </ul>
 
-    
+    <p>Quelques références:</p>
+    <ul>
+        <li><a href="https://bost.ocks.org/mike/circles/">Three little circles</a></li>
+        <li><a href="https://bost.ocks.org/mike/join/">Thinking with Joins</a></li>
+        <li><a href="https://bost.ocks.org/mike/selection/">How Selections Work</a></li>
+    </ul>
+
+
+    <h2>Les échelles</h2>
+    <p>Principe de base connecter données et éléments du DOM.</p>
+
+    <img width="50%" href="./img/scale.png"></img>
+    <caption>http://www.jeromecukier.net/blog/2011/08/11/d3-scales-and-color/</caption>
+
+    <pre class="prettyprint prettyprinted" style="font-size: 40px; background: transparent none repeat scroll 0% 0%; width: 1440px; transform: translate(-50%, -50%) scale(0.317361);"><span class="tag">&lt;script&gt;</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> width </span><span class="pun">=</span><span class="pln"> </span><span class="lit">700</span><span class="pun">,</span><span class="pln">
+        height </span><span class="pun">=</span><span class="pln"> </span><span class="lit">580</span><span class="pun">;</span><span class="pln">
+  
+    </span><span class="kwd">var</span><span class="pln"> svg </span><span class="pun">=</span><span class="pln"> d3</span><span class="pun">.</span><span class="pln">select</span><span class="pun">(</span><span class="pln"> </span><span class="str">"body"</span><span class="pln"> </span><span class="pun">)</span><span class="pln">    </span><span class="com">// creation du svg</span><span class="pln">
+            </span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln"> </span><span class="str">"svg"</span><span class="pln"> </span><span class="pun">)</span><span class="pln">        </span><span class="com">// dans le dom</span><span class="pln">
+          </span><span class="pun">.</span><span class="pln">attr</span><span class="pun">(</span><span class="pln"> </span><span class="str">"width"</span><span class="pun">,</span><span class="pln"> width </span><span class="pun">)</span><span class="pln">
+          </span><span class="pun">.</span><span class="pln">attr</span><span class="pun">(</span><span class="pln"> </span><span class="str">"height"</span><span class="pun">,</span><span class="pln"> height </span><span class="pun">);</span><span class="pln">
+  
+    </span><span class="kwd">var</span><span class="pln"> projection </span><span class="pun">=</span><span class="pln"> d3</span><span class="pun">.</span><span class="pln">geoAlbersUsa</span><span class="pun">()</span><span class="pln">        </span><span class="com">// definition de</span><span class="pln">
+          </span><span class="pun">.</span><span class="pln">translate</span><span class="pun">([</span><span class="pln">width</span><span class="pun">/</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">/</span><span class="lit">2</span><span class="pun">])</span><span class="pln">    </span><span class="com">// la projection</span><span class="pln">
+  
+    </span><span class="kwd">var</span><span class="pln"> path </span><span class="pun">=</span><span class="pln"> d3</span><span class="pun">.</span><span class="pln">geo</span><span class="pun">.</span><span class="pln">path</span><span class="pun">()</span><span class="pln">        </span><span class="com">// mapping des donnees</span><span class="pln">
+          </span><span class="pun">.</span><span class="pln">projection</span><span class="pun">(</span><span class="pln">projection</span><span class="pun">);</span><span class="pln">    </span><span class="com">// spatiales a la proj.</span><span class="pln">
+  
+    </span><span class="com">// chargement des donnees</span><span class="pln">
+    d3</span><span class="pun">.</span><span class="pln">json</span><span class="pun">(</span><span class="str">"us-states.json"</span><span class="pun">).</span><span class="pln">then</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">data</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        svg</span><span class="pun">.</span><span class="pln">selectAll</span><span class="pun">(</span><span class="str">"path"</span><span class="pun">)</span><span class="pln">
+           </span><span class="pun">.</span><span class="pln">data</span><span class="pun">(</span><span class="pln">data</span><span class="pun">.</span><span class="pln">features</span><span class="pun">)</span><span class="pln">
+           </span><span class="pun">.</span><span class="pln">enter</span><span class="pun">()</span><span class="pln">
+           </span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="str">"path"</span><span class="pun">)</span><span class="pln">        </span><span class="com">// “magie d3” : lien geojson</span><span class="pln">
+           </span><span class="pun">.</span><span class="pln">attr</span><span class="pun">(</span><span class="str">"d"</span><span class="pun">,</span><span class="pln"> path</span><span class="pun">);</span><span class="pln">    </span><span class="com">// -&gt; coordonnees ecran</span><span class="pln">
+    </span><span class="pun">});</span><span class="pln">
+  </span><span class="tag">&lt;/script&gt;</span></pre>
+  
+    <p>Quelques références:</p>
+    <ul>
+        <li><a href="/"></a></li>
+    </ul>
+
+
 </body>
 </html>
