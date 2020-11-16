@@ -16,23 +16,38 @@
     <title>Intro D3</title>
 </head>
 
-<script>
-    d3.select('#foo')
-    .style('background', '#000')
-    .on('click', function() {})
-    .append('div');
-
-    $('#foo')
-    .css('background', '#000')
-    .click(function() {})
-    .append($('<div></div>'));
-
-    // Selection en pur JS
-    function $(x) {
-    return document.querySelectorAll(x);
-    }
-</script>
 <body>
-    <div id="foo">foo div</div>
+    <h1>Intro D3</h1>
+
+    <h2>Quelques rappels</h2>
+    <ul>
+        <li><a href="./1_svg.html">SVG</a></li>
+        <li><a href="./2_css.html">CSS</a></li>
+        <li><a href="./3_js.html">JavaScript</a></li>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Tools/Browser_Console">Console et debugging</a></li>
+    </ul>
+
+    <h2>Quelques références</h2>
+    <ul>
+        <li>D3.js <a href="https://d3js.org/">site & documentation</a></li>
+        <li><a href="https://observablehq.com/@d3/gallery">D3 Gallery D3</a></li>
+        <!-- <li><a href="https://observablehq.com/@enjalot/touring-the-d3-ecosystem">Un tour de l'écosystème D3</a></li> -->
+        <li><a href="https://observablehq.com/@enjalot/touring-the-d3-ecosystem">Observable HQ</a> le notebook Web (quasi) dédié à D3js</li>
+        <li><a href="http://bl.ocks.org/mbostock/">des exemples</a> <a href="https://bost.ocks.org/mike/example/">plus anciens</a></li>
+        <li><a href=""></a></li>
+    </ul>
+    
+
+    <h2>D3 Show reel</h2>
+    <iframe src="https://player.vimeo.com/video/29862153" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <p><a href="https://vimeo.com/29862153">D3 Show Reel</a> from <a href="https://vimeo.com/mbostock">Mike Bostock</a>, <a href="https://bl.ocks.org/mbostock/1256572">code source</a>.</p>
+
+
+    <h2>Le data binding D3</h2>
+    <p>Principe de base connecter données et éléments du DOM.</p>
+
+    
+
+    
 </body>
 </html>

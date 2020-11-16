@@ -8,7 +8,7 @@
     <![endif]-->
 
     <meta name="description" content=""/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">/
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="theme-color" content="#157878"/>
     <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="/teaching/assets/css/style.css?v=7711d6911e9680d4af53ac0eaf8745f6cb14632c"/> -->
@@ -17,26 +17,27 @@
     crossorigin="anonymous"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.min.js" integrity="sha512-C2RveGuPIWqkaLAluvoxyiaN1XYNe5ss11urhZWZYBUA9Ydgj+hfGKPcxCzTwut1/fmjEZR7Ac35f2aycT8Ogw==" crossorigin="anonymous"></script>
-    <title>Intro D3</title>
+
+    <title>Intro D3 : 3 JS</title>
 </head>
 
-<script>
-    d3.select('#foo')
-    .style('background', '#000')
-    .on('click', function() {})
-    .append('p').text('d3');
-
-    $('#foo')
-    .css('background', '#000')
-    .click(function() {})
-    .append($('<p>Jquery</p>'));
-
-    // Selection en pur JS
-    function $(x) {
-        return document.querySelectorAll(x);
-    }
-</script>
 <body>
     <div id="foo">foo div</div>
+    <script>
+        d3.select('#foo')
+        .style('background', '#000')
+        .on('click', function() {})
+        .append('p').text('d3');
+    
+        $('#foo')
+        .css('background', '#000')
+        .click(function() {})
+        .append($('<p>Jquery</p>'));
+    
+        // // Selection en pur JS
+        // function $(x) {
+        //     return document.querySelectorAll(x);
+        // }
+    </script>    
 </body>
 </html>
