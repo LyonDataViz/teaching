@@ -25,13 +25,13 @@
     <div id="foo">foo div</div>
     <script>
         d3.select('#foo')
-        .style('background', '#000')
-        .on('click', function() {})
+        .style('background-color', '#333')
+        .on('click', function() {console.log("d3")})
         .append('p').text('d3');
     
         $('#foo')
-        .css('background', '#000')
-        .click(function() {})
+        .css('color', '#EEE')
+        .click(function() {console.log("jquery")})
         .append($('<p>Jquery</p>'));
     
         // // Selection en pur JS
