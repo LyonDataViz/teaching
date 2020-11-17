@@ -46,11 +46,18 @@
     <h2>Le data binding D3</h2>
     <p>Principe de base connecter données et éléments du DOM.</p>
 
+    <img width="50%" src="./img/binding_1.png"></img>
+
+    <p>Illustrations de <a href="https://medium.com/@c_behrens/enter-update-exit-6cafc6014c36">Christian Behrens</a></p>
+
     <ul>
-        <li><a href="./4_d3barchart.html"></a></li>
-        <li><a href="./"></a></li>
-        <li><a href="./"></a></li>
+        <li><a href="./4_d3barchart.html">Enter</a></li>
+        <li><a href="./"></a>Exit</li>
+        <li><a href="./"></a>Update</li>
+        <li><a href="./"></a>Join</li>        
     </ul>
+
+    https://observablehq.com/@d3/lets-make-a-bar-chart
 
     <p>Quelques références:</p>
     <ul>
@@ -63,34 +70,9 @@
     <h2>Les échelles</h2>
     <p>Principe de base connecter données et éléments du DOM.</p>
 
-    <img width="50%" href="./img/scale.png"></img>
-    <caption>http://www.jeromecukier.net/blog/2011/08/11/d3-scales-and-color/</caption>
+    <img width="50%" src="./img/scale.png"></img>
+    <p>Illustration de <a href="http://www.jeromecukier.net/blog/2011/08/11/d3-scales-and-color/">Jerome Cuckier</a></p>
 
-    <pre class="prettyprint prettyprinted" style="font-size: 40px; background: transparent none repeat scroll 0% 0%; width: 1440px; transform: translate(-50%, -50%) scale(0.317361);"><span class="tag">&lt;script&gt;</span><span class="pln">
-    </span><span class="kwd">var</span><span class="pln"> width </span><span class="pun">=</span><span class="pln"> </span><span class="lit">700</span><span class="pun">,</span><span class="pln">
-        height </span><span class="pun">=</span><span class="pln"> </span><span class="lit">580</span><span class="pun">;</span><span class="pln">
-  
-    </span><span class="kwd">var</span><span class="pln"> svg </span><span class="pun">=</span><span class="pln"> d3</span><span class="pun">.</span><span class="pln">select</span><span class="pun">(</span><span class="pln"> </span><span class="str">"body"</span><span class="pln"> </span><span class="pun">)</span><span class="pln">    </span><span class="com">// creation du svg</span><span class="pln">
-            </span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln"> </span><span class="str">"svg"</span><span class="pln"> </span><span class="pun">)</span><span class="pln">        </span><span class="com">// dans le dom</span><span class="pln">
-          </span><span class="pun">.</span><span class="pln">attr</span><span class="pun">(</span><span class="pln"> </span><span class="str">"width"</span><span class="pun">,</span><span class="pln"> width </span><span class="pun">)</span><span class="pln">
-          </span><span class="pun">.</span><span class="pln">attr</span><span class="pun">(</span><span class="pln"> </span><span class="str">"height"</span><span class="pun">,</span><span class="pln"> height </span><span class="pun">);</span><span class="pln">
-  
-    </span><span class="kwd">var</span><span class="pln"> projection </span><span class="pun">=</span><span class="pln"> d3</span><span class="pun">.</span><span class="pln">geoAlbersUsa</span><span class="pun">()</span><span class="pln">        </span><span class="com">// definition de</span><span class="pln">
-          </span><span class="pun">.</span><span class="pln">translate</span><span class="pun">([</span><span class="pln">width</span><span class="pun">/</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">/</span><span class="lit">2</span><span class="pun">])</span><span class="pln">    </span><span class="com">// la projection</span><span class="pln">
-  
-    </span><span class="kwd">var</span><span class="pln"> path </span><span class="pun">=</span><span class="pln"> d3</span><span class="pun">.</span><span class="pln">geo</span><span class="pun">.</span><span class="pln">path</span><span class="pun">()</span><span class="pln">        </span><span class="com">// mapping des donnees</span><span class="pln">
-          </span><span class="pun">.</span><span class="pln">projection</span><span class="pun">(</span><span class="pln">projection</span><span class="pun">);</span><span class="pln">    </span><span class="com">// spatiales a la proj.</span><span class="pln">
-  
-    </span><span class="com">// chargement des donnees</span><span class="pln">
-    d3</span><span class="pun">.</span><span class="pln">json</span><span class="pun">(</span><span class="str">"us-states.json"</span><span class="pun">).</span><span class="pln">then</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">data</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
-        svg</span><span class="pun">.</span><span class="pln">selectAll</span><span class="pun">(</span><span class="str">"path"</span><span class="pun">)</span><span class="pln">
-           </span><span class="pun">.</span><span class="pln">data</span><span class="pun">(</span><span class="pln">data</span><span class="pun">.</span><span class="pln">features</span><span class="pun">)</span><span class="pln">
-           </span><span class="pun">.</span><span class="pln">enter</span><span class="pun">()</span><span class="pln">
-           </span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="str">"path"</span><span class="pun">)</span><span class="pln">        </span><span class="com">// “magie d3” : lien geojson</span><span class="pln">
-           </span><span class="pun">.</span><span class="pln">attr</span><span class="pun">(</span><span class="str">"d"</span><span class="pun">,</span><span class="pln"> path</span><span class="pun">);</span><span class="pln">    </span><span class="com">// -&gt; coordonnees ecran</span><span class="pln">
-    </span><span class="pun">});</span><span class="pln">
-  </span><span class="tag">&lt;/script&gt;</span></pre>
-  
     <p>Quelques références:</p>
     <ul>
         <li><a href="/"></a></li>
