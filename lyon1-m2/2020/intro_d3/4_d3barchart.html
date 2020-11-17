@@ -9,33 +9,78 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.min.js" integrity="sha512-C2RveGuPIWqkaLAluvoxyiaN1XYNe5ss11urhZWZYBUA9Ydgj+hfGKPcxCzTwut1/fmjEZR7Ac35f2aycT8Ogw==" crossorigin="anonymous"></script>
 
+<script>
+        let svg = d3.select("placeholder")
+        .append("svg")
+        .attr("width",400)
+        .attr("height",300)
+        .style("border", "solid 1px lightgrey")
+        .style("padding", "10px")
+    
+        // definition des donnees
+        // normalement let data suffit, 
+        // ici j'expose dans la console pour la démo 
+        let data = [10, 20, 20, 40, 10];
+    
+        let bars = svg.selectAll("rect") // On cherche des rectangles svg
+            .data(data) // on charge les donnees
+            .enter() // en cas de nouvelle donnees
+            .append("rect") // on ajoute le rectangle
+            .attr("height", 20) // de hauteur 20   
+            .attr("width", // de largeur la donnee fournie 
+                function(d) { return d * 2}) // on itere is sur la donnee "d" est un element du tableau
+            .attr("y", // a la position y suivante 
+                function(d,i) { return i * 50}) // on itere is sur la donnee "i" est l'index de l'iterateur
+    </script>    
+    
     <title>Intro D3 : 3 JS</title>
 </head>
-<script>
-    let svg = d3.select("body")
-    .append("svg")
-    .attr("width",400)
-    .attr("height",300)
-    .style("border", "solid 1px lightgrey")
-    .style("padding", "10px")
-
-    // definition des donnees
-    // normalement let data suffit, 
-    // ici j'expose dans la console pour la démo 
-    let data = [10, 20, 20, 40, 10];
-
-    let bars = svg.selectAll("rect") // On cherche des rectangles svg
-        .data(data) // on charge les donnees
-        .enter() // en cas de nouvelle donnees
-        .append("rect") // on ajoute le rectangle
-        .attr("height", 20) // de hauteur 20   
-        .attr("width", // de largeur la donnee fournie 
-            function(d) { return d * 2}) // on itere is sur la donnee "d" est un element du tableau
-        .attr("y", // a la position y suivante 
-            function(d,i) { return i * 50}) // on itere is sur la donnee "i" est l'index de l'iterateur
-</script>    
 
 <body>
+    <div id="placeholder"></div>
+    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><table><tr><td><pre style="margin: 0; line-height: 125%"> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></td><td><pre style="margin: 0; line-height: 125%">        <span style="color: #008800; font-weight: bold">let</span> svg <span style="color: #333333">=</span> d3.select(<span style="background-color: #fff0f0">&quot;placeholder&quot;</span>)
+        .append(<span style="background-color: #fff0f0">&quot;svg&quot;</span>)
+        .attr(<span style="background-color: #fff0f0">&quot;width&quot;</span>,<span style="color: #0000DD; font-weight: bold">400</span>)
+        .attr(<span style="background-color: #fff0f0">&quot;height&quot;</span>,<span style="color: #0000DD; font-weight: bold">300</span>)
+        .style(<span style="background-color: #fff0f0">&quot;border&quot;</span>, <span style="background-color: #fff0f0">&quot;solid 1px lightgrey&quot;</span>)
+        .style(<span style="background-color: #fff0f0">&quot;padding&quot;</span>, <span style="background-color: #fff0f0">&quot;10px&quot;</span>)
+    
+        <span style="color: #888888">// definition des donnees</span>
+        <span style="color: #888888">// normalement let data suffit, </span>
+        <span style="color: #888888">// ici j&#39;expose dans la console pour la démo </span>
+        <span style="color: #008800; font-weight: bold">let</span> data <span style="color: #333333">=</span> [<span style="color: #0000DD; font-weight: bold">10</span>, <span style="color: #0000DD; font-weight: bold">20</span>, <span style="color: #0000DD; font-weight: bold">20</span>, <span style="color: #0000DD; font-weight: bold">40</span>, <span style="color: #0000DD; font-weight: bold">10</span>];
+    
+        <span style="color: #008800; font-weight: bold">let</span> bars <span style="color: #333333">=</span> svg.selectAll(<span style="background-color: #fff0f0">&quot;rect&quot;</span>) <span style="color: #888888">// On cherche des rectangles svg</span>
+            .data(data) <span style="color: #888888">// on charge les donnees</span>
+            .enter() <span style="color: #888888">// en cas de nouvelle donnees</span>
+            .append(<span style="background-color: #fff0f0">&quot;rect&quot;</span>) <span style="color: #888888">// on ajoute le rectangle</span>
+            .attr(<span style="background-color: #fff0f0">&quot;height&quot;</span>, <span style="color: #0000DD; font-weight: bold">20</span>) <span style="color: #888888">// de hauteur 20   </span>
+            .attr(<span style="background-color: #fff0f0">&quot;width&quot;</span>, <span style="color: #888888">// de largeur la donnee fournie </span>
+                <span style="color: #008800; font-weight: bold">function</span>(d) { <span style="color: #008800; font-weight: bold">return</span> d <span style="color: #333333">*</span> <span style="color: #0000DD; font-weight: bold">2</span>}) <span style="color: #888888">// on itere is sur la donnee &quot;d&quot; est un element du tableau</span>
+            .attr(<span style="background-color: #fff0f0">&quot;y&quot;</span>, <span style="color: #888888">// a la position y suivante </span>
+                <span style="color: #008800; font-weight: bold">function</span>(d,i) { <span style="color: #008800; font-weight: bold">return</span> i <span style="color: #333333">*</span> <span style="color: #0000DD; font-weight: bold">50</span>}) <span style="color: #888888">// on itere is sur la donnee &quot;i&quot; est l&#39;index de l&#39;iterateur</span>
+</pre></td></tr></table></div>
+
 </body>
 </html>
 
