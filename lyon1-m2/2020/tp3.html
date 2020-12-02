@@ -32,7 +32,7 @@
 				<img width="80%" src="images/tp3-tooltip.png">
 
 				<h4>1. Chargement du fond de carte</h4>
-					<p>Charger le <a href="data/regions.json">fond de carte des anciennes régions françaises</a> avec D3.js.</p>
+					<p>Charger le <a href="https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/departements-version-simplifiee.geojson">fond de carte des départements français métropolitains</a> avec D3.js.</p>
 					<p>Voir l'exemple vu en cours:</p>
 
 					<iframe src="https://codesandbox.io/embed/d3-carto-tp3-72vry?fontsize=13&hidenavigation=1&theme=dark"
@@ -110,8 +110,8 @@ d3.csv("covid-france-mars.csv").then(function(data) {
 
 					<pre><code>
 &lt;div&gt;
-  &lt;input id="slider" type="range" value="1" min="1" max="52" step="1" /&gt;
-  &lt;span id="week"&gt;week&lt;/span&gt;
+  &lt;input id="slider" type="range" value="1" min="1" max="60" step="1" /&gt;
+  &lt;span id="day"&gt;day&lt;/span&gt;
 &lt;/div&gt;
 					</code></pre>
 
@@ -121,15 +121,16 @@ d3.csv("covid-france-mars.csv").then(function(data) {
 
 				<h4>6. Traitement des données</h4>
 
-				<p>Nous allons maintenant élargir le jeu de données. Cette fois ci, à la place d'injecter une valeur donnée dans l'objet geojson, nous allons injecter un tableau de toutes les valeurs de l'annee pour une région (une ligne du CSV). Le code ci-dessous, récupère les valeurs d'une région données sous forme de tableau qu'il suffira d'insérer dans le json.</p>
-				<pre><code>Object.values(data[i]);</code></pre>
+				<p>Nous allons maintenant élargir le jeu de données. Cette fois ci, à la place d'injecter une valeur donnée dans l'objet geojson, nous allons injecter un tableau des valeurs quotidiennes pour un département donné.
+					<!-- Le code ci-dessous, récupère les valeurs d'une département données sous forme de tableau qu'il suffira d'insérer dans le json. -->
+				</p>
+				<!-- <pre><code>Object.values(data[i]);</code></pre> --> -->
 
 <!-- 				<p>Vous pouvez faire un <code>console.log(Object.keys(data[0]));</code> pour vous faire une idée du contenu.</p>
  -->
 
-
-				<p>Il est possible de récupérer la liste des semaines sous forme de tableau JavaScript, avec la méthode suivante:</p>
-				<pre><code>var weeksArray = Object.keys(data[0]);</code></pre>
+				<!-- <p>Il est possible de récupérer la liste des semaines sous forme de tableau JavaScript, avec la méthode suivante:</p>
+				<pre><code>var weeksArray = Object.keys(data[0]);</code></pre> -->
 
 
 				<h4>7. Modification des données à afficher</h4>
