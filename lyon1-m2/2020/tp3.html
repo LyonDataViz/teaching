@@ -46,7 +46,7 @@
 					<p>Positioner la carte sur la France, en utilisant la projection suivante : <code>d3.geoConicConformal().center([2.454071, 46.279229]).scale(2800);</code></p>
 
 				<h4>2. Chargement des données</h4>
-					<p>Charger les données du covid similaire à celles du TP1, pour commencer nous allons démarrer avec un <a href="data/covid-france-mars.csv">sous ensemble des données allant de mars à avril</a> en métropole (plutôt que le jeu de <a href="data/covid-france-2.csv">données</a> entier.) En vous inspirant du code vu en cours les afficher sur la carte (voir la structure ci-dessous). Utiliser <code>fill</code> pour colorer chaque région selon l'intensité des hospitalisations.</p>
+					<p>Charger les données du covid similaire à celles du TP1, pour commencer nous allons démarrer avec un <a href="https://lyondataviz.github.io/teaching/lyon1-m2/2020/data/covid-france-mars-avril.csv">sous ensemble des données allant de mars à avril</a> en métropole (plutôt que le jeu de <a href="data/covid-france-2.csv">données</a> entier.) En vous inspirant du code vu en cours les afficher sur la carte (voir la structure ci-dessous). Utiliser <code>fill</code> pour colorer chaque région selon l'intensité des hospitalisations.</p>
 
 					<p>Nous utilisons le fichier geojson <a href="https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/departements-version-simplifiee.geojson">suivant, décrivant les départements français métropolitain</a>.</p>
 
@@ -55,7 +55,7 @@
 					</p>
 
 					<pre><code>
-d3.csv("covid-france-mars.csv").then(function(data) {
+d3.csv("covid-france-mars-avril.csv").then(function(data) {
     color.domain([0, 2000]);
 
     d3.json("departements-version-simplifiee.geojson").then(function(json) {
@@ -87,8 +87,7 @@ d3.csv("covid-france-mars.csv").then(function(data) {
 
 				<!-- <h4>5. Affichage d'un barchart temporel</h4>
 				<p>En reprenant les barcharts vus dans le TP D3 précédent, ou <a href="https://blockbuilder.org/aurelient/18976d5e9cfa0953799e9d165a788e7b">cet exemple</a>, rajouter un barchart en dessous de la carte qui montre l'évolution sur toutes les semaines de 2014.</p>
-
- -->
+ 			-->
 		        <h2>Rendu pour ce TP</h2>
 
 		        <p>Le rendu final est à faire sur Tomuss. Le TP peut se faire en binôme.</p>
@@ -124,7 +123,7 @@ d3.csv("covid-france-mars.csv").then(function(data) {
 				<p>Nous allons maintenant élargir le jeu de données. Cette fois ci, à la place d'injecter une valeur donnée dans l'objet geojson, nous allons injecter un tableau des valeurs quotidiennes pour un département donné.
 					<!-- Le code ci-dessous, récupère les valeurs d'une département données sous forme de tableau qu'il suffira d'insérer dans le json. -->
 				</p>
-				<!-- <pre><code>Object.values(data[i]);</code></pre> --> -->
+				<!-- <pre><code>Object.values(data[i]);</code></pre> -->
 
 <!-- 				<p>Vous pouvez faire un <code>console.log(Object.keys(data[0]));</code> pour vous faire une idée du contenu.</p>
  -->
@@ -145,7 +144,7 @@ d3.select("#slider").on("input", function() {
 				<p>Faire en sorte qu'en cas de changement du slider, le texte affiche la semaine sélectionnée.</p>
 
 				Insérer dans la fonction updateViz le code suivant :
-				<pre><code>d3.select('#week').html( valeur de la semaine selectionnée );</code></pre>
+				<pre><code>d3.select('#day').html( valeur de la semaine selectionnée );</code></pre>
 
 				<p>Appeler la fonction de dessin de la carte <code>drawMap()</code> (voir l'étape suivante).</p>
 
@@ -153,7 +152,7 @@ d3.select("#slider").on("input", function() {
 	// update the elements
 	function updateViz(value) {
 		console.log("update " + "value");
-		d3.select('#week').html(weeksArray[value]);
+		d3.select('#data').html(daysArray[value]);
 		drawMap(value);
 	}
 </code></pre>
@@ -168,7 +167,7 @@ d3.select("#slider").on("input", function() {
 				<p>Gérer la mise à jour de la carte, en partant du code ci-dessous. <b>NB: la mise à jour ne demande pas de tout redessiner.</b></p>
 
 				<pre><code>
-function drawMap(currentWeek) {
+function drawMap(currentDay) {
   carte = svg.selectAll("path")
     .data(json.features);
 
