@@ -59,7 +59,7 @@ d3.csv("covid-france-mars-avril.csv").then(function(data) {
     color.domain([0, 2000]);
 
     d3.json("departements-version-simplifiee.geojson").then(function(json) {
-      //On fusionne les donnees avec le GeoJSON des regions
+      //On fusionne les donnees avec le GeoJSON des departements
       for (var i = 0; i < data.length; i++) {
       ...
       }
