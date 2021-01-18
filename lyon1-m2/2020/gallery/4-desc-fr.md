@@ -1,3 +1,0 @@
-[Visualisation de la consommation électrique des ménages](https://ccspteam.github.io)
-
-Dans ce projet, nous nous intéressons à la consommation  électrique des foyers du français moyen, et ce appareil par appareil. Nous souhaitons considérons tous les appareils usuels : télévision, ordinateur, machine à laver, four à micro-ondes, etc. dans le but de fournir des informations précises et quantitatives sur leur impact énergétique. L’objectif principal de ce projet est de fournir un outil permettant aux familles de savoir quels sont les appareils qui consomment le plus, et donc ceux sur lesquels il faut agir en priorit é.
