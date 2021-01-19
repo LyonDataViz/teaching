@@ -1,4 +1,4 @@
-# Data Visualization de la Déforestation
+(Data Visualization de la Déforestation)[https://pltreger.github.io/Deforestation/]
 
 Entre 2004 et 2017, 43 millions d’hectares de forêts ont disparu. 80% de la déforestation mondiale est causée par l’agriculture, les 20% restants se répartissant entre la construction d’infrastructures d’abord, puis les activités minières et enfin l’urbanisation. Cette déforestation a de gros impacts sur la biodiversité et le climat.
 

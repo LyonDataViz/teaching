@@ -1,4 +1,4 @@
-# Data Visualization of Deforestation
+(Data Visualization of Deforestation)[https://pltreger.github.io/Deforestation/]
 
 Between 2004 and 2017, 43 million hectares of forests disappeared. 80% of global deforestation is caused by agriculture, with 20% of the remainder split between infrastructure construction first, then mining activities and finally urbanization. This deforestation has major impacts on biodiversity and climate.
 
