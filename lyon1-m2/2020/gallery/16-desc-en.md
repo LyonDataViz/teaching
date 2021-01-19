@@ -1,4 +1,4 @@
-[Overshoot day](https://github.com/nalmt/dataviz)
+[Overshoot day](https://nalmt.github.io/overshootday/)
 
 As the environmental activist Greta Thunberg said " We aren’t destroying the biosphere because we are selfish. We are doing it simply because we are unaware. "
  
