@@ -13,4 +13,4 @@ montrer aux personnes qui verrons notre date-visualisation, que
 leur comportement peut avoir un impact direct sur la pollution
 atmosphérique, le réchauffement climatique, et l'état du monde de demain.
 
-Visitez notre site https://hbonnavaud.github.io/projet_data_vizualisation/index.html
+Visitez notre site [Impacte de la covid-19 sur les émissions de CO2 dans le monde](https://hbonnavaud.github.io/projet_data_vizualisation/index.html)

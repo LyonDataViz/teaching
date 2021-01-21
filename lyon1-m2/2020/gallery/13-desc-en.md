@@ -1,4 +1,4 @@
-## Impacte de la COVID-19 sur les les émissions de CO2
+## Impact of VIDOC-19 on CO2 emissions
 
 The production of greenhouse gas emissions has continued to accompany
 the technological growth of humanity. Our growing
@@ -13,4 +13,4 @@ to show people who will see our date-visualization, that
 their behaviour can have a direct impact on pollution
 atmospheric pollution, global warming, and the state of the world of tomorrow.
 
-Visit our website https://hbonnavaud.github.io/projet_data_vizualisation/index.html
+Visit our website [Impact of VIDOC-19 on global CO2 emissions](https://hbonnavaud.github.io/projet_data_vizualisation/index.html)
