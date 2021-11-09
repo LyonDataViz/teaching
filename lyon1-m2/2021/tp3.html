@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#157878">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="/teaching/assets/css/style.css?v=7711d6911e9680d4af53ac0eaf8745f6cb14632c">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>TP3 DataViz Lyon1 M2 2021-2022</title>
+</head>
+
+
+<body>
+	<section class="page-header">
+		<h1 class="project-name">TP3 DataViz: Données spatiales avec D3.js</h1>
+		<h2 class="project-tagline">Université Lyon 1, Master 2, 2021-2022</h2>
+	</section>
+
+
+		<section class="main-content">
+				<h3>Objectif du TP</h3>
+
+				<p>1. Réaliser une carte du covid en France similaire à celle ci-dessous.</p>
+
+				<img width="80%" src="images/tp3-tooltip.png">
+
+				<h4>1. Chargement du fond de carte</h4>
+					<p>Charger le <a href="https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/departements-version-simplifiee.geojson">fond de carte des départements français métropolitains</a> avec D3.js.</p>
+					<p>Voir l'exemple vu en cours:</p>
+
+					<iframe src="https://codesandbox.io/embed/d3-carto-tp3-72vry?fontsize=13&hidenavigation=1&theme=dark"
+					     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+					     title="d3-carto-tp3"
+					     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+					   ></iframe>
+
+					<p>Dans l'exemple du cours nous utilisons une projection Américaine. Basculez sur une projection plus générique comme <code>d3.geoConicConformal</code>. Nous utilisons la v6 de D3.js <a href="https://github.com/d3/d3-geo-projection">la page de référence sur les projections est ici</a>.</p>
+
+					<p>Positioner la carte sur la France, en utilisant la projection suivante : <code>d3.geoConicConformal().center([2.454071, 46.279229]).scale(2800);</code></p>
+
+				<h4>2. Chargement des données</h4>
+					<p>Charger les données du covid similaire à celles du TP1, pour commencer nous allons démarrer avec un <a href="https://lyondataviz.github.io/teaching/lyon1-m2/2020/data/covid-france-mars-avril.csv">sous ensemble des données allant de mars à avril</a> en métropole (plutôt que le jeu de <a href="data/covid-france-2.csv">données</a> entier.) En vous inspirant du code vu en cours les afficher sur la carte (voir la structure ci-dessous). Utiliser <code>fill</code> pour colorer chaque région selon l'intensité des hospitalisations.</p>
+
+					<p>Nous utilisons le fichier geojson <a href="https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/departements-version-simplifiee.geojson">suivant, décrivant les départements français métropolitain</a>.</p>
+
+					<p>Utiliser colonne <code>hosp</code> du tableau CSV, pour récupérer les hospitalisations du département pour un jour donné.<br/>
+				  	<code>var dataValue = parseInt(data[i].hosp);</code>
+					</p>
+
+					<pre><code>
+d3.csv("covid-france-mars-avril.csv").then(function(data) {
+    color.domain([0, 2000]);
+
+    d3.json("departements-version-simplifiee.geojson").then(function(json) {
+      //On fusionne les donnees avec le GeoJSON des departements
+      for (var i = 0; i < data.length; i++) {
+      ...
+      }
+
+      svg.selectAll("path")
+      ...
+        .style("fill", function(d) {
+              var value = d.properties.value;
+              ...
+      });
+    });
+});
+					</code></pre>
+
+
+
+				<h4>3. Afficher les données d'une journée</h4>
+				<p><code>data[i].jour</code> permet d'accéder au jour courant pour la ligne i du tableau, <code>data[i].hosp</code> permet d'accéder aux hospitalisations.</p>
+
+				<p>Ajuster l'échelle des couleurs au besoin.</p>
+
+				<h4>4. Tooltip</h4>
+				<p>En vous inspirant du <a href="https://bl.ocks.org/aurelient/01230c9f3ec841528cec1b61904e4a47/">block suivant</a> ajouter un tooltip avec le nom et la valeur de la région. Attention la gestion des événements a changé avec <a href="https://observablehq.com/@d3/d3v6-migration-guide">d3v6, voir ici</a> (le changement est minimal, on passe maintenant par un pointer event qui est plus générique qu'un mouse event).</p>
+
+
+				<!-- <h4>5. Affichage d'un barchart temporel</h4>
+				<p>En reprenant les barcharts vus dans le TP D3 précédent, ou <a href="https://blockbuilder.org/aurelient/18976d5e9cfa0953799e9d165a788e7b">cet exemple</a>, rajouter un barchart en dessous de la carte qui montre l'évolution sur toutes les semaines de 2014.</p>
+ 			-->
+		        <h2>Rendu pour ce TP</h2>
+
+		        <p>Le rendu final est à faire sur Tomuss. Le TP peut se faire en binôme.</p>
+
+
+
+
+				<br/>
+				<hr/>
+
+
+
+        		<h2>Bonus</h2>
+
+
+
+				<h4>5. Ajout d'un slider temporel</h4>
+					<p>Rajouter un slider qui permettra de naviguer entre les différentes semaines du jeu de données.</p>
+
+					<pre><code>
+&lt;div&gt;
+  &lt;input id="slider" type="range" value="1" min="1" max="60" step="1" /&gt;
+  &lt;span id="day"&gt;day&lt;/span&gt;
+&lt;/div&gt;
+					</code></pre>
+
+					<p>On ajoutera aussi un élement textuel (dans le <code>span</code>) pour afficher la valeur du slider, et s'assurer ainsi que les évènements sont bien capturés par le code javascript plus tard.</p>
+
+
+
+				<h4>6. Traitement des données</h4>
+
+				<p>Nous allons maintenant élargir le jeu de données. Cette fois ci, à la place d'injecter une valeur donnée dans l'objet geojson, nous allons injecter un tableau des valeurs quotidiennes pour un département donné.
+					<!-- Le code ci-dessous, récupère les valeurs d'une département données sous forme de tableau qu'il suffira d'insérer dans le json. -->
+				</p>
+				<!-- <pre><code>Object.values(data[i]);</code></pre> -->
+
+<!-- 				<p>Vous pouvez faire un <code>console.log(Object.keys(data[0]));</code> pour vous faire une idée du contenu.</p>
+ -->
+
+				<!-- <p>Il est possible de récupérer la liste des semaines sous forme de tableau JavaScript, avec la méthode suivante:</p>
+				<pre><code>var weeksArray = Object.keys(data[0]);</code></pre> -->
+
+
+				<h4>7. Modification des données à afficher</h4>
+				<p>Ajouter un listener sur le slider, qui appellera une fonction <code>updateViz</code> en cas de changement, pour mettre à jour la visualisation:</p>
+
+				<pre><code>
+d3.select("#slider").on("input", function() {
+	updateViz(+this.value);
+});
+				</code></pre>
+
+				<p>Faire en sorte qu'en cas de changement du slider, le texte affiche la semaine sélectionnée.</p>
+
+				Insérer dans la fonction updateViz le code suivant :
+				<pre><code>d3.select('#day').html( valeur de la semaine selectionnée );</code></pre>
+
+				<p>Appeler la fonction de dessin de la carte <code>drawMap()</code> (voir l'étape suivante).</p>
+
+<pre><code>
+	// update the elements
+	function updateViz(value) {
+		console.log("update " + "value");
+		d3.select('#data').html(daysArray[value]);
+		drawMap(value);
+	}
+</code></pre>
+
+
+
+				<h4>8. Dessiner et mettre à jour la carte</h4>
+
+				<p>Revoir les principes de update et enter en D3 vu dans le 1e TP.</p>
+
+				<p>Dessiner la carte comme précedemment, avec <code>carte.enter()</code>.</p>
+				<p>Gérer la mise à jour de la carte, en partant du code ci-dessous. <b>NB: la mise à jour ne demande pas de tout redessiner.</b></p>
+
+				<pre><code>
+function drawMap(currentDay) {
+  carte = svg.selectAll("path")
+    .data(json.features);
+
+  // code en cas de mise a jour de la carte / de changement de semaine
+  carte
+    .attr("class", "update")
+    ...
+
+  // code pour la creation de la carte quand les donnees sont chargees la 1e fois.
+  carte.enter()
+    .append("path")
+    .attr("class", "enter")
+    ...
+}
+</code></pre>
+
+
+
+
+			</section>
+
+    <script src="../javascripts/scale.fix.js"></script>
+
+</body>
+</html>

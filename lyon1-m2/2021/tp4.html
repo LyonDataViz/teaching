@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#157878">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="/teaching/assets/css/style.css?v=7711d6911e9680d4af53ac0eaf8745f6cb14632c">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>TP4 DataViz Lyon1 M2 2021-2022</title>
+</head>
+
+
+<body>
+	<section class="page-header">
+		<h1 class="project-name">TP4 DataViz: arbres et réseaux</h1>
+		<h2 class="project-tagline">Université Lyon 1, Master 2, 2021-2022</h2>
+	</section>
+
+
+		<section class="main-content">
+				<h3>Objectif du TP</h3>
+
+				<p>Réaliser une diagramme noeud-lien en arc similaire à celui ci-dessous.</p>
+
+				<!-- <video controls="controls" width="200" name="Video Name" src="images/adjacence.mov"></video> -->
+				<img src="images/tp4.gif" alt="demo tp"  width="250"/>
+
+				<h4>1. Créer et positioner votre svg</h4>
+				<p>On commence par définir les dimensions du svg, le créer, et le positionner.</p>
+
+				<pre><code>// Definition de la taille du svg
+const margin = { top: 0, right: 30, bottom: 20, left: 10 },
+width = 450 - margin.left - margin.right,
+height = 300 - margin.top - margin.bottom;
+
+// ajout du svg à la 'div id="arcviz"' de page html
+var svg = d3
+.select("#arcviz")
+.append("svg")
+.attr("width", width + margin.left + margin.right)
+.attr("height", height + margin.top + margin.bottom)
+.append("g")
+.attr("transform", "translate(" + margin.left + "," + margin.top + ")");</code></pre>
+
+				<h4>2. Chargement des données</h4>
+					<p>Les données représentant des réseaux sont typiquement divisées en deux. Un fichier représente les noeuds, un autre les liens entre les noeuds.</p>
+
+					<p>Pour ce TP nous allons utiliser des <a href="data/data_network.json">pseudo données de réseaux social.</a> En d3 (et dans bien d'autres contextes), on sépare les données en deux parties d'un côté les noeuds de notre réseau, de l'autre les liens. Voici un petit extrait du jeu de données. (Pour les curieux ou les téméraires souhaitant voir un jeu de données plus "réaliste" : <a href="https://github.com/mathbeveridge/asoiaf/tree/master/data">les relations dans GoT</a>).</p>
+
+					<!-- <ul>
+						<li><a href="data/liens.csv">liens.csv</a></li>
+						<li><a href="data/noeuds.csv">noeuds.csv</a></li>
+					</ul> -->
+<pre><code>{
+  "nodes": [
+    {
+      "id": 1,
+      "name": "A"
+    },
+    {
+      "id": 2,
+      "name": "B"
+    },
+    {
+      "id": 5,
+      "name": "E"
+    },
+
+  ],
+  "links": [
+
+    {
+      "source": 1,
+      "target": 2
+    },
+    {
+      "source": 1,
+      "target": 5
+    }
+  ]
+}</code></pre>
+
+					<p>Ici les deux parties sont liées par l'id du noeud.</p>
+
+
+				<h4>3. Créer une échelle</h4>
+				<p>Nous allons maintenant créer une échelle pour pouvoir positionner nos éléments de manière "simple". Nous allons utiliser <a href="https://observablehq.com/@d3/d3-scalepoint">d3.scalePoint()</a>. Comme domaine nous allons passer un tableau du nom des noeuds à afficher (allNodes ci-dessous). Notre <code>range</code> sera entre 0 et <code>width</code> (la largeur de notre svg). </p>
+
+				<pre><code>// List of node names
+let allNodes = data.nodes.map(function (d) { return d.name; });</code></pre>
+
+				<pre><code>let scale = d3.scalePoint().domain(allNodes).range([0, width]);</code></pre>
+
+				<h4>3. Afficher les noeuds</h4>
+				<p>Placer les noeuds de manière équidistante les un des autres (on créera un <a href="https://bost.ocks.org/mike/circles/">cercle svg</a> pour chaque noeud).</p>
+
+				<p>Vous pourrez utiliser votre fonction d'échelle définie plus tôt, pour récupérer la position de chacun de vos noeuds.</p>
+
+				<p>En suivant la même logique positionner les étiquettes sous les noeuds.</p>
+
+
+				<h4>4. Créer les liens</h4>
+
+				<p>Pour dessiner des arcs, nous allons parcourir nos données de liens.</p>
+
+				<p>La fonction getArc ci-dessous renvoie un fragment de svg correspondant à un arc entre deux points aux coordonnées x1 et x2 (à une position en y de height - 30, libre à vous de modifier cette ligne ou cette fonction).</p>
+
+				<p>Pour calculer votre x1 et x2, vous pouvez vous appuyez sur la fonction d'échelle définie plus tot. Cette fonction prend le nom d'un noeud et renverra une position x correspondant. Malheureusement vos données de liens, ont seulement l'id et pas le nom. Vous pouvez rajouter un prétaitement pour créer une table de correspondance qui nous permette de connaitre un nom en fonction d'un id.<p>
+
+				<pre><code>let idToNodeName = {};
+data.nodes.forEach(function (n) {
+  idToNodeName[n.id] = n;
+});</code></pre>
+
+				<p>On pourra ainsi récupérer les positions x1 et x2 du début et de la fin d'un arc à dessiner ce cette manière</p>
+				<pre><code>let x1 = scale(idToNodeName[link_data.source].name);</pre></code>
+				<pre><code>let x2 = scale(idToNodeName[link_data.target].name);</pre></code>
+
+				<pre><code>function getArc(x1, x2) {
+  return [
+    "M",
+    x1,
+    height - 30, // the arc starts at the coordinate x=start, y=height-30 (where the starting node is)
+    "A", // A for elliptical arc
+    (x1 - x2) / 2,
+    ",", // coordinates of the inflexion point. Height of this point is proportional with start - end distance
+    (x1 - x2) / 2,
+    0,
+    0,
+    ",",
+    x1 < x2 ? 1 : 0,
+    x2,
+    ",",
+    height - 30
+  ].join(" ");
+}</code></pre>
+
+
+				<h4>5. Interactivité</h4>
+
+				<p>En passant sur un noeud, on voudra changer le style des liens sortant/entrant. Ajouter des listeners pour réaliser ces changements, et les supprimer lorsqu'on "sort" du noeud.</p>
+
+				<p>La propriété <code>stroke</code> correspond à la couleur, la propriété <code>stroke-width</code> permet de modifier l'épaisseur de l'arc.</p>
+
+
+
+      <h2>Rendu</h2>
+
+      <p>Le rendu final est pour le 19 décembre à 23h59, via Tomuss (rendu TP4)</a>. Le TP peut se faire en binôme.</p>
+
+				<br/>
+				<hr/>
+
+			</section>
+
+    <script src="../javascripts/scale.fix.js"></script>
+
+</body>
+</html>
