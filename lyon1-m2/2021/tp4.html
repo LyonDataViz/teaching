@@ -24,141 +24,235 @@
 	</section>
 
 
-		<section class="main-content">
-				<h3>Objectif du TP</h3>
+	<section class="main-content">
+		<h3>Objectif du TP</h3>
 
-				<p>Réaliser une diagramme noeud-lien en arc similaire à celui ci-dessous.</p>
+		<p>Réaliser une matrice d'adjacence, comme celle ci-dessous.</p>
 
-				<!-- <video controls="controls" width="200" name="Video Name" src="images/adjacence.mov"></video> -->
-				<img src="images/tp4.gif" alt="demo tp"  width="250"/>
+		<img src="images/tp4-fin.gif" alt="demo tp"  width="250"/>
 
-				<h4>1. Créer et positioner votre svg</h4>
-				<p>On commence par définir les dimensions du svg, le créer, et le positionner.</p>
+		<h4>1. Créer et positioner votre svg</h4>
+		<p>On commence par définir les dimensions du svg, le créer, et le positionner.</p>
 
-				<pre><code>// Definition de la taille du svg
+		<pre><code>// Definition de la taille du svg
 const margin = { top: 0, right: 30, bottom: 20, left: 10 },
-width = 450 - margin.left - margin.right,
-height = 300 - margin.top - margin.bottom;
+width = 960,
+height = 960;
 
-// ajout du svg à la 'div id="arcviz"' de page html
+// ajout du svg à une 'div id="matrice"' déjà créee dans la page html
 var svg = d3
-.select("#arcviz")
+.select("#visu-tp4")
 .append("svg")
-.attr("width", width + margin.left + margin.right)
-.attr("height", height + margin.top + margin.bottom)
+.attr("width", width)
+.attr("height", height)
 .append("g")
 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");</code></pre>
 
-				<h4>2. Chargement des données</h4>
-					<p>Les données représentant des réseaux sont typiquement divisées en deux. Un fichier représente les noeuds, un autre les liens entre les noeuds.</p>
+		<h4>2. Chargement et transformation des données</h4>
+		<p>Les données représentant des réseaux sont typiquement divisées en deux. Un fichier représente les noeuds, un autre les liens entre les noeuds.</p>
 
-					<p>Pour ce TP nous allons utiliser des <a href="data/data_network.json">pseudo données de réseaux social.</a> En d3 (et dans bien d'autres contextes), on sépare les données en deux parties d'un côté les noeuds de notre réseau, de l'autre les liens. Voici un petit extrait du jeu de données. (Pour les curieux ou les téméraires souhaitant voir un jeu de données plus "réaliste" : <a href="https://github.com/mathbeveridge/asoiaf/tree/master/data">les relations dans GoT</a>).</p>
+		<p>Pour ce TP nous allons utiliser les <a href="data/got_social_graph.json">données de relations de personnages de Game of Thrones.</a> En d3 (et dans bien d'autres contextes), on sépare les données en deux parties: d'un côté les noeuds de notre réseau, de l'autre les liens. Ici les deux parties sont dans le même fichier, parfois dans deux différents. Voici un extrait du jeu de données.</p>
 
-					<!-- <ul>
-						<li><a href="data/liens.csv">liens.csv</a></li>
-						<li><a href="data/noeuds.csv">noeuds.csv</a></li>
-					</ul> -->
-<pre><code>{
-  "nodes": [
-    {
-      "id": 1,
-      "name": "A"
-    },
-    {
-      "id": 2,
-      "name": "B"
-    },
-    {
-      "id": 5,
-      "name": "E"
-    },
-
-  ],
-  "links": [
-
-    {
-      "source": 1,
-      "target": 2
-    },
-    {
-      "source": 1,
-      "target": 5
-    }
-  ]
+	<pre><code>{
+"nodes": [
+	{ "character": "Grenn", "id": 0, "influence": 4, "zone": 0 },
+	{ "character": "Samwell", "id": 1, "influence": 15, "zone": 0 },
+	{ "character": "Jaime", "id": 2, "influence": 24, "zone": 3 },
+	{ "character": "Robert", "id": 3, "influence": 18, "zone": 3 },
+	{ "character": "Tyrion", "id": 4, "influence": 36, "zone": 3 },
+	{ "character": "Tywin", "id": 5, "influence": 22, "zone": 3 },
+	{ "character": "Mance", "id": 6, "influence": 12, "zone": 0 },
+	...
+	],
+"links": [
+	{ "source": 77, "target": 0, "weight": 5 },
+	{ "source": 77, "target": 1, "weight": 31 },
+	{ "source": 100, "target": 2, "weight": 18 },
+	{ "source": 100, "target": 3, "weight": 6 },
+	{ "source": 100, "target": 4, "weight": 5 },
+	{ "source": 100, "target": 5, "weight": 8 },
+	{ "source": 72, "target": 6, "weight": 5 },
+	{ "source": 101, "target": 7, "weight": 5 },
+	{ "source": 65, "target": 8, "weight": 11 },
+	...
+	]
 }</code></pre>
 
-					<p>Ici les deux parties sont liées par l'id du noeud.</p>
+
+		<p>Pour vous faire gagner du temps, voici une fonction qui prend en entrée une liste de  noeuds et une liste de liens d'un graphe, et retourne un tableau de valeurs que nous souhaitons afficher correspondant à une matrice (applatie): chaque élément correspond aux propriétés du lien entre deux personnages, le poid du lien, ainsi qu'une position en x et en y qui correspond à la position dans la matrice d'adjacence.</p>
+
+		<pre><code>adjancencymatrix = createAdjacencyMatrix(nodes, edges)</code></pre>
+
+		<p>La matrice qui vous est renvoyée contient 107*107 éléments (107 est le nombre de personnages dans nodes). Voilà à quoi correspont l'objet à l'intérieur d'un élément du tableau, i.e. la description de la relation directionelle entre deux personnages :</p>
+		<pre><code>{
+	"id": "10-25",
+	"x": 10,
+	"y": 25,
+	"weight": 46,
+	"name_s": "Bran",
+	"name_t": "Jojen",
+	"zone_s": 2,
+	"zone_t": 2
+}</code></pre>
+		
+
+		<h4>3. Créer un domaine pour notre échelle</h4>
+		<p>Nous allons maintenant créer une échelle pour pouvoir signaler la force du lien entre deux personnages. Comme domaine nous irons entre 0 et le max de influence dans le tableau des noeuds à afficher (nodes ci-dessus). Notre <code>range</code> sera d3.schemeBlues[9] pour commencer (une échelle bleu). </p>
+
+		<pre><code>var scale = d3.scaleQuantize() 
+	.domain([0, maxWeigth]) // TODO 
+	.range(d3.schemeBlues[9]); // donné par D3</code></pre>
 
 
-				<h4>3. Créer une échelle</h4>
-				<p>Nous allons maintenant créer une échelle pour pouvoir positionner nos éléments de manière "simple". Nous allons utiliser <a href="https://observablehq.com/@d3/d3-scalepoint">d3.scalePoint()</a>. Comme domaine nous allons passer un tableau du nom des noeuds à afficher (allNodes ci-dessous). Notre <code>range</code> sera entre 0 et <code>width</code> (la largeur de notre svg). </p>
+		<h4>4. Afficher une 1e matrice d'adjacence</h4>
+		<p>On va parcourir la liste des liens et pour chacun dessiner un carré (= un rect de height et de width 5 pour commencer. On ajustera ensuite).<p>
+		<p>La position de ce carré sera déterminée par sa source et son target. Prenez la source en x et la target en y.<p>
+		<p>La couleur (fill) sera déterminée par la valeur de weight.<p>
 
-				<pre><code>// List of node names
-let allNodes = data.nodes.map(function (d) { return d.name; });</code></pre>
-
-				<pre><code>let scale = d3.scalePoint().domain(allNodes).range([0, width]);</code></pre>
-
-				<h4>3. Afficher les noeuds</h4>
-				<p>Placer les noeuds de manière équidistante les un des autres (on créera un <a href="https://bost.ocks.org/mike/circles/">cercle svg</a> pour chaque noeud).</p>
-
-				<p>Vous pourrez utiliser votre fonction d'échelle définie plus tôt, pour récupérer la position de chacun de vos noeuds.</p>
-
-				<p>En suivant la même logique positionner les étiquettes sous les noeuds.</p>
-
-
-				<h4>4. Créer les liens</h4>
-
-				<p>Pour dessiner des arcs, nous allons parcourir nos données de liens.</p>
-
-				<p>La fonction getArc ci-dessous renvoie un fragment de svg correspondant à un arc entre deux points aux coordonnées x1 et x2 (à une position en y de height - 30, libre à vous de modifier cette ligne ou cette fonction).</p>
-
-				<p>Pour calculer votre x1 et x2, vous pouvez vous appuyez sur la fonction d'échelle définie plus tot. Cette fonction prend le nom d'un noeud et renverra une position x correspondant. Malheureusement vos données de liens, ont seulement l'id et pas le nom. Vous pouvez rajouter un prétaitement pour créer une table de correspondance qui nous permette de connaitre un nom en fonction d'un id.<p>
-
-				<pre><code>let idToNodeName = {};
-data.nodes.forEach(function (n) {
-  idToNodeName[n.id] = n;
+		<pre><code>matrixViz = svg.selectAll("rect")
+	.data(adjancencymatrix)
+	.join("rect")
+	.attr("width", TODO)
+	.attr("height", TODO)
+	.attr("x", function (d) {
+		TODO
+	})
+	.attr("y", function (d) {
+		TODO
+	})
+	.style("stroke", "black")
+	.style("stroke-width", ".2px")
+	.style("fill", function (d) {
+		TODO
+	})
 });</code></pre>
 
-				<p>On pourra ainsi récupérer les positions x1 et x2 du début et de la fin d'un arc à dessiner ce cette manière</p>
-				<pre><code>let x1 = scale(idToNodeName[link_data.source].name);</pre></code>
-				<pre><code>let x2 = scale(idToNodeName[link_data.target].name);</pre></code>
+		<p>Vous devriez avoir un rendu proche de ceci:</p>
+		<img src="images/tp4-etape4.png" alt="tp4.4"  width="350"/>
 
-				<pre><code>function getArc(x1, x2) {
-  return [
-    "M",
-    x1,
-    height - 30, // the arc starts at the coordinate x=start, y=height-30 (where the starting node is)
-    "A", // A for elliptical arc
-    (x1 - x2) / 2,
-    ",", // coordinates of the inflexion point. Height of this point is proportional with start - end distance
-    (x1 - x2) / 2,
-    0,
-    0,
-    ",",
-    x1 < x2 ? 1 : 0,
-    x2,
-    ",",
-    height - 30
-  ].join(" ");
+
+		<h4>5. Axes</h4>
+		<p>On va mainteant ajouter les axes. Pour cela on va créer une échelle particulière : <a href="https://github.com/d3/d3-scale#band-scales">une scaleBand()</a>. Elle va nous aider à faire des calculs de position pour les axes mais aussi pour les "cases".</p>
+
+		<pre><code>var positionsPersonnages = 
+	d3.range(graph.nodes.length);	// un tableau d'autant d'element que de personnages 
+					// [0, 1, ..., 106]
+var echellexy = d3.scaleBand()
+	.range() // TODO correspond [0, largeur du dessin]
+	.domain(positionsPersonnages) 
+	.paddingInner(0.1) 
+	.align(0)
+	.round(true);</code></pre>
+
+		<p>Dans le code de dessin utilisé à l'étape précédent, à la place de width, height, x et y "codés en dur" vous pouvez maintenant utiliser echellexy(valeur) pour positionner vos rectangle de manière optimale. echellexy.bandwidth() vous donnera la valeur du pas entre deux éléments.</p>
+
+		<p>Nous pouvons maintenant dessiner les axes. On va rajouter des groupes (g) au svg de base. Pour l'axe des colonnes on va l'affiche à la verticale puis le tourner de 90 (c'est plus simple de faire ainsi).</p>
+
+		<pre><code>var labels = d3.select("svg")
+	.append("g")
+	.attr("transform", "translate(60, 60)")
+	.style("font-size", "8px")
+	.style("font-family", "sans-serif");
+
+var columns = labels
+	.append("g")
+	.selectAll()
+	.data(graph.nodes)
+	.join("text")
+	TODO
+	.attr("transform", "rotate(-90)"); // on tourne tout l'axe de 90°
+
+var rows = labels
+	.append("g")
+	.selectAll()
+	.data(graph.nodes)
+	.join("text");
+	TODO</code></pre>			
+
+		<h4>Mi-chemin</h4>
+		<p>Arrivé ici vous aurez 1/2</p>
+
+
+		<h4>6. Amélioration du rendu</h4>
+		<p>La fonction <code>createAdjacencyMatrix</code> peut en réalité prendre plus d'arguments. En plus de <code>nodes</code> et <code>links</code>, son 4e argument est lié à la symétrie ou non des relations entre les personnages. Appelez <code>createAdjacencyMatrix(nodes, links, undefined, true)</code> le dernier argument à true spécifie que les relations doivent être considérées dans les deux sens.</p>
+		<p>Effectuez le changement et regardez le résultat.</p>
+
+		<p>On va ensuite colorer les cellules non seulement en fonction de la force de la relation mais aussi de la zone ou les personnages se trouvent/rencontrent.</p>
+
+		<p>On crée une nouvelle échelle ordinale (catégorielle) pour pouvoir allouer une couleur distincte par zone.</p>
+		
+		<pre><code>var zoneScale = d3.scaleOrdinal(d3.schemeCategory10);</code></pre>
+		<p>La propriété svg <code>fill</code> du <code>rect</code>, va maintenant correspondre à couleur de la zone si le personnage source <code>d.zone_s</code> et cible <code>d.zone_t</code> sont dans la même zone, et gris sinon <code>"#eee"</code>.</p>
+		<p>Vous pouvez utiliser l'attribut svg <code>opacity</code> du <code>rect</code> pour montrer la force du lien ("0%" si <code>weight</code> est à 0, "100%" si valeur max). Pour améliorer le rendu j'ai renforcé la force des liens en multipliant toutes les valeurs par 10.</p>
+
+		<p>Vous devriez avoir un rendu proche de ceci:</p>
+		<img src="images/tp4-etape6.png" alt="tp4.6"  width="350"/>
+
+
+		<h4>7. Ré-ordonnancement et animation </h4>
+		<p>Nous allons ré-ordonner la matrice selon différents critères (déjà calculés pour simplifier): </p>
+		<ul>
+			<li>"ordre d'apparence des personnages" <code>appearances</code> (celui par défaut si rien n'est spécifié),</li>
+			<li> "zones de présence partagées" <code>zones</code>, </li>
+			<li>"influence des personnages" <code>influences</code>.</li> 
+		</ul>
+
+		<p>Si vous passez un de ces tableaux d'ordre comme paramètre de <code>domain()</code> à <code>echellexy</code> alors le calcul des positions sera mis à jour pour vous donner les positions correpondant au nouvel ordre des personnages. </p>
+
+		<p>7.1 Ré-ordonnancement - Rajoutez <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select">un menu</a>, dans le code html de la page qui permette de choisir entre ces trois options. <a href="https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_onchange">Voir cet exemple pour rappel de comment capturer un événement JS.</a></p>
+
+
+		<p>Nous allons créer une fonction <code>update()</code> qui va être chargée de mettre le dessin à jour.</p>
+
+		<pre><code>function update (newPositions) {
+	echellexy.domain(newPositions) // ici on met à jour la fonction de calcul des positions qui nous permettra de repositionner. 
+
+	rows
+		.attr("dy", TODO);
+	
+	columns
+		.attr("dy", TODO)
+
+	matrixViz.selectAll("rect")
+		.attr("x", TODO)
+		.attr("y", TODO)
 }</code></pre>
 
+		<p>7.2 Animation - La bascule entre les visulalisations se fait instantanément. On va maintenant utiliser les propriétés d'animation de d3 pour permettre de suivre les changements de position dans la matrice d'adjacence. delay permet de spécifier quand l'animation va démarrer, et duration combien de temps elle dure. Vous êtes libre dans l'animation que vous faites.</p>
 
-				<h4>5. Interactivité</h4>
+		<pre><code>function update (newPositions) {
+	echellexy.domain(newPositions)
 
-				<p>En passant sur un noeud, on voudra changer le style des liens sortant/entrant. Ajouter des listeners pour réaliser ces changements, et les supprimer lorsqu'on "sort" du noeud.</p>
+	rows
+		.transition()
+		.delay(TODO) 
+		.duration((TODO)
+		.attr("dy", TODO);
+	
+	columns
+		.transition()
+		.delay(TODO)
+		.duration(TODO)
+		.attr("dy", TODO)
 
-				<p>La propriété <code>stroke</code> correspond à la couleur, la propriété <code>stroke-width</code> permet de modifier l'épaisseur de l'arc.</p>
-
-
+	matrixViz.selectAll("rect")
+		.transition()
+		.delay(TODO)
+		.duration(TODO)
+		.attr("x", TODO)
+		.attr("y", TODO)
+}</code></pre>
+		
+		
 
       <h2>Rendu</h2>
 
       <p>Le rendu final est pour le 19 décembre à 23h59, via Tomuss (rendu TP4)</a>. Le TP peut se faire en binôme.</p>
 
-				<br/>
-				<hr/>
+	<br/>
+	<hr/>
 
-			</section>
+	</section>
 
     <script src="../javascripts/scale.fix.js"></script>
 
