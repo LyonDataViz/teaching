@@ -1,6 +1,6 @@
 
 
-[Analysis of musical patterns](https://poiazeqsd.github.io/Projet-DataViz/)
+[Analysis of musical patterns from Spotify users](https://poiazeqsd.github.io/Projet-DataViz/)
 
 We collected music listening data from the Spotify platform which provided us with a listening history file.
 This history file contains informations on the listening over a period from 30/09/2021 to 24/11/2021, we can find the album followed by the artist, the day of the listening and the listening time
