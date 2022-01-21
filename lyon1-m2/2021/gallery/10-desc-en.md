@@ -11,7 +11,7 @@ The objective of this project is to provide a visualization of :
 3. To be able to quickly visualize frequency bands of interest (Figure 3)
 4. To try to provide brain activation patterns (i.e. areas activating simultaneously) (Figure 4)
 
-The project is accessible through this link  : https://kraramel.github.io/TP-DATA-VIZ/
+The project is accessible through this link  : https://kraramel.github.io/Encephalo/
 
 Contributors
 
