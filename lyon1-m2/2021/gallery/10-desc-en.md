@@ -13,7 +13,7 @@ The objective of this project is to provide a visualization of :
 
 The project is accessible through this link  : https://kraramel.github.io/TP-DATA-VIZ/
 
-# Contributors
+Contributors
 
 ASRI Mohamed Amin -
 RUYTER Swann -
