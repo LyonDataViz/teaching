@@ -11,8 +11,8 @@ L'objectif de ce projet est de fournir une visualisation de :
 3. Pouvoir visualiser rapidement des bandes de fréquences d'intérêt (Figure 3)
 4. Essayer de fournir des patterns d'activations cérébraux (i.e. des zones s'activant simultanément) (Figure 4)
 
-Le projet est accessible par ce lien : https://kraramel.github.io/TP-DATA-VIZ/
+Le projet est accessible par ce lien : https://kraramel.github.io/Encephalo/
 
-# Contributeurs
+Contributeurs
 
 ASRI Mohamed Amin - BOUBKER Ayoub - RUYTER Swann
