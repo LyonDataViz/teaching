@@ -1,4 +1,5 @@
-[VizHabits](https://abardou.github.io/viz-habits/#/)
+
+### [VizHabits](https://abardou.github.io/viz-habits/#/)
 
 This projet aims to complete existing visualisations of users smartphones habits. The idea behind this project is based on a fact : we didn't find any visualization able to show us usage profiles based on application switches and sequences of applications.   
 We propose two visualisations for two differents purpose :  

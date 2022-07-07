@@ -1,3 +1,4 @@
+
 ### [Power-consumption-analogy](https://jbguimbaud.github.io/Power-consumption-analogy/)
 
 Within this project, we're coming from two simple observations :

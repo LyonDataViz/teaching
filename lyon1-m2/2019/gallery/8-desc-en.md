@@ -1,6 +1,6 @@
-# Analysis of data consumption in the background and in the foreground 
-(https://seifou23.github.io/Conso-donnee-premier-arriere/)
-<br>
+
+### [Analysis of data consumption in the background and in the foreground](https://seifou23.github.io/Conso-donnee-premier-arriere/)
+
 How to take full advantage of the potential of your smartphone while limiting the
 consumption of mobile data in your data plan?
 The problem addressed is the consumption of data in the background of applications on

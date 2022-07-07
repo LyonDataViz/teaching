@@ -1,6 +1,5 @@
-[Visualization of the Twitch streaming consumption in france](https://github.com/ThomasRanvier/twitch_consumption)
 
-This project took place in the data visualization course of the M2IA of the Claude Bernard University, in Lyon 1.
+### [Visualization of the Twitch streaming consumption in france](https://github.com/ThomasRanvier/twitch_consumption)
 
 Our project is a visualization of streaming consumption of the 30 streamers considered as the most populars in France. 
 

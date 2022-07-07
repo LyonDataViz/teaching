@@ -1,4 +1,4 @@
-# [Dataviz - Applications Memory Consumption](https://github.com/Sitiel/App-size-compare)
+### [Dataviz - Applications Memory Consumption](https://github.com/Sitiel/App-size-compare)
 
 ![Dataviz Cover - Une version simplifiée de notre visualisation principale](6-thumbnail.png)
 

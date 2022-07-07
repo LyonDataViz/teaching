@@ -1,4 +1,5 @@
-[Consommation Énergétique du Bitcoin](https://pierrejonin.github.io/bitcoin_consumption/)
+
+### [Consommation Énergétique du Bitcoin](https://pierrejonin.github.io/bitcoin_consumption/)
 
 Bitcoin est une crypto-monnaie souvent critiquée pour sa viabilité. En cause : le gouffre énergétique qu'elle représente. Miner du Bitcoin nécessite une grande puissance de calcul, et donc une quantité d'énergie proportionnelle.
 

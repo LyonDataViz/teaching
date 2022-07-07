@@ -1,4 +1,5 @@
-[Websites data consumption](https://github.com/DataViz-2019-10/website-data-consumption/)
+
+### [Websites data consumption](https://github.com/DataViz-2019-10/website-data-consumption/)
 
 In a world where data is sometimes still limited and results in significant
 energy consumption, one could wonder how to use less of it. 

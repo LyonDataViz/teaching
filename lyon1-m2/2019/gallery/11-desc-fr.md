@@ -1,6 +1,5 @@
-[Visualisation de la consommation de streaming français sur Twitch](https://github.com/ThomasRanvier/twitch_consumption)
 
-Ce projet a été réalisé dans le cadre du cours de data visualization du M2IA de l'Université Claude Bernard Lyon 1.
+### [Visualisation de la consommation de streaming français sur Twitch](https://github.com/ThomasRanvier/twitch_consumption)
 
 Notre projet permet de visualiser la consommation de streaming sur les 30 streamers considérés comme étant les plus populaires en France.
 
