@@ -17,6 +17,7 @@ layout: default
       {% assign image = "" %}
     {% else %}
       {% assign image = i | append: "-thumbnail.png" %}
+    {% endif %}
   {% endif %}
   {% include_relative {{description-fr}} %}
   ![]({{image}})

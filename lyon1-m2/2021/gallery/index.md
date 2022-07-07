@@ -13,7 +13,11 @@ layout: default
   {% if i == "10" %}
     {% assign image = i | append: "-thumbnail.gif" %}
   {% else %}
-    {% assign image = i | append: "-thumbnail.png" %}
+    {% if i == "9" %}
+      {% assign image = "" %}
+    {% else %}
+      {% assign image = i | append: "-thumbnail.png" %}
+    {% endif %}
   {% endif %}
   {% include_relative {{description-en}} %}
   ![]({{image}})
