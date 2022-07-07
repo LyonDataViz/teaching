@@ -1,4 +1,7 @@
-# [Steam Data Visualization](https://asriell.github.io/SteamGamingTimeVisualization/template/template/dashboard.html) 
+
+### Steam Data Visualization 
+
+[demo](https://asriell.github.io/SteamGamingTimeVisualization/template/template/dashboard.html) 
 
 How often do we play video games ?
 
@@ -7,4 +10,3 @@ That is a question that we can wonder. Our visualizations should help people to 
 Link to our visualizations : https://asriell.github.io/SteamGamingTimeVisualization/template/template/dashboard.html
 
 Link to our github project : https://github.com/Asriell/SteamGamingTimeVisualization
-

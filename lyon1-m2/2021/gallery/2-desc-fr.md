@@ -1,4 +1,6 @@
-[Spotify Data Visualisation](https://reathe.github.io/spotify-dataviz/)
+### Spotify Data Visualisation
+
+[demo](https://reathe.github.io/spotify-dataviz/)
 
 Visualisation d'une étude des habitudes d'écoute de deux membres du trinôme, en termes d'artistes/albums/chansons/genres, mais aussi en termes temporels, à savoir répartition des écoutes dans le temps, en sessions, dans une journée type.
 

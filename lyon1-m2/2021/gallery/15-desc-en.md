@@ -1,4 +1,5 @@
-# Music streaming data
+
+### Music streaming data
 
 This project aims at visualising one's daily use of online streaming music, to reveal the daily amount of records one listened to, as well as the distribution of musical genres and its evolution across time.
 

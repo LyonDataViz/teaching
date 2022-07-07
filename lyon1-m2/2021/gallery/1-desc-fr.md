@@ -1,4 +1,7 @@
-[Visualisation des dépenses de John, un étudiant](https://john-spendings-viz.github.io)
+
+### Visualisation des dépenses d'un étudiant
+
+[demo](https://john-spendings-viz.github.io)
 
 On souhaite visualiser les dépenses d'un étudiant de notre groupe - que nous nommerons John par souci d'anonymat - sur plusieurs années.
 Les 3 buts principaux de cette visualisation sont :

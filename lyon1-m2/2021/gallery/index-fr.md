@@ -10,10 +10,13 @@ layout: default
 
 {% for i in projects %}
   {% assign description-fr = i | append: "-desc-fr.md" %}
-  {% if i == "11" %}
-    {% assign image = i | append: "-teaser.gif" %}
+  {% if i == "10" %}
+    {% assign image = i | append: "-thumbnail.gif" %}
   {% else %}
-    {% assign image = i | append: "-teaser.png" %}
+    {% if i == "9" %}
+      {% assign image = "" %}
+    {% else %}
+      {% assign image = i | append: "-thumbnail.png" %}
   {% endif %}
   {% include_relative {{description-fr}} %}
   ![]({{image}})

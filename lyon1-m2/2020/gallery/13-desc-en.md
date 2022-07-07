@@ -1,4 +1,5 @@
-## Impact of VIDOC-19 on CO2 emissions
+
+### Impact of VIDOC-19 on CO2 emissions
 
 The production of greenhouse gas emissions has continued to accompany
 the technological growth of humanity. Our growing

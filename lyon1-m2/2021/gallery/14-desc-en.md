@@ -1,4 +1,5 @@
-[dataviz-running](https://ak-line.github.io/dataviz-running/)
+
+### [dataviz-running](https://ak-line.github.io/dataviz-running/)
 
 This project aims to help Samuel, the data provider, to get a new perspective on his running. Moreover, this concept can be useful for any runner.
 

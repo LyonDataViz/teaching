@@ -1,5 +1,7 @@
-## [Netflix Data Visualisation](https://boumaza-sebia.github.io/dataviz-netflix/)
 
+### Netflix Data Visualisation
+
+[demo](https://boumaza-sebia.github.io/dataviz-netflix/)
 
 How much time do we spend in front of our streaming platforms? Which content have we watched since our subscription? 
 
