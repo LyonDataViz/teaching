@@ -1,6 +1,6 @@
-# [European e-waste treatment](https://ev07.github.io/e-waste.dataviz/)
+### European e-waste treatment
 
-## English summary
+[demo](https://ev07.github.io/e-waste.dataviz/)
 
 We were interested in exploring the production of electronic waste (WEEE) in Europe. This thematic is one that echoes with us, as consummers, and citizens of the EU. We have created a few elements of visualisation, to describe in depth the statistics known on this phenonmenon. To achieve this, we have created a three pages website.
 

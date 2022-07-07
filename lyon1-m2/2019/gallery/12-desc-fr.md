@@ -1,4 +1,4 @@
-### [Power-consumption-analogy](https://jbguimbaud.github.io/Power-consumption-analogy/)
+[Power-consumption-analogy](https://jbguimbaud.github.io/Power-consumption-analogy/)
 
 Dans ce projet, nous partons de deux constats simples :
 * Notre utilisation de l'ordinateur a un coût électrique et donc un impact sur l'environnement

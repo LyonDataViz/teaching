@@ -1,6 +1,6 @@
-# [Gestion européenne des déchets électroniques](https://ev07.github.io/e-waste.dataviz/)
+### Gestion européenne des déchets électroniques
 
-## Résumé
+[demo](https://ev07.github.io/e-waste.dataviz/)
 
 Nous nous sommes intéressé à la production de déchets électroniques. Ce sujet nous tient à coeur car il nous touche tous en tant que consommateurs, et en tant que citoyens. Nous avons créé des éléments de visualisation de ce phénomène, et un site autour en trois pages :
 

@@ -1,4 +1,6 @@
-[Impacts du réchauffement climatique et de l'homme sur les troupeaux de Caribous](https://b2rj.github.io/Caribous/src/slide.html).
+### Impacts du réchauffement climatique et de l'homme sur les troupeaux de Caribous
+
+[demo](https://b2rj.github.io/Caribous/src/slide.html).
 
 Nous avons à notre disposition des données sur des populations de Caribou en Colombie-Britannique, une province Canadienne. Ces données débutent en 1988 et terminent en 2016. Elles comportent diverses informations comme la géolocalisation régulière des individus ou le lieu de pose des balises GPS. Sont également présentes, sur certaines périodes, des informations concernant les gestations ou la présence ou non de petits avec leur mère.
 

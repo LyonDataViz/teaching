@@ -1,4 +1,6 @@
-# DatavizDechet
+### DatavizDechet
+
+[Lien de la page web](https://lamborot-eliot.github.io/DatavizDechet/)
 
 Cette page a pour but de visualiser les données de [déchets de France](https://data.ademe.fr/datasets/sinoe-(r)-destination-des-dechets-collectes-en-decheterie-par-type-de-traitement).
 Pour les visualiser, l'utilisateur a à disposition:
@@ -7,4 +9,3 @@ Pour les visualiser, l'utilisateur a à disposition:
   - Un diagramme ciculaire permettant d'avoir le pourcentage de chaque tonnage en fonction de paramètres 
 
 
-[Lien de la page web](https://lamborot-eliot.github.io/DatavizDechet/)
