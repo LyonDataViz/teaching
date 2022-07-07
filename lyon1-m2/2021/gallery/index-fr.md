@@ -6,7 +6,7 @@ layout: default
 
 [In english](./index.html)
 
-{% assign projects = "1,2,3,4,5,6,7,8,9,10,11,12,13,15,16" | split: "," %}
+{% assign projects = "1,2,3,4,6,9,10,11,12,13,14,15" | split: "," %}
 
 {% for i in projects %}
   {% assign description-fr = i | append: "-desc-fr.md" %}
