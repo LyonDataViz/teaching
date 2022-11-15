@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#157878">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="/teaching/assets/css/style.css?v=7711d6911e9680d4af53ac0eaf8745f6cb14632c">
+
+	<title>DataViz Cours Lyon1 M2 2021-2022</title>
+</head>
+
+<body>
+	<section class="page-header">
+		<h1 class="project-name">Cours visualisation interactive de données</h1>
+		<h2 class="project-tagline">Université Lyon 1, Master 2, 2021-2022</h2>
+	</section>
+
+		<section class="main-content">
+				<h3>Objectifs du TP</h3>
+				<ul>
+					<li>Découvrir <a href="https://public.tableau.com/fr-fr/s/">Tableau Public</a></li>
+					<li>Comprendre le mapping de données sur des marques graphiques (ligne, carré, ..) et leurs propriétés (taille, couleur, ..)</li>
+					<li>Faire la distinction entre données brutes et abstraites, ainsi qu'entre dimensions et mesures</li>
+					<li>Explorer un espace de conception de visualisation</li>
+				</ul>
+
+				<p>
+					Le TP se fait en binome. Répondre au questionnaire au fur et à mesure du TP sur Tomuss. N'hésitez pas à utiliser utiliser un document en ligne partagé pour éditer et sauvegarder vos résultats.
+				</p>
+
+				<h3>1. Charger les données dans Tableau</h3>
+				<p>
+					Télécharger le csv suivant: <a href="data/covid-france-2.csv">covid-france.csv</a>. Lancer Tableau et sélectionner connexion à un fichier texte, charger le fichier, et basculer sur la vue des données (en bas à gauche de Tableau cliquer sur <code>Source de données (Data Source)</code>).
+				</p>
+
+				<p> Questions (répondre dans le formulaire): </p>
+				<ul>
+					<li>1.a À quoi correspondent les icônes dans l'en-tête des colonnes ?</li>
+					<li>1.b Lister les principaux types proposés.</li>
+					<li>1.c Quelles colonnes avez vous dû corriger ?</li>
+					<li>1.d Quelles données sont manquantes ? Et quand commencent elles à être fournies ?</li>
+				</ul>
+
+
+				<h3>2. Voir les résultats sous forme de bar chart</h3>
+				<p>
+					Basculer maintenant sur la 1e Feuille (<i>Sheet 1</i>).
+					Commencer par afficher un graphique avec les jours <code>DAY(Jour)</code> en colonne, et les hospitalisation en  (<code>Hosp</code>) en ligne. Vous devriez obtenir une courbe des hospitalisations.
+				</p>
+				<p>
+					Transformer la courbe en diagramme en batons (changer la marque graphique).
+				</p>
+				<img width="30%" src="images/tp1-marks.png"/>
+				<p>
+					Afficher les régions à l'intérieur des barres. Vous remarquerez que Tableau a automatiquement aggrégé les données. 
+				</p>
+				<p> Questions (répondre dans le formulaire): </p>
+				<ul>
+					<li>2.a Dans les données brutes à quoi correspond une ligne d'hospitalisations.</li>
+					<li>2.b Comment Tableau a t'il aggrégé ?</li>
+				</ul>
+				<p>
+					Basculer de Mesure à Dimension, en cliquant sur <code>Hosp</code>. Passer avec la souris sur les colonnes vous verrez qu'elles sont maintenant composées de nombreux blocs. 
+					Utiliser la dimension Région et l'associer à la couleur.
+					Un aperçu du résultat attendu :
+				</p>
+				<ul>
+					<li>3.a Dans quel ordre les régions sont elles empilées ?</li>
+				</ul>
+
+				<img width="50%" src="images/tp1-region-stacked.png"/>
+
+				<p>Ré-organiser les régions (par ordre du plus d'hospitalisations ligne selon la mesure <code>SUM</code> 
+				</p>
+				<img width="30%" src="images/tp1-sort.png"/>
+				<br/>
+				<p/>
+
+				<h3>3. Sauvegarder et partager</h3>
+				<p>
+					Renommer votre feuille de calcul en double cliquant sur le titre de la visualisation, selon le numéro de l'exercice. Par exemple TPDataViz1.3.
+				</p>
+				<p>
+					Sauvegarder, créer un compte <a href="https://public.tableau.com/s/">Tableau Public</a> si ce n'est déjà fait.
+				</p>
+				<p>
+					Nommer votre classeur (Book) (qui contiendra une feuille par exercice) avec le format suivant :<br/>
+					Lyon1-m2-2021-nom 1-numéro d'étudiant 1-nom 2-numéro d'étudiant 2. <br/>
+					Exemple: Lyon1-m2-2021-veran-p231123-vidal-p2315189.
+				</p>
+
+				<h3>4. Filtrer de manière basique</h3>
+				<p>
+					Pour des raisons géographiques, sociales, démographiques, etc. chacun des DOM devrait être analysé séparément. Nous allons les filtrer pour nous concentrer sur la France métropolitaine.
+				</p>
+				<img src="images/filter1.png"/>
+				</p>
+
+		        <p> Questions (répondre dans le formulaire)</p>
+				<ul>
+					<li>4.a Quelles régions/départements avez vous filtré ?</li>
+				</ul>
+
+				<p>
+					Sauvegardez puis créez une nouvelle feuille dans votre classeur (vous pouvez dupliquer les feuilles pour ne pas repartir de 0). 
+				</p>
+
+
+				<h3>5. Identifier les tendances</h3>
+				<!-- <span style="background-color: yellow">TODO: il faudrait que les titres soient cohérents : soit une tâche, soit une action Tableau, etc..</span> -->
+				<p>Afficher de nouveau un graphique avec la courbe des hospitalisations, et celles de la positivité. Pour ces deux valeurs, les lisser sur 7 jours pour réduire la variabilité due à la remontée irrégulière des données. Pour cela ajouter une "quick table calculation", elle est de deux jours en arrière par défaut, modifier cela pour passer à 7 jours en arrière.
+				</p>
+				<!-- <p>
+					Regarder dans les données quelle colonne peut donner une indications sur la force de la victoire (en bas à gauche de Tableau cliquer sur <code>Source de données (Data Source)</code>).
+					Utiliser une marque textuelle (ou changer celle utilisée par défaut) pour indiquer le vainqueur (<code>State Winner</code>), et la couleur pour indiquer l'intensité de la victoire (avec la variable que vous avez identifié dans les données).
+					Ajuster la couleur pour qu'elles représentent les partis (clic droit sur la légende > modifier les couleurs), et utiliser les paramètres avancés pour que l'échelle soit uniforme. Sauvegarder.
+				</p> -->
+				<img src="images/tp1-tendaces.png" style="width: 300px"/>
+
+				<p> Questions (répondre dans le formulaire)</p>
+				<ul>
+					<li>5.a Listez les périodes de croissance et de décroissance du virus </li>
+					<li>5.b quel décalage temporel pouvez vous identifier visuellement entre les différents indicateurs ? </li>
+				</ul>
+				<p>
+					    Sauvegardez cette feuille, et passez sur une nouvelle feuille pour la suite.
+				</p>
+
+
+
+				<h3>6. Cartographier</h3>
+				<p>Créer une nouvelle feuille, ajouter <code>Latitude</code> et <code>Longitude</code> en ligne et colonne.</p>
+				<p>
+					Rajouter la dimension <code>Région</code> comme Repère (<i>Mark</i>) détail, et la Mesure <code>Tx Occupation </code> (moyenne) en couleur.				
+				</p>
+				<p>
+					Clarifier les données au besoin pour expliciter les régions et département français. (1) Faites en sorte que le type de Région soit : Geographic > NUTS Europe. (2) Dans Map > Edit Locations corrigez les données non reconnues. Vous trouverez <a href="https://en.wikipedia.org/wiki/NUTS_statistical_regions_of_France#NUTS_codes">ici les codes NUTS manquants </a>.
+				</p>
+				<p>
+					Via Montre-moi, constater la différence entre Carte de symbole (<i>Symbol Map</i>) et Carte pleine (<i>Filled Maps</i>).
+				</p>
+				<p>
+					Rajouter le temps en Pages. Configurez le pour naviguer d'une semaine à l'autre.
+				</p>
+				<p>
+					Corrigez pour que la couleur max soit à 100%.
+				</p>
+
+				<img src="images/tp1-map.png"/>
+
+		        <p> Questions (répondre dans le formulaire)</p>
+				<ul>
+					<li>6.a Entre la Carte de symbole et la Carte pleine laquelle vous semble plus appropriée ? (justifiez en deux phrases)</li>
+					<li>6.b Quelles sont les régions (donnez en trois ou quatre) qui se sont déteriorées le plus tôt lors de la 2e vague ?</li>
+				</ul>
+
+
+				<h3>7. Explorer d'autres représentations</h3>
+
+				<p>Sur une nouvelle feuille, explorez d'autres représentations qui vous semblent intéressantes. Essayez de reproduire une visualisation que vous avez pu voir dans la presse ou en ligne (heatmaps, donnés croisées).</p>
+		        <p>Postez le lien vers cette dernière feuille dans le formulaire Tomuss</p>
+
+
+				<h3>Rendu</h3>
+				<p>
+					<a>Répondre au questionnaire sur Tomuss.</a>
+				</p>
+
+			</section>
+
+        <!--aside id="sidebar">
+          <a href="https://github.com/LyonDataViz/teaching/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/LyonDataViz/teaching/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/LyonDataViz/teaching"></a> is maintained by <a href="https://github.com/LyonDataViz">LyonDataViz</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+      </aside-->
+    <script src="../javascripts/scale.fix.js"></script>
+
+</body>
+</html>
