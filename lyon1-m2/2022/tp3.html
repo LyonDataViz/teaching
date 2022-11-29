@@ -27,19 +27,16 @@
 		<section class="main-content">
 				<h3>Objectif du TP</h3>
 
-				<p>1. Réaliser une carte du covid en France similaire à celle ci-dessous.</p>
-
-				<img width="80%" src="images/tp3-tooltip.png">
+				<p>1. Réaliser une carte du covid en France.</p>
 
 		        <h3>Rendu pour ce TP</h2>
 
-		        <p>Le rendu final est à faire sur Tomuss. Le TP peut se faire en binôme.</p>
+		        <p>Le rendu final est à rendre sous forme d'Observvable.</p>
 
-				<p>Le TP sera noté 0, 1, ou 2. Si vous arrivez à la partie 4, vous aurez 1 (=10/20), si vous arrivez à la fin 2 (=20/20).</p>
 
 				<h4>1. Chargement du fond de carte</h4>
 					<p>Charger le <a href="https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/departements-version-simplifiee.geojson">fond de carte des départements français métropolitains</a> avec D3.js.</p>
-					<p>Voir l'exemple vu en cours:</p>
+					<p>Voir un exemple de carte :</p>
 
 					<iframe src="https://codesandbox.io/embed/d3-carto-cm2-etjs1?fontsize=12&hidenavigation=1&theme=light"
 					style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
@@ -47,12 +44,12 @@
 					sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 				  ></iframe>
 
-					<p>Dans l'exemple du cours nous utilisons une projection Américaine. Basculez sur une projection plus générique comme <code>d3.geoConicConformal</code>. Nous utilisons la v7 de D3.js <a href="https://github.com/d3/d3-geo-projection">la page de référence sur les projections est ici</a>.</p>
+					<p>Basculez sur une projection plus générique comme <code>d3.geoConicConformal</code>. Nous utilisons la v7 de D3.js <a href="https://github.com/d3/d3-geo-projection">la page de référence sur les projections est ici</a>.</p>
 
 					<p>Positioner la carte sur la France, en utilisant la projection suivante : <code>d3.geoConicConformal().center([2.454071, 46.279229]).scale(2800);</code></p>
 
 				<h4>2. Chargement des données</h4>
-					<p>Charger les données covid, pour commencer nous allons démarrer avec un <a href="https://lyondataviz.github.io/teaching/lyon1-m2/2021/data/covid-06-11-2021.csv">sous ensemble des données allant de juin à novembre 2021</a> en métropole (plutôt que le jeu de <a href="https://www.data.gouv.fr/fr/datasets/r/63352e38-d353-4b54-bfd1-f1b3ee1cabd7">données</a> entier.) En vous inspirant du code vu en cours les afficher sur la carte (voir la structure ci-dessous). On va filtrer les donnees pour ne garder que les lignes ou sexe == 0 (tous les genres, plutôt que 1 ou 2 = homme ou femme)</p>
+					<p>Charger les données covid, pour commencer nous allons démarrer avec un <a href="https://lyondataviz.github.io/teaching/lyon1-m2/2021/data/covid-06-11-2021.csv">sous ensemble des données allant de juin à novembre 2021</a> en métropole (plutôt que le jeu de <a href="https://www.data.gouv.fr/fr/datasets/r/63352e38-d353-4b54-bfd1-f1b3ee1cabd7">données</a> entier.) Les afficher sur la carte (voir la structure ci-dessous). On va filtrer les donnees pour ne garder que les lignes ou sexe == 0 (tous les genres, plutôt que 1 ou 2 = homme ou femme)</p>
 
 					<p>Nous utilisons le fichier geojson <a href="https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/departements-version-simplifiee.geojson">suivant, décrivant les départements français métropolitain</a>.</p>
 
@@ -61,6 +58,7 @@
 					</p>
 
 					<pre><code>
+
 var jourChoisi = "2021-09-12" // pour demarrer on code en dur un jour a afficher
 
 d3.csv("covid.csv").then(function(data) {
@@ -104,7 +102,7 @@ d3.csv("covid.csv").then(function(data) {
 
 				<h4>4. Ajuster l'échelle des couleurs.</h4>
 				<p>L'échelle des couleurs a été définie sur un domaine donné avec un minimum d'hospitalisations à 0 et un max à 2000. </p>
-				<p>En vous inspirant de l'exemple vu en cours, adaptez le calcul du domaine en utilisant d3.min et d3.max. </p>
+				<p>Adaptez le calcul du domaine en utilisant d3.min et d3.max. </p>
 
 				<h4>5. Tooltip</h4>
 				<p>En vous inspirant du <a href="https://vizhub.com/aurelient/1c9e4767f4e346a6b159799490a88708?edit=files&file=index.html">code suivant</a> ajouter un tooltip avec le nom et la valeur de la région. La gestion des événements a changé avec d3v6 ( <a href="https://observablehq.com/@d3/d3v6-migration-guide">voir ici</a> = faites attention aux exemples que vous regardez).</p>
@@ -113,11 +111,6 @@ d3.csv("covid.csv").then(function(data) {
 				<p>En reprenant les barcharts vus dans le TP D3 précédent, ou <a href="https://blockbuilder.org/aurelient/18976d5e9cfa0953799e9d165a788e7b">cet exemple</a>, rajouter un barchart en dessous de la carte qui montre l'évolution sur toutes les semaines de 2014.</p>
  				-->
 
-
-				 <h4>Mi-chemin</h4>
-				 <p>Si vous arrivez à ce stade vous pouvez soumettre vous aurez 1/2.</p>
-
-				 <p>Sauvegarder votre projet à ce stade pour pouvoir y revenir en cas de problème par la suite.</p>
 
 				<h4>6. Traitement des données</h4>
 
