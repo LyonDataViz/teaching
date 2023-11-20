@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'/>
+	<meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="/teaching/assets/css/style.css?v=7711d6911e9680d4af53ac0eaf8745f6cb14632c"/>
+
+    <title>Intro D3</title>
+</head>
+
+<body>
+	<section class="page-header">
+		<h1 class="project-name">Cours visualisation interactive de données</h1>
+		<h2 class="project-tagline">Introduction à D3</h2>
+	</section>
+
+	<section class="main-content">
+
+    <p>Dans le cadre du cours nous allons développer des visualisations pour le Web. Pour ce faire nous allons créer des pages HTML, qui afficheront des graphiques en SVG, stylés avec du CSS, assemblés et animés avec du JavaScript. <a href="https://www.grafikart.fr/formations/html">Voir ici pour des rappels de base sur HTML</a></p>
+
+    <h2>Quelques rappels</h2>
+
+    <h3>SVG</h3>
+    <p>SVG (Scalable Vector Graphics) est un format d'images vectorielles basé sur le langage XML. Il permet de décrire des formes graphiques. <a href="https://www.grafikart.fr/tutoriels/svg-scalable-vector-graphics-468">Voir cette vidéo d'introduction pour en savoir plus.</a></p>
+    <iframe src="https://codesandbox.io/embed/intro-svg-bgnt3?codemirror=1&fontsize=13&hidenavigation=1&module=%2Fdrawing.svg&theme=dark"
+        style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+        title="objective-germain-bgnt3"
+        allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+        sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+    ></iframe>
+
+    <h3>CSS</h3>
+    <p>CSS (Cascading Style Sheets), permet de décrire la présentation d'une page Web (à distinguer du contenu). Par exemple de définir la couleur d'une forme SVG, la taille d'un titre, ou sa police de caractère. <a href="https://www.grafikart.fr/tutoriels/css">Voir cette introduction si vous avez besoin de rappels.</a></p>
+    <iframe
+        src="https://codesandbox.io/embed/intro-svg-css-fgots?fontsize=13&hidenavigation=1&theme=dark"
+        style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+        allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+        sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+    ></iframe>
+
+    <h3>JS</h3>
+    <p>JavaScript permet de rajouter des comportements dynamiques à vos pages Web, soit pour réagir à des événements venant de l'utilisateur (ex: un clic), soit en réaction à des données (ex: chargement, changement, etc.) <a href="https://www.grafikart.fr/tutoriels/javascript">Voir cette introduction si vous avez besoin de rappels</a>.</p>
+
+
+
+    <h2>D3</h2>
+    <p>D3 est un librairie JavaScript qui permet de manipuler le DOM de navigateur et de connecter des données à l'arbre DOM. Elle est principalement utilisée pour manipuler des visualisations en SVG, mais peut l'être aussi du html, ou d'autre format qui suivent celui du DOM.</p>
+    <h3>D3 Show reel</h3>
+    <iframe src="https://player.vimeo.com/video/29862153" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <p><a href="https://vimeo.com/29862153">D3 Show Reel</a> from <a href="https://vimeo.com/mbostock">Mike Bostock</a>, <a href="https://bl.ocks.org/mbostock/1256572">code source</a>.</p>
+
+    <p>L'exemple ci dessous s'appuie sur d3 pour des manipulations JavaScript simples. En cas de clic sur le div "chart", un message sera affiché dans la console du navigateur. Par ailleurs un élément paragraphe est rajouté à la page de manière programmatique lorsque le code est exécuté (càd après que la page se soit chargée).</p>
+    <iframe
+        src="https://codesandbox.io/embed/intro-js-d3-iy2re?fontsize=13&hidenavigation=1&theme=dark"
+        style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+        title="intro-js-d3"
+        allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+        sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+    ></iframe>
+
+    <h3>Quelques pointeurs</h3>
+    <ul>
+        <li>D3.js <a href="https://d3js.org/">site & documentation</a></li>
+        <li><a href="https://observablehq.com/@d3/gallery">Gallery D3</a></li>
+        <!-- <li><a href="https://observablehq.com/@enjalot/touring-the-d3-ecosystem">Un tour de l'écosystème D3</a></li> -->
+        <li><a href="https://observablehq.com/@enjalot/touring-the-d3-ecosystem">Observable HQ</a> la plateforme de notebooks Web (quasi) dédiée à D3js</li>
+        <li><a href="http://bl.ocks.org/mbostock/">Ses exemples</a> <a href="https://bost.ocks.org/mike/example/">plus anciens</a></li>
+    </ul>
+
+    <h2>La visualisation avec D3</h2>
+
+    <p>Un barchart en SVG pur: </p>
+    <iframe src="https://codesandbox.io/embed/intro-svg-forked-47230?autoresize=1&fontsize=12&hidenavigation=1&module=%2Fdrawing.svg&theme=light"
+    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    title="svg-barchart"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  ></iframe>
+
+    <p>Un barchart en SVG avec D3: </p>
+    <iframe src="https://codesandbox.io/embed/d3-manual-simple-spujm?fontsize=12&hidenavigation=1&theme=dark"
+    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    title="d3-manual-simple"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  ></iframe>
+
+
+
+
+    <h2>Le data binding D3</h2>
+    <p>Si D3 offrent de nombreuses fonctionalités pour la visualisation, le coeur de d3 réside dans la capacité à connecter des éléments graphiques à des données. Il allège ainsi le travail de "binding" qui doit souvent être fait "à la main" avec d'autres bibliothèque (ex: p5js).</p>
+
+    <div>
+        <p>D3 utilise 3 fonctions: enter(), update(), et exit(). Pour connecter des actions de dessin, à des changements dans les données.</p>
+        <img width="60%" src="./img/7_update.png"></img>
+    </div>
+
+    <div>
+        <p>Quand de nouvelles données arrivent (ou lors du 1e chargement), elles sont associées à enter(). Il va alors falloir ajouter des éléments graphiques</p>
+        <img width="32%" src="./img/binding_1.png"></img>
+        <!-- <img width="30%" src="./img/"></img> -->
+        <img width="32%" src="./img/3_enter.png"></img>
+        <img width="32%" src="./img/4_bindinddone.png"></img>
+    </div>
+
+    <div>
+        <p>Quand des données sont supprimées elles vont être associées à exit(). Il faudra alors effectuer les traitements correspondants.</p>
+        <img width="49%" src="./img/5_exit.png"></img>
+        <img width="49%" src="./img/6_exitdone.png"></img>
+    </div>
+
+    <p>Illustrations de <a href="https://medium.com/@c_behrens/enter-update-exit-6cafc6014c36">Christian Behrens</a></p>
+
+    <p>Enfin certaines données peuvent être amenées à être modifiées cela sera traité via update().</p>
+
+
+
+    <iframe src="https://codesandbox.io/embed/d3-enter-update-exit-5hdnr?autoresize=1&fontsize=13&hidenavigation=1&module=%2Findex.js&theme=dark"
+    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    title="intro-d3"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
+
+
+
+    <p>Quelques références:</p>
+    <ul>
+        <li><a href="https://bost.ocks.org/mike/circles/">Three little circles</a></li>
+        <li><a href="https://bost.ocks.org/mike/selection/">How Selections Work</a></li>
+    </ul>
+
+
+    <h2>Le data binding D3 avec join()</h2>
+    <p>Aujourd'hui, plutôt que d'utiliser enter(), update() et exit(), que vous verrez toutefois dans de nombreux exemples, on peu s'appuyer sur join() qui fait la jointure des trois fonctions, et abstrait leur traitement.</p>
+
+    <iframe src="https://codesandbox.io/embed/d3-join-8fmx8?fontsize=12&hidenavigation=1&theme=dark"
+    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    title="d3-join"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  ></iframe>
+
+    <p>Quelques références:</p>
+    <ul>
+        <li><a href="https://observablehq.com/@d3/lets-make-a-bar-chart">Let's make a bar chart</a></li>
+        <li><a href="https://bost.ocks.org/mike/join/">Thinking with Joins</a></li>
+    </ul>
+
+
+    <!-- <h2>Interaction</h2>-->
+
+    <!-- <h2>CSV</h2>-->
+
+    <!-- <h2>Les échelles</h2>
+    <p>Principe de base connecter données et éléments du DOM.</p>
+
+    <img width="30%" src="./img/scale.png"></img>
+    <p>Illustration de <a href="http://www.jeromecukier.net/blog/2011/08/11/d3-scales-and-color/">Jerome Cuckier</a></p> -->
+
+    <!-- <h2>Animation</h2>-->
+
+
+
+</section>
+</body>
+</html>
