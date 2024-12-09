@@ -91,7 +91,7 @@
           href="https://www.data.gouv.fr/fr/datasets/sinoe-r-tonnage-decheteries-par-type-de-dechet-et-departement/#/resources"
           >les données de déchets par département de l'Ademe</a
         >. On va filtrer les donnees pour ne garder que les lignes ou
-        L_TYP_REG_DECHET == DEEE (on ne regardera que ce type de déchets)
+        L_TYP_REG_DECHET == DEEE et ANNEE = 2011
       </p>
 
       <p>
@@ -105,7 +105,7 @@
       <p>
         Utiliser la colonne <code>TONNAGE_T</code> du tableau CSV, pour
         récupérer les déchets du département pour une année donnée.<br />
-        <code>var dataValue = parseInt(data[i].TONNAGE_T); </code>
+        <code>var dataValue = parseFloat(data[i].TONNAGE_T); </code>
       </p>
 
       <pre><code>
@@ -115,9 +115,9 @@ var annéeChoisie = "2014" // pour demarrer on code en dur une année à affiche
 d3.csv("mesDonnes.csv").then(function(data) {
 
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
-    var cleanData = data.filter( TODO ); // TODO ne garder que les lignes ou (sexe == 0)
+    var cleanData = data.filter( TODO ); // TODO ne garder que les lignes où (L_TYP_REG_DECHET === "DEEE")
 
-    color.domain([0, 2000]);
+    color.domain([0, 20000]);
 
     d3.json("departements-version-simplifiee.geojson").then(function(json) {
         //On fusionne les donnees avec le GeoJSON des departements
@@ -215,11 +215,12 @@ function drawMap(currentDay) {
       <h4>8. Ajout d'un slider temporel</h4>
       <p>
         Rajouter un slider qui permettra de naviguer entre les différents années
-        du jeu de données (il y en a 10).
+        du jeu de données (il y en a 7: {2009, 2011, 2013, 2015, 2017, 2019,
+        2021}).
       </p>
 
       <pre><code>&lt;div&gt;
-  &lt;input id="slider" type="range" value="0" min="0" max="10" step="1" /&gt;&lt;br/&gt;
+  &lt;input id="slider" type="range" value="0" min="0" max="6" step="1" /&gt;&lt;br/&gt;
   &lt;span id="day"&gt;day&lt;/span&gt;
 &lt;/div&gt;</code></pre>
 
@@ -238,7 +239,7 @@ function drawMap(currentDay) {
 
       <pre><code>
 d3.select("#slider").on("input", function() {
-    drawMap(+this.value);
+    drawMap(String(2009 + 2*this.value));
 });
 				</code></pre>
 
