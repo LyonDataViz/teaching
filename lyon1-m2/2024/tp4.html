@@ -146,9 +146,9 @@ var echellexy = d3.scaleBand()
 	.align(0)
 	.round(true);</code></pre>
 
-		<p>Dans le code de dessin utilisé à l'étape précédent, à la place de width, height, x et y "codés en dur" vous pouvez maintenant utiliser echellexy(valeur) pour positionner vos rectangle de manière optimale. echellexy.bandwidth() vous donnera la valeur du pas entre deux éléments.</p>
+		<p>Dans le code de dessin utilisé à l'étape précédente, à la place de width, height, x et y "codés en dur" vous pouvez maintenant utiliser echellexy(valeur) pour positionner vos rectangles de manière optimale. echellexy.bandwidth() vous donnera la valeur du pas entre deux éléments.</p>
 
-		<p>Nous pouvons maintenant dessiner les axes. On va rajouter des groupes (g) au svg de base. Pour l'axe des colonnes on va l'affiche à la verticale puis le tourner de 90 (c'est plus simple de faire ainsi).</p>
+		<p>Nous pouvons maintenant dessiner les axes. On va rajouter des groupes (g) au svg de base. Pour l'axe des colonnes on va l'afficher à la verticale puis le tourner de 90° (c'est plus simple de faire ainsi).</p>
 
 		<pre><code>var labels = d3.select("svg")
 	.append("g")
@@ -220,7 +220,7 @@ var rows = labels
 		.attr("y", TODO)
 }</code></pre>
 
-		<p>7.2 Animation - La bascule entre les visulalisations se fait instantanément. On va maintenant utiliser les propriétés d'animation de d3 pour permettre de suivre les changements de position dans la matrice d'adjacence. delay permet de spécifier quand l'animation va démarrer, et duration combien de temps elle dure. Vous êtes libre dans l'animation que vous faites.</p>
+		<p>7.2 Animation - La bascule entre les visualisations se fait instantanément. On va maintenant utiliser les propriétés d'animation de d3 pour permettre de suivre les changements de position dans la matrice d'adjacence. delay permet de spécifier quand l'animation va démarrer, et duration combien de temps elle dure. Vous êtes libre dans votre choix d'animation.</p>
 
 		<pre><code>function update (newPositions) {
 	echellexy.domain(newPositions)
