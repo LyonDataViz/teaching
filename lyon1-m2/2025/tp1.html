@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#157878" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="/teaching/assets/css/style.css?v=7711d6911e9680d4af53ac0eaf8745f6cb14632c"
+    />
+
+    <title>DataViz Cours Lyon1 M2 2025-2026</title>
+  </head>
+
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Cours visualisation interactive de données</h1>
+      <h2 class="project-tagline">Université Lyon 1, Master 2, 2025-2026</h2>
+    </section>
+
+    <section class="main-content">
+      <h3>Objectifs du TP</h3>
+      <ul>
+        <li>
+          Découvrir
+          <a href="https://public.tableau.com/fr-fr/s/">Tableau Public</a>
+        </li>
+        <li>
+          Comprendre le mapping de données sur des marques graphiques (ligne,
+          carré, ..) et leurs propriétés (taille, couleur, ..)
+        </li>
+        <li>
+          Faire la distinction entre données brutes et abstraites, ainsi
+          qu'entre dimensions et mesures
+        </li>
+        <li>Explorer un espace de conception de visualisation</li>
+      </ul>
+
+      <p>
+        Le TP se fait en binome.
+        <a href="https://tomuss.univ-lyon1.fr/"
+          >Répondre au questionnaire au fur et à mesure du TP.</a
+        >
+      </p>
+
+      <h3>Charger les données dans Tableau</h3>
+      <p>
+        Télécharger le csv suivant:
+        <a href="data/favorability_polls.csv">favorability_polls.csv</a>. Les
+        données ont été collectée par
+        <a href="https://projects.fivethirtyeight.com/polls/president-general/"
+          >538</a
+        >, et sont disponibles sur
+        <a href="https://www.kaggle.com/datasets/jpmiller/elections/data"
+          >kaggle</a
+        >.
+      </p>
+
+      <p>
+        Lancer Tableau et sélectionner connexion à un fichier texte, charger le
+        fichier. Si ce n'est pas fait automatiquement et basculer sur la vue des
+        données (en bas à gauche de Tableau cliquer sur
+        <code>Source de données (Data Source)</code>).
+      </p>
+
+      <h3>1.1 Voir les résultats sous forme de table</h3>
+      <p>
+        Basculer maintenant sur la 1e Feuille (<i>Sheet 1</i>). Commencer par
+        afficher une table avec les candidats (<code>Politician</code>) en
+        ligne, et le jour de fin de sondage (<code>End Date</code>) en colonne.
+      </p>
+      <p>
+        Afficher à l'intérieur de la table le gagnant de l'État en question pour
+        l'année donnée (<code>State Winner</code>). Pour ce faire, associer le
+        <code>State Winner</code> à une marque graphique, ou repère
+        (<i>Mark</i>).
+        <br />
+        Un aperçu du résultat attendu :
+      </p>
+      <img width="600" src="images/tp1-1.png" />
+
+      <br />
+      <p />
+
+      <h3>Sauvegarder et partager</h3>
+      <p>
+        Renommer votre feuille de calcul en double cliquant sur le titre de la
+        visualisation, selon le numéro de l'exercice. Par exemple TPDataViz1.3.
+      </p>
+      <p>
+        Sauvegarder, créer un compte
+        <a href="https://public.tableau.com/s/">Tableau Public</a> si ce n'est
+        déjà fait.
+      </p>
+      <p>
+        Nommer votre classeur (Book) (qui contiendra une feuille par exercice)
+        avec le format suivant :<br />
+        Lyon1-m2-2025-nom 1-numéro d'étudiant 1-nom 2-numéro d'étudiant 2.
+        <br />
+        Exemple: Lyon1-m2-2025-tabard-p231123-vuillemot-p2315189.
+      </p>
+      <p>Mettre le lien vers de 1e feuille Tableau dans Tomuss</p>
+
+      <h3>1.2 Tri</h3>
+      <p>
+        1.2 Dupliquer la feuille avant de continuer pour conserver ce que vous
+        avez déjà faudrait.
+      </p>
+      <p>
+        1.2 Ré-organiser la table en triant par ligne selon le nombre de sondage
+        effectué sur le candidat
+        <code
+          >Sort... (sur l'entête de ligne Politician) > by Field > Field Name
+          [Politician] > Aggregation [Count]</code
+        >
+        pour mieux voir sur qui les enquêtes de popularité ont été menées.
+      </p>
+
+      <h3>1.3 Marque et couleur</h3>
+      <p>
+        1.3 Changer la palette de couleur pour que les résultats inférieurs à
+        50% de vote favorable soit rouge et supérieur à 50 bleu
+      </p>
+      <img src="images/tp1-3.png" />
+
+
+      <h3>2.1 Vue globale et filtres</h3>
+      <p>
+        Nous allons maintenant regarder l'évolution des deux candidats
+        principaux. Commencer par mettre <code>Politician</code> en ligne, et
+        <code>End Date</code> en colonne, en aggrégeant par semaine. Rajouter
+        <code>Favorable</code> toujours en colonne pour voir l'évolution de la
+        perception des candidats, on affichera la moyenne sur une semaine.
+      </p>
+      <p>
+        Pour simplifier nous allons rajouter un filtre et ne garder que Trump et
+        Harris. Rajouter <code>Politician</code> dans la Filters, et
+        sélectionner ces deux candidats.
+      </p>
+      <p>
+        On va enfin rajouter le suivi des valeurs <code>unfavorable</code> au
+        cours du temps.
+      </p>
+      <img src="images/tp2-1.png" />
+
+      <h3>2.2</h3>
+      <p>
+        Les données peuvent varier selon les sondages nous allons maintenant
+        afficher en complément des lignes, les valeurs de chaque sondage pour
+        avoir une idée des données sous-jacentes.
+      </p>
+      <img src="images/tp2-2.png" />
+
+      <h3>2.3</h3>
+      <p>
+        Les sondages ont des qualités différentes, on va assigner une taille
+        variable selon le <code>pollscore</code>, plus ce dernier est faible
+        plus la taille du cercle sera grande, indiquant que le sondeur est a été
+        fiable dans le passé.
+      </p>
+      <img src="images/tp2-3.png" />
+
+      <p>
+        Pensez à mettre les liens vers chaque feuille dans le formulaire Tomuss
+      </p>
+
+      <h3>3. Carte</h3>
+      <!-- <span style="background-color: yellow">TODO: il faudrait que les titres soient cohérents : soit une tâche, soit une action Tableau, etc..</span> -->
+      <p>
+        Créer un nouveau projet. Nous allons charger de
+        <a href="data/538_polls.csv"
+          >nouvelles données qui contiennent plus de sondages</a
+        >. Ces données contiennent notamment des informations sur les états
+        américains où ont été mené ces sondages.
+      </p>
+      <p>
+        Rajouter <code>Longitude</code> en colonne, <code>Latitude</code> en
+        ligne, ainsi que <code>State</code> en détail.
+      </p>
+      <p>
+        <code>Pct</code> indique les intentions de vote pour les candidats.
+        Rajouter un filtre pour ne garder que Trump et Harris. Rajouter un
+        filtre temporel basé sur <code>End Date</code>.
+        <!-- Si la colonne n'est pas au bon format le changer. -->
+        Ajuster la couleur pour montrer les "swing states", on considérera un
+        état comme tel si Trump ou Harris a des intentions de vote entre 45% et
+        50%.
+      </p>
+      <img src="images/tp3-1.png" style="width: 500px" />
+
+      <h3>4. Explorer d'autres représentations</h3>
+      <p>
+        Comme vu en cours, la représentation sous forme de carte ne représente
+        pas forcément fidèlement les données.
+      </p>
+    </section>
+
+    <!--aside id="sidebar">
+          <a href="https://github.com/LyonDataViz/teaching/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/LyonDataViz/teaching/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/LyonDataViz/teaching"></a> is maintained by <a href="https://github.com/LyonDataViz">LyonDataViz</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+      </aside-->
+    <script src="../javascripts/scale.fix.js"></script>
+  </body>
+</html>
