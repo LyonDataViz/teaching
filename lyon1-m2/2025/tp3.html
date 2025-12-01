@@ -110,14 +110,14 @@
 
       <pre><code>
 
-var annéeChoisie = "2014" // pour demarrer on code en dur une année à afficher
+let anneeChoisie = "2011" // pour demarrer on code en dur une année à afficher
 
 d3.csv("mesDonnes.csv").then(function(data) {
 
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
     var cleanData = data.filter( TODO ); // TODO ne garder que les lignes où (L_TYP_REG_DECHET === "DEEE")
 
-    color.domain([0, 20000]);
+    color.domain([0, 10000]);
 
     d3.json("departements-version-simplifiee.geojson").then(function(json) {
         //On fusionne les donnees avec le GeoJSON des departements
@@ -159,7 +159,7 @@ d3.csv("mesDonnes.csv").then(function(data) {
       <h4>4. Ajuster l'échelle des couleurs.</h4>
       <p>
         L'échelle des couleurs a été définie sur un domaine donné avec un
-        minimum de déchet de 0 et un max à 20000.
+        minimum de déchet de 0 et un max à 10000.
       </p>
       <p>Adaptez le calcul du domaine en utilisant d3.min et d3.max.</p>
 
@@ -233,7 +233,7 @@ function drawMap(currentDay) {
       <h4>9. Modification des données à afficher</h4>
       <p>
         Ajouter un listener sur le slider, qui appellera une fonction
-        <code>updateViz</code> en cas de changement, pour mettre à jour la
+        <code>drawMap</code> en cas de changement, pour mettre à jour la
         visualisation:
       </p>
 
@@ -244,11 +244,11 @@ d3.select("#slider").on("input", function() {
 				</code></pre>
 
       <p>
-        Dans drawMap faites en sorte qu'en cas de changement du slider, le texte
-        sous le slider affiche la semaine sélectionnée.
+        Dans <code>drawMap</code> faites en sorte qu'en cas de changement du slider, le texte
+        sous le slider affiche l'année sélectionnée.
       </p>
 
-      <pre><code>d3.select('#day').html( valeur de l'année selectionnée );</code></pre>
+      <pre><code>d3.select('#day').html(/*TODO valeur de l'année selectionnée */);</code></pre>
     </section>
 
     <script src="../javascripts/scale.fix.js"></script>
